@@ -17,10 +17,12 @@ module danke_core_sdiv_3dEe_div_u
     input                       clk,
     input                       reset,
     input                       ce,
+    input                       start,
     input       [in0_WIDTH-1:0] dividend,
     input       [in1_WIDTH-1:0] divisor,
     input       [1:0]           sign_i,
     output wire [1:0]           sign_o,
+    output wire                 done,
     output wire [out_WIDTH-1:0] quot,
     output wire [out_WIDTH-1:0] remd
 );
@@ -28,48 +30,60 @@ module danke_core_sdiv_3dEe_div_u
 localparam cal_WIDTH = (in0_WIDTH > in1_WIDTH)? in0_WIDTH : in1_WIDTH;
 
 //------------------------Local signal-------------------
-reg  [in0_WIDTH-1:0] dividend_tmp[0:in0_WIDTH];
-reg  [in1_WIDTH-1:0] divisor_tmp[0:in0_WIDTH];
-reg  [in0_WIDTH-1:0] remd_tmp[0:in0_WIDTH];
-wire [in0_WIDTH-1:0] comb_tmp[0:in0_WIDTH-1];
-wire [cal_WIDTH:0]   cal_tmp[0:in0_WIDTH-1];
-reg  [1:0]           sign_tmp[0:in0_WIDTH];
-//------------------------Body---------------------------
-assign  quot    = dividend_tmp[in0_WIDTH];
-assign  remd    = remd_tmp[in0_WIDTH];
-assign  sign_o  = sign_tmp[in0_WIDTH];
+reg     [in0_WIDTH-1:0] dividend0;
+reg     [in1_WIDTH-1:0] divisor0;
+reg     [1:0]           sign0;
+reg     [in0_WIDTH-1:0] dividend_tmp;
+reg     [in0_WIDTH-1:0] remd_tmp;
+wire    [in0_WIDTH-1:0] dividend_tmp_mux;
+wire    [in0_WIDTH-1:0] remd_tmp_mux;
+wire    [in0_WIDTH-1:0] comb_tmp;
+wire    [cal_WIDTH:0]   cal_tmp;
 
-// dividend_tmp[0], divisor_tmp[0], remd_tmp[0]
+//------------------------Body---------------------------
+assign  quot   = dividend_tmp;
+assign  remd   = remd_tmp;
+assign  sign_o = sign0;
+
+// dividend0, divisor0
 always @(posedge clk)
 begin
-    if (ce) begin
-        dividend_tmp[0] <= dividend;
-        divisor_tmp[0]  <= divisor;
-        sign_tmp[0]     <= sign_i;
-        remd_tmp[0]     <= 1'b0;
+    if (start) begin
+        dividend0 <= dividend;
+        divisor0  <= divisor;
+        sign0     <= sign_i;
     end
 end
 
-genvar i;
-generate 
-    for (i = 0; i < in0_WIDTH; i = i + 1)
-    begin : loop
-        if (in0_WIDTH == 1) assign  comb_tmp[i]     = dividend_tmp[i][0];
-        else                assign  comb_tmp[i]     = {remd_tmp[i][in0_WIDTH-2:0], dividend_tmp[i][in0_WIDTH-1]};
-        assign  cal_tmp[i]      = {1'b0, comb_tmp[i]} - {1'b0, divisor_tmp[i]};
+// One-Hot Register
+// r_stage[0]=1:accept input; r_stage[in0_WIDTH]=1:done
+reg     [in0_WIDTH:0]     r_stage;
+assign done = r_stage[in0_WIDTH];
+always @(posedge clk)
+begin
+    if (reset == 1'b1)
+        r_stage[in0_WIDTH:0] <= {in0_WIDTH{1'b0}};
+    else if (ce)
+        r_stage[in0_WIDTH:0] <= {r_stage[in0_WIDTH-1:0], start};
+end
 
-        always @(posedge clk)
-        begin
-            if (ce) begin
-                if (in0_WIDTH == 1) dividend_tmp[i+1] <= ~cal_tmp[i][cal_WIDTH];
-                else                dividend_tmp[i+1] <= {dividend_tmp[i][in0_WIDTH-2:0], ~cal_tmp[i][cal_WIDTH]};
-                divisor_tmp[i+1]  <= divisor_tmp[i];
-                remd_tmp[i+1]     <= cal_tmp[i][cal_WIDTH]? comb_tmp[i] : cal_tmp[i][in0_WIDTH-1:0];
-                sign_tmp[i+1]     <= sign_tmp[i];
-            end
-        end
+// MUXs
+assign  dividend_tmp_mux = r_stage[0]? dividend0 : dividend_tmp;
+assign  remd_tmp_mux     = r_stage[0]? {in0_WIDTH{1'b0}} : remd_tmp;
+
+if (in0_WIDTH == 1) assign comb_tmp = dividend_tmp_mux[0];
+else                assign comb_tmp = {remd_tmp_mux[in0_WIDTH-2:0], dividend_tmp_mux[in0_WIDTH-1]};
+
+assign  cal_tmp  = {1'b0, comb_tmp} - {1'b0, divisor0};
+
+always @(posedge clk)
+begin
+    if (ce) begin
+        if (in0_WIDTH == 1) dividend_tmp <= ~cal_tmp[cal_WIDTH];
+        else           dividend_tmp <= {dividend_tmp_mux[in0_WIDTH-2:0], ~cal_tmp[cal_WIDTH]};
+        remd_tmp     <= cal_tmp[cal_WIDTH]? comb_tmp : cal_tmp[in0_WIDTH-1:0];
     end
-endgenerate
+end
 
 endmodule
 
@@ -83,12 +97,16 @@ module danke_core_sdiv_3dEe_div
         input                           clk,
         input                           reset,
         input                           ce,
+        input                           start,
+        output  reg                     done,
         input           [in0_WIDTH-1:0] dividend,
         input           [in1_WIDTH-1:0] divisor,
         output  reg     [out_WIDTH-1:0] quot,
         output  reg     [out_WIDTH-1:0] remd
 );
 //------------------------Local signal-------------------
+reg                       start0 = 'b0;
+wire                      done0;
 reg     [in0_WIDTH-1:0] dividend0;
 reg     [in1_WIDTH-1:0] divisor0;
 wire    [in0_WIDTH-1:0] dividend_u;
@@ -106,6 +124,8 @@ danke_core_sdiv_3dEe_div_u #(
     .clk      ( clk ),
     .reset    ( reset ),
     .ce       ( ce ),
+    .start    ( start0 ),
+    .done     ( done0 ),
     .dividend ( dividend_u ),
     .divisor  ( divisor_u ),
     .sign_i   ( sign_i ),
@@ -125,12 +145,18 @@ begin
     if (ce) begin
         dividend0 <= dividend;
         divisor0  <= divisor;
+        start0    <= start;
     end
 end
 
 always @(posedge clk)
 begin
-    if (ce) begin
+    done <= done0;
+end
+
+always @(posedge clk)
+begin
+    if (done0) begin
         if (sign_o[1])
             quot <= ~quot_u + 1'b1;
         else
@@ -140,7 +166,7 @@ end
 
 always @(posedge clk)
 begin
-    if (ce) begin
+    if (done0) begin
         if (sign_o[0])
             remd <= ~remd_u + 1'b1;
         else
@@ -157,6 +183,8 @@ module danke_core_sdiv_3dEe(
     clk,
     reset,
     ce,
+    start,
+    done,
     din0,
     din1,
     dout);
@@ -169,6 +197,8 @@ parameter dout_WIDTH = 32'd1;
 input clk;
 input reset;
 input ce;
+input start;
+output done;
 input[din0_WIDTH - 1:0] din0;
 input[din1_WIDTH - 1:0] din1;
 output[dout_WIDTH - 1:0] dout;
@@ -187,7 +217,9 @@ danke_core_sdiv_3dEe_div_U(
     .remd( sig_remd ),
     .clk( clk ),
     .ce( ce ),
-    .reset( reset ));
+    .reset( reset ),
+    .start( start ),
+    .done( done ));
 
 endmodule
 

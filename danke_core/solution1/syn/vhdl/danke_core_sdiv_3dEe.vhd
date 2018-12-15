@@ -18,10 +18,12 @@ entity danke_core_sdiv_3dEe_div_u is
         clk         : in  STD_LOGIC;
         reset       : in  STD_LOGIC;
         ce          : in  STD_LOGIC;
+        start       : in  STD_LOGIC;
         dividend    : in  STD_LOGIC_VECTOR(in0_WIDTH-1 downto 0);
         divisor     : in  STD_LOGIC_VECTOR(in1_WIDTH-1 downto 0);
         sign_i      : in  STD_LOGIC_VECTOR(1 downto 0);
         sign_o      : out STD_LOGIC_VECTOR(1 downto 0);
+        done        : out STD_LOGIC;
         quot        : out STD_LOGIC_VECTOR(out_WIDTH-1 downto 0);
         remd        : out STD_LOGIC_VECTOR(out_WIDTH-1 downto 0));
 
@@ -36,55 +38,68 @@ end entity;
 
 architecture rtl of danke_core_sdiv_3dEe_div_u is
     constant cal_WIDTH      : INTEGER := max(in0_WIDTH, in1_WIDTH);
-    type  in0_vector  is array(INTEGER range <>) of UNSIGNED(in0_WIDTH-1 downto 0);
-    type  in1_vector  is array(INTEGER range <>) of UNSIGNED(in1_WIDTH-1 downto 0);
-    type  cal_vector  is array(INTEGER range <>) of UNSIGNED(cal_WIDTH downto 0);
-    type  sign_vector is array(INTEGER range <>) of UNSIGNED(1 downto 0);
 
-    signal dividend_tmp     : in0_vector(0 to in0_WIDTH);
-    signal divisor_tmp      : in1_vector(0 to in0_WIDTH);
-    signal remd_tmp         : in0_vector(0 to in0_WIDTH);
-    signal comb_tmp         : in0_vector(0 to in0_WIDTH-1);
-    signal cal_tmp          : cal_vector(0 to in0_WIDTH-1);
-    signal sign_tmp         : sign_vector(0 to in0_WIDTH);
+    signal dividend0        : UNSIGNED(in0_WIDTH-1 downto 0);
+    signal divisor0         : UNSIGNED(in1_WIDTH-1 downto 0);
+    signal sign0            : UNSIGNED(1 downto 0);
+    signal dividend_tmp     : UNSIGNED(in0_WIDTH-1 downto 0);
+    signal remd_tmp         : UNSIGNED(in0_WIDTH-1 downto 0);
+    signal dividend_tmp_mux : UNSIGNED(in0_WIDTH-1 downto 0);
+    signal remd_tmp_mux     : UNSIGNED(in0_WIDTH-1 downto 0);
+    signal comb_tmp         : UNSIGNED(in0_WIDTH-1 downto 0);
+    signal cal_tmp          : UNSIGNED(cal_WIDTH downto 0);
+    signal r_stage          : UNSIGNED(in0_WIDTH downto 0);
 begin
-    quot   <= STD_LOGIC_VECTOR(RESIZE(dividend_tmp(in0_WIDTH), out_WIDTH));
-    remd   <= STD_LOGIC_VECTOR(RESIZE(remd_tmp(in0_WIDTH), out_WIDTH));
-    sign_o <= STD_LOGIC_VECTOR(sign_tmp(in0_WIDTH));
+  quot     <= STD_LOGIC_VECTOR(RESIZE(dividend_tmp, out_WIDTH));
+  remd     <= STD_LOGIC_VECTOR(RESIZE(remd_tmp, out_WIDTH));
+  sign_o   <= STD_LOGIC_VECTOR(sign0);
 
-    tran_tmp_proc : process (clk)
-    begin
-        if (clk'event and clk='1') then
-            if (ce = '1') then
-                dividend_tmp(0) <= UNSIGNED(dividend);
-                divisor_tmp(0)  <= UNSIGNED(divisor);
-                sign_tmp(0) <= UNSIGNED(sign_i);
-                remd_tmp(0) <= (others => '0');
-            end if;
-        end if;
-    end process tran_tmp_proc;
+  tran0_proc : process (clk)
+  begin
+      if (clk'event and clk='1') then
+          if (start = '1') then
+              dividend0 <= UNSIGNED(dividend);
+              divisor0  <= UNSIGNED(divisor);
+              sign0     <= UNSIGNED(sign_i);
+          end if;
+      end if;
+  end process;
 
-    run_proc: for i in 0 to in0_WIDTH-1 generate
-    begin
-        comb_tmp(i) <= remd_tmp(i)(in0_WIDTH-2 downto 0) & dividend_tmp(i)(in0_WIDTH-1);
-        cal_tmp(i)  <= ('0' & comb_tmp(i)) - ('0' & divisor_tmp(i));
+  -- r_stage(0)=1:accept input; r_stage(in0_WIDTH)=1:done
+  done <= r_stage(in0_WIDTH);
+  one_hot : process (clk)
+  begin
+      if clk'event and clk = '1' then
+          if reset = '1' then
+              r_stage <= (others => '0'); 
+          elsif (ce = '1') then
+              r_stage <= r_stage(in0_WIDTH-1 downto 0) & start;
+          end if;
+      end if;
+  end process;
 
-        process (clk)
-        begin
-            if (clk'event and clk='1') then
-                if (ce = '1') then
-                    dividend_tmp(i+1) <= dividend_tmp(i)(in0_WIDTH-2 downto 0) & (not cal_tmp(i)(cal_WIDTH));
-                    divisor_tmp(i+1)  <= divisor_tmp(i);
-                    sign_tmp(i+1)     <= sign_tmp(i);
-                    if cal_tmp(i)(cal_WIDTH) = '1' then
-                        remd_tmp(i+1) <= comb_tmp(i);
-                    else
-                        remd_tmp(i+1) <= cal_tmp(i)(in0_WIDTH-1 downto 0);
-                    end if;
-                end if;
-            end if;
-        end process;
-    end generate run_proc;
+  -- MUXs
+  dividend_tmp_mux  <=  dividend_tmp when (r_stage(0) = '0') else
+                        dividend0;
+  remd_tmp_mux      <=  remd_tmp when (r_stage(0) = '0') else
+                        (others => '0');
+
+  comb_tmp <= remd_tmp_mux(in0_WIDTH-2 downto 0) & dividend_tmp_mux(in0_WIDTH-1);
+  cal_tmp  <= ('0' & comb_tmp) - ('0' & divisor0);
+
+  process (clk)
+  begin
+      if (clk'event and clk='1') then
+          if (ce = '1') then
+              dividend_tmp <= dividend_tmp_mux(in0_WIDTH-2 downto 0) & (not cal_tmp(cal_WIDTH));
+              if cal_tmp(cal_WIDTH) = '1' then
+                  remd_tmp <= comb_tmp;
+              else
+                  remd_tmp <= cal_tmp(in0_WIDTH-1 downto 0);
+              end if;
+          end if;
+      end if;
+  end process;
 
 end architecture;
 
@@ -101,6 +116,8 @@ entity danke_core_sdiv_3dEe_div is
         clk         : in  STD_LOGIC;
         reset       : in  STD_LOGIC;
         ce          : in  STD_LOGIC;
+        start       : in  STD_LOGIC;
+        done        : out STD_LOGIC;
         dividend    : in  STD_LOGIC_VECTOR(in0_WIDTH-1 downto 0);
         divisor     : in  STD_LOGIC_VECTOR(in1_WIDTH-1 downto 0);
         quot        : out STD_LOGIC_VECTOR(out_WIDTH-1 downto 0);
@@ -117,6 +134,8 @@ architecture rtl of danke_core_sdiv_3dEe_div is
             reset       : in  STD_LOGIC;
             clk         : in  STD_LOGIC;
             ce          : in  STD_LOGIC;
+            start       : in  STD_LOGIC;
+            done        : out STD_LOGIC;
             dividend    : in  STD_LOGIC_VECTOR(in0_WIDTH-1 downto 0);
             divisor     : in  STD_LOGIC_VECTOR(in1_WIDTH-1 downto 0);
             sign_i      : in  STD_LOGIC_VECTOR(1 downto 0);
@@ -125,6 +144,8 @@ architecture rtl of danke_core_sdiv_3dEe_div is
             remd        : out STD_LOGIC_VECTOR(out_WIDTH-1 downto 0));
     end component;
 
+    signal start0     : STD_LOGIC := '0';
+    signal done0      : STD_LOGIC;
     signal dividend0  : STD_LOGIC_VECTOR(in0_WIDTH-1 downto 0);
     signal divisor0   : STD_LOGIC_VECTOR(in1_WIDTH-1 downto 0);
     signal dividend_u : STD_LOGIC_VECTOR(in0_WIDTH-1 downto 0);
@@ -143,6 +164,8 @@ begin
             clk         => clk,
             reset       => reset,
             ce          => ce,
+            start       => start0,
+            done        => done0,
             dividend    => dividend_u,
             divisor     => divisor_u,
             sign_i      => sign_i,
@@ -160,6 +183,7 @@ begin
         if (ce = '1') then
             dividend0 <= dividend;
             divisor0 <= divisor;
+            start0 <= start;
         end if;
     end if;
 end process;
@@ -167,7 +191,14 @@ end process;
 process (clk)
 begin
     if (clk'event and clk = '1') then
-        if (ce = '1') then
+        done <= done0;
+    end if;
+end process;
+
+process (clk)
+begin
+    if (clk'event and clk = '1') then
+        if (done0 = '1') then
             if (sign_o(1) = '1') then
                 quot <= STD_LOGIC_VECTOR(UNSIGNED(not quot_u) + 1);
             else
@@ -180,7 +211,7 @@ end process;
 process (clk)
 begin
     if (clk'event and clk = '1') then
-        if (ce = '1') then
+        if (done0 = '1') then
             if (sign_o(0) = '1') then
                 remd <= STD_LOGIC_VECTOR(UNSIGNED(not remd_u) + 1);
             else
@@ -208,6 +239,8 @@ entity danke_core_sdiv_3dEe is
         clk : IN STD_LOGIC;
         reset : IN STD_LOGIC;
         ce : IN STD_LOGIC;
+        start : IN STD_LOGIC;
+        done : OUT STD_LOGIC;
         din0 : IN STD_LOGIC_VECTOR(din0_WIDTH - 1 DOWNTO 0);
         din1 : IN STD_LOGIC_VECTOR(din1_WIDTH - 1 DOWNTO 0);
         dout : OUT STD_LOGIC_VECTOR(dout_WIDTH - 1 DOWNTO 0));
@@ -226,7 +259,9 @@ architecture arch of danke_core_sdiv_3dEe is
             remd : OUT STD_LOGIC_VECTOR;
             clk : IN STD_LOGIC;
             ce : IN STD_LOGIC;
-            reset : IN STD_LOGIC);
+            reset : IN STD_LOGIC;
+            start : IN STD_LOGIC;
+            done : OUT STD_LOGIC);
     end component;
 
     signal sig_quot : STD_LOGIC_VECTOR(dout_WIDTH - 1 DOWNTO 0);
@@ -246,7 +281,9 @@ begin
         remd => sig_remd,
         clk => clk,
         ce => ce,
-        reset => reset);
+        reset => reset,
+        start => start,
+        done => done);
 
 end architecture;
 

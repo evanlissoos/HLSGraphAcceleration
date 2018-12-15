@@ -5,8 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm_global_ctors_1 = appending global [1 x void ()*] [void ()* @_GLOBAL__I_a]
 @llvm_global_ctors_0 = appending global [1 x i32] [i32 65535]
 @danke_core_str = internal unnamed_addr constant [11 x i8] c"danke_core\00"
-@p_str2 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
-@p_str1 = private unnamed_addr constant [12 x i8] c"hls_label_0\00", align 1
 
 declare i25 @llvm.part.select.i25(i25, i32, i32) nounwind readnone
 
@@ -27,16 +25,14 @@ arrayctor.loop1.preheader:
   %core_id_read = call i32 @_ssdm_op_Read.ap_auto.i32P(i32* %core_id)
   %special_regfile_V_ad = getelementptr [32 x i32]* %special_regfile_V, i64 0, i64 0
   store i32 %core_id_read, i32* %special_regfile_V_ad, align 16
-  br label %0
+  br label %.backedge
 
-; <label>:0                                       ; preds = %23, %arrayctor.loop1.preheader
+.backedge:                                        ; preds = %.backedge.backedge, %arrayctor.loop1.preheader
   %halted_V_read = call i1 @_ssdm_op_Read.ap_auto.i1P(i1* %halted_V)
-  br i1 %halted_V_read, label %24, label %_ifconv
+  br i1 %halted_V_read, label %22, label %_ifconv
 
-_ifconv:                                          ; preds = %0
+_ifconv:                                          ; preds = %.backedge
   %t_V_load_1 = load i32* %t_V
-  %tmp_2 = call i32 (...)* @_ssdm_op_SpecRegionBegin([12 x i8]* @p_str1)
-  call void (...)* @_ssdm_op_SpecPipeline(i32 -1, i32 1, i32 1, i32 0, [1 x i8]* @p_str2) nounwind
   %tmp = sext i32 %t_V_load_1 to i64
   %instruction_memory_V_1 = getelementptr [1024 x i25]* %instruction_memory_V, i64 0, i64 %tmp
   %ir_V = load i25* %instruction_memory_V_1, align 4
@@ -46,7 +42,7 @@ _ifconv:                                          ; preds = %0
   %dr_V = call i6 @_ssdm_op_PartSelect.i6.i25.i32.i32(i25 %ir_V, i32 4, i32 9)
   %intop_V = trunc i25 %ir_V to i4
   %offset_V = trunc i25 %ir_V to i10
-  %tmp_13 = call i1 @_ssdm_op_BitSelect.i1.i25.i32(i25 %ir_V, i32 21)
+  %tmp_12 = call i1 @_ssdm_op_BitSelect.i1.i25.i32(i25 %ir_V, i32 21)
   %r_V = xor i6 %sr1_V, -32
   %r_V_cast = sext i6 %r_V to i33
   %tmp_s = zext i33 %r_V_cast to i64
@@ -55,8 +51,8 @@ _ifconv:                                          ; preds = %0
   %tmp_1 = zext i6 %sr1_V to i64
   %regfile_V_addr = getelementptr [32 x i32]* %regfile_V, i64 0, i64 %tmp_1
   %regfile_V_load = load i32* %regfile_V_addr, align 4
-  %op1_V = select i1 %tmp_13, i32 %special_regfile_V_lo, i32 %regfile_V_load
-  %tmp_14 = call i1 @_ssdm_op_BitSelect.i1.i25.i32(i25 %ir_V, i32 15)
+  %op1_V = select i1 %tmp_12, i32 %special_regfile_V_lo, i32 %regfile_V_load
+  %tmp_13 = call i1 @_ssdm_op_BitSelect.i1.i25.i32(i25 %ir_V, i32 15)
   %op2_V = sext i6 %sr2_V to i32
   %r_V_1 = xor i6 %sr2_V, -32
   %r_V_1_cast = sext i6 %r_V_1 to i33
@@ -76,165 +72,165 @@ _ifconv:                                          ; preds = %0
   %sel_tmp3 = icmp ne i3 %opcode_V, 3
   %sel_tmp6 = icmp ne i3 %opcode_V, 1
   %tmp2 = and i1 %sel_tmp9, %sel_tmp3
-  %tmp3 = and i1 %sel_tmp6, %tmp_14
+  %tmp3 = and i1 %sel_tmp6, %tmp_13
   %sel_tmp7 = and i1 %tmp3, %tmp2
   %rhs_V = select i1 %sel_tmp7, i32 %special_regfile_V_lo_1, i32 %sel_tmp5
   switch i3 %opcode_V, label %._crit_edge1101 [
     i3 0, label %._crit_edge1103
     i3 1, label %._crit_edge1103
-    i3 2, label %20
-    i3 3, label %21
-    i3 -4, label %22
+    i3 2, label %19
+    i3 3, label %20
+    i3 -4, label %21
     i3 -3, label %._crit_edge1105
     i3 -2, label %._crit_edge1105
   ]
 
 ._crit_edge1103:                                  ; preds = %_ifconv, %_ifconv
   switch i4 %intop_V, label %_ZNK11ap_int_baseILi32ELb1ELb1EElsILi32EEES0_RKS_IXT_ELb1EXleT_Li64EEE.exit [
-    i4 0, label %1
-    i4 1, label %2
-    i4 2, label %3
-    i4 3, label %4
-    i4 4, label %5
-    i4 5, label %6
-    i4 6, label %7
-    i4 7, label %8
-    i4 -8, label %9
-    i4 -7, label %10
-    i4 -6, label %11
-    i4 -5, label %12
-    i4 -4, label %13
-    i4 -3, label %14
-    i4 -2, label %17
+    i4 0, label %0
+    i4 1, label %1
+    i4 2, label %2
+    i4 3, label %3
+    i4 4, label %4
+    i4 5, label %5
+    i4 6, label %6
+    i4 7, label %7
+    i4 -8, label %8
+    i4 -7, label %9
+    i4 -6, label %10
+    i4 -5, label %11
+    i4 -4, label %12
+    i4 -3, label %13
+    i4 -2, label %16
   ]
 
-; <label>:1                                       ; preds = %._crit_edge1103
+; <label>:0                                       ; preds = %._crit_edge1103
   %result_V = add i32 %rhs_V, %op1_V
   br label %_ZNK11ap_int_baseILi32ELb1ELb1EElsILi32EEES0_RKS_IXT_ELb1EXleT_Li64EEE.exit
 
-; <label>:2                                       ; preds = %._crit_edge1103
+; <label>:1                                       ; preds = %._crit_edge1103
   %result_V_1 = sub i32 %op1_V, %rhs_V
   br label %_ZNK11ap_int_baseILi32ELb1ELb1EElsILi32EEES0_RKS_IXT_ELb1EXleT_Li64EEE.exit
 
-; <label>:3                                       ; preds = %._crit_edge1103
+; <label>:2                                       ; preds = %._crit_edge1103
   %result_V_2 = mul i32 %rhs_V, %op1_V
   br label %_ZNK11ap_int_baseILi32ELb1ELb1EElsILi32EEES0_RKS_IXT_ELb1EXleT_Li64EEE.exit
 
-; <label>:4                                       ; preds = %._crit_edge1103
+; <label>:3                                       ; preds = %._crit_edge1103
   %result_V_3 = sdiv i32 %op1_V, %rhs_V
   br label %_ZNK11ap_int_baseILi32ELb1ELb1EElsILi32EEES0_RKS_IXT_ELb1EXleT_Li64EEE.exit
 
-; <label>:5                                       ; preds = %._crit_edge1103
+; <label>:4                                       ; preds = %._crit_edge1103
   %val_assign_1 = icmp sgt i32 %op1_V, %rhs_V
   %result_V_4 = zext i1 %val_assign_1 to i32
   br label %_ZNK11ap_int_baseILi32ELb1ELb1EElsILi32EEES0_RKS_IXT_ELb1EXleT_Li64EEE.exit
 
-; <label>:6                                       ; preds = %._crit_edge1103
+; <label>:5                                       ; preds = %._crit_edge1103
   %val_assign_2 = icmp slt i32 %op1_V, %rhs_V
   %result_V_5 = zext i1 %val_assign_2 to i32
   br label %_ZNK11ap_int_baseILi32ELb1ELb1EElsILi32EEES0_RKS_IXT_ELb1EXleT_Li64EEE.exit
 
-; <label>:7                                       ; preds = %._crit_edge1103
+; <label>:6                                       ; preds = %._crit_edge1103
   %slt = icmp slt i32 %op1_V, %rhs_V
   %rev = xor i1 %slt, true
   %result_V_6 = zext i1 %rev to i32
   br label %_ZNK11ap_int_baseILi32ELb1ELb1EElsILi32EEES0_RKS_IXT_ELb1EXleT_Li64EEE.exit
 
-; <label>:8                                       ; preds = %._crit_edge1103
+; <label>:7                                       ; preds = %._crit_edge1103
   %slt1 = icmp slt i32 %rhs_V, %op1_V
   %rev1 = xor i1 %slt1, true
   %result_V_7 = zext i1 %rev1 to i32
   br label %_ZNK11ap_int_baseILi32ELb1ELb1EElsILi32EEES0_RKS_IXT_ELb1EXleT_Li64EEE.exit
 
-; <label>:9                                       ; preds = %._crit_edge1103
+; <label>:8                                       ; preds = %._crit_edge1103
   %val_assign_5 = icmp eq i32 %op1_V, %rhs_V
   %result_V_8 = zext i1 %val_assign_5 to i32
   br label %_ZNK11ap_int_baseILi32ELb1ELb1EElsILi32EEES0_RKS_IXT_ELb1EXleT_Li64EEE.exit
 
-; <label>:10                                      ; preds = %._crit_edge1103
+; <label>:9                                       ; preds = %._crit_edge1103
   %val_assign_6 = icmp ne i32 %op1_V, %rhs_V
   %result_V_9 = zext i1 %val_assign_6 to i32
   br label %_ZNK11ap_int_baseILi32ELb1ELb1EElsILi32EEES0_RKS_IXT_ELb1EXleT_Li64EEE.exit
 
-; <label>:11                                      ; preds = %._crit_edge1103
+; <label>:10                                      ; preds = %._crit_edge1103
   %r_V_8 = and i32 %rhs_V, %op1_V
   br label %_ZNK11ap_int_baseILi32ELb1ELb1EElsILi32EEES0_RKS_IXT_ELb1EXleT_Li64EEE.exit
 
-; <label>:12                                      ; preds = %._crit_edge1103
+; <label>:11                                      ; preds = %._crit_edge1103
   %r_V_9 = or i32 %rhs_V, %op1_V
   br label %_ZNK11ap_int_baseILi32ELb1ELb1EElsILi32EEES0_RKS_IXT_ELb1EXleT_Li64EEE.exit
 
-; <label>:13                                      ; preds = %._crit_edge1103
+; <label>:12                                      ; preds = %._crit_edge1103
   %result_V_12 = xor i32 %op1_V, -1
   br label %_ZNK11ap_int_baseILi32ELb1ELb1EElsILi32EEES0_RKS_IXT_ELb1EXleT_Li64EEE.exit
 
-; <label>:14                                      ; preds = %._crit_edge1103
-  %tmp_15 = call i1 @_ssdm_op_BitSelect.i1.i32.i32(i32 %rhs_V, i32 31)
-  br i1 %tmp_15, label %15, label %16
+; <label>:13                                      ; preds = %._crit_edge1103
+  %tmp_14 = call i1 @_ssdm_op_BitSelect.i1.i32.i32(i32 %rhs_V, i32 31)
+  br i1 %tmp_14, label %14, label %15
 
-; <label>:15                                      ; preds = %14
+; <label>:14                                      ; preds = %13
   %sh_V_1 = sub i32 0, %rhs_V
   %r_V_5 = ashr i32 %op1_V, %sh_V_1
   br label %_ZNK11ap_int_baseILi32ELb1ELb1EElsILi32EEES0_RKS_IXT_ELb1EXleT_Li64EEE.exit
 
-; <label>:16                                      ; preds = %14
+; <label>:15                                      ; preds = %13
   %r_V_4 = shl i32 %op1_V, %rhs_V
   br label %_ZNK11ap_int_baseILi32ELb1ELb1EElsILi32EEES0_RKS_IXT_ELb1EXleT_Li64EEE.exit
 
-; <label>:17                                      ; preds = %._crit_edge1103
-  %tmp_16 = call i1 @_ssdm_op_BitSelect.i1.i32.i32(i32 %rhs_V, i32 31)
-  br i1 %tmp_16, label %18, label %19
+; <label>:16                                      ; preds = %._crit_edge1103
+  %tmp_15 = call i1 @_ssdm_op_BitSelect.i1.i32.i32(i32 %rhs_V, i32 31)
+  br i1 %tmp_15, label %17, label %18
 
-; <label>:18                                      ; preds = %17
+; <label>:17                                      ; preds = %16
   %sh_V_2 = sub i32 0, %rhs_V
   %r_V_7 = shl i32 %op1_V, %sh_V_2
   br label %_ZNK11ap_int_baseILi32ELb1ELb1EElsILi32EEES0_RKS_IXT_ELb1EXleT_Li64EEE.exit
 
-; <label>:19                                      ; preds = %17
+; <label>:18                                      ; preds = %16
   %r_V_6 = ashr i32 %op1_V, %rhs_V
   br label %_ZNK11ap_int_baseILi32ELb1ELb1EElsILi32EEES0_RKS_IXT_ELb1EXleT_Li64EEE.exit
 
-_ZNK11ap_int_baseILi32ELb1ELb1EElsILi32EEES0_RKS_IXT_ELb1EXleT_Li64EEE.exit: ; preds = %19, %18, %16, %15, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2, %1, %._crit_edge1103
-  %p_1 = phi i32 [ %result_V_12, %13 ], [ %r_V_9, %12 ], [ %r_V_8, %11 ], [ %result_V_9, %10 ], [ %result_V_8, %9 ], [ %result_V_7, %8 ], [ %result_V_6, %7 ], [ %result_V_5, %6 ], [ %result_V_4, %5 ], [ %result_V_3, %4 ], [ %result_V_2, %3 ], [ %result_V_1, %2 ], [ %result_V, %1 ], [ %r_V_5, %15 ], [ %r_V_4, %16 ], [ %r_V_7, %18 ], [ %r_V_6, %19 ], [ 0, %._crit_edge1103 ]
+_ZNK11ap_int_baseILi32ELb1ELb1EElsILi32EEES0_RKS_IXT_ELb1EXleT_Li64EEE.exit: ; preds = %18, %17, %15, %14, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2, %1, %0, %._crit_edge1103
+  %p_1 = phi i32 [ %result_V_12, %12 ], [ %r_V_9, %11 ], [ %r_V_8, %10 ], [ %result_V_9, %9 ], [ %result_V_8, %8 ], [ %result_V_7, %7 ], [ %result_V_6, %6 ], [ %result_V_5, %5 ], [ %result_V_4, %4 ], [ %result_V_3, %3 ], [ %result_V_2, %2 ], [ %result_V_1, %1 ], [ %result_V, %0 ], [ %r_V_5, %14 ], [ %r_V_4, %15 ], [ %r_V_7, %17 ], [ %r_V_6, %18 ], [ 0, %._crit_edge1103 ]
   %t_V_load = load i32* %t_V
-  %tmp_10 = zext i6 %dr_V to i64
-  %regfile_V_addr_4 = getelementptr [32 x i32]* %regfile_V, i64 0, i64 %tmp_10
+  %tmp_7 = zext i6 %dr_V to i64
+  %regfile_V_addr_4 = getelementptr [32 x i32]* %regfile_V, i64 0, i64 %tmp_7
   store i32 %p_1, i32* %regfile_V_addr_4, align 4
   %pc_V_4 = add nsw i32 %t_V_load, 1
   store i32 %pc_V_4, i32* %t_V
-  br label %23
+  br label %.backedge.backedge
 
-; <label>:20                                      ; preds = %_ifconv
-  %tmp_8 = icmp eq i32 %op1_V, %rhs_V
-  %p_0130_0_pn = select i1 %tmp_8, i10 %offset_V, i10 1
+; <label>:19                                      ; preds = %_ifconv
+  %tmp_6 = icmp eq i32 %op1_V, %rhs_V
+  %p_0130_0_pn = select i1 %tmp_6, i10 %offset_V, i10 1
   %p_0130_0_pn_cast = sext i10 %p_0130_0_pn to i32
   %pc_V = add nsw i32 %p_0130_0_pn_cast, %t_V_load_1
   store i32 %pc_V, i32* %t_V
-  br label %23
+  br label %.backedge.backedge
 
-; <label>:21                                      ; preds = %_ifconv
+; <label>:20                                      ; preds = %_ifconv
   %addr_V = add i32 %rhs_V, %op1_V
-  %tmp_9 = sext i32 %addr_V to i64
-  %data_memory_V_addr = getelementptr [1024 x i32]* %data_memory_V, i64 0, i64 %tmp_9
+  %tmp_8 = sext i32 %addr_V to i64
+  %data_memory_V_addr = getelementptr [1024 x i32]* %data_memory_V, i64 0, i64 %tmp_8
   %mem_data_read_V = load i32* %data_memory_V_addr, align 4
-  %tmp_6 = zext i6 %dr_V to i64
-  %regfile_V_addr_2 = getelementptr [32 x i32]* %regfile_V, i64 0, i64 %tmp_6
+  %tmp_9 = zext i6 %dr_V to i64
+  %regfile_V_addr_2 = getelementptr [32 x i32]* %regfile_V, i64 0, i64 %tmp_9
   store i32 %mem_data_read_V, i32* %regfile_V_addr_2, align 4
   %pc_V_1 = add nsw i32 %t_V_load_1, 1
   store i32 %pc_V_1, i32* %t_V
-  br label %23
+  br label %.backedge.backedge
 
-; <label>:22                                      ; preds = %_ifconv
+; <label>:21                                      ; preds = %_ifconv
   %addr_V_1 = add i32 %rhs_V, %op1_V
-  %tmp_3 = zext i6 %dr_V to i64
-  %regfile_V_addr_3 = getelementptr [32 x i32]* %regfile_V, i64 0, i64 %tmp_3
+  %tmp_2 = zext i6 %dr_V to i64
+  %regfile_V_addr_3 = getelementptr [32 x i32]* %regfile_V, i64 0, i64 %tmp_2
   %mem_data_write_V = load i32* %regfile_V_addr_3, align 4
-  %tmp_7 = sext i32 %addr_V_1 to i64
-  %data_memory_V_addr_1 = getelementptr [1024 x i32]* %data_memory_V, i64 0, i64 %tmp_7
+  %tmp_3 = sext i32 %addr_V_1 to i64
+  %data_memory_V_addr_1 = getelementptr [1024 x i32]* %data_memory_V, i64 0, i64 %tmp_3
   store i32 %mem_data_write_V, i32* %data_memory_V_addr_1, align 4
   %pc_V_2 = add nsw i32 %t_V_load_1, 1
   store i32 %pc_V_2, i32* %t_V
-  br label %23
+  br label %.backedge.backedge
 
 ._crit_edge1105:                                  ; preds = %_ifconv, %_ifconv
   call void @_ssdm_op_Write.ap_auto.i1P(i1* %halted_V, i1 true)
@@ -244,13 +240,12 @@ _ZNK11ap_int_baseILi32ELb1ELb1EElsILi32EEES0_RKS_IXT_ELb1EXleT_Li64EEE.exit: ; p
   %t_V_load_2 = load i32* %t_V
   %pc_V_3 = add nsw i32 %t_V_load_2, 1
   store i32 %pc_V_3, i32* %t_V
-  br label %23
+  br label %.backedge.backedge
 
-; <label>:23                                      ; preds = %._crit_edge1101, %22, %21, %20, %_ZNK11ap_int_baseILi32ELb1ELb1EElsILi32EEES0_RKS_IXT_ELb1EXleT_Li64EEE.exit
-  %empty = call i32 (...)* @_ssdm_op_SpecRegionEnd([12 x i8]* @p_str1, i32 %tmp_2)
-  br label %0
+.backedge.backedge:                               ; preds = %._crit_edge1101, %21, %20, %19, %_ZNK11ap_int_baseILi32ELb1ELb1EElsILi32EEES0_RKS_IXT_ELb1EXleT_Li64EEE.exit
+  br label %.backedge
 
-; <label>:24                                      ; preds = %0
+; <label>:22                                      ; preds = %.backedge
   ret void
 }
 
@@ -261,21 +256,6 @@ entry:
 }
 
 define weak void @_ssdm_op_SpecTopModule(...) {
-entry:
-  ret void
-}
-
-define weak i32 @_ssdm_op_SpecRegionEnd(...) {
-entry:
-  ret i32 0
-}
-
-define weak i32 @_ssdm_op_SpecRegionBegin(...) {
-entry:
-  ret i32 0
-}
-
-define weak void @_ssdm_op_SpecPipeline(...) nounwind {
 entry:
   ret void
 }

@@ -44,7 +44,7 @@ set TargetInfo "xc7z020:clg484:-1"
 set SourceFiles {sc {} c ../../danke.cpp}
 set SourceFlags {sc {} c {{}}}
 set DirectiveFile {/home/parallels/Documents/ece527/final_project/danke_core/solution1/solution1.directive}
-set TBFiles {verilog ../../testbench.cpp bc ../../testbench.cpp vhdl ../../testbench.cpp sc ../../testbench.cpp cas ../../testbench.cpp c {}}
+set TBFiles {verilog ../../danke_testbench.cpp bc ../../danke_testbench.cpp vhdl ../../danke_testbench.cpp sc ../../danke_testbench.cpp cas ../../danke_testbench.cpp c {}}
 set SpecLanguage "C"
 set TVInFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}
 set TVOutFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}

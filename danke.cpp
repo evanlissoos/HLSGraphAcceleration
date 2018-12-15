@@ -65,26 +65,26 @@ void danke_core(instr_t instruction_memory[INSTR_MEM_SIZE], data_t data_memory[D
 				case OPCODE_INTREG :
 				case OPCODE_INTIMM :
 				{
-					cout << "[EXECUTE] Performing integer op!" << endl;
+					cout << "[EXECUTE] Performing integer op" ;
 					data_t result;
 					switch(intop)
 					{
-						case INTOP_ADD	:	result = op1 + op2; 	break;
-						case INTOP_SUB	:	result = op1 - op2; 	break;
-						case INTOP_MUL	:	result = op1 * op2; 	break;
-						case INTOP_DIV	:	result = op1 / op2; 	break;
-						case INTOP_GR	:	result = op1 > op2; 	break;
-						case INTOP_LT	:	result = op1 < op2; 	break;
-						case INTOP_GRE	:	result = op1 >= op2;	break;
-						case INTOP_LTE	:	result = op1 <= op2;	break;
-						case INTOP_EQ	:	result = op1 == op2;	break;
-						case INTOP_NEQ	:	result = op1 != op2;	break;
-						case INTOP_AND	:	result = op1 & op2; 	break;
-						case INTOP_OR	:	result = op1 | op2; 	break;
-						case INTOP_NOT	:	result = ~op1; 			break;
-						case INTOP_SHR	:	result = op1 << op2; 	break;
-						case INTOP_SHL	:	result = op1 >> op2; 	break;
-						default 		:	result = 0;				break;
+						case INTOP_ADD	:	result = op1 + op2; 	cout << " add " << endl; break;
+						case INTOP_SUB	:	result = op1 - op2; 	cout << " sub " << endl; break;
+						case INTOP_MUL	:	result = op1 * op2; 	cout << " mul " << endl; break;
+						case INTOP_DIV	:	result = op1 / op2; 	cout << " div " << endl; break;
+						case INTOP_GR	:	result = op1 > op2; 	cout << " gr " << endl; break;
+						case INTOP_LT	:	result = op1 < op2; 	cout << " lt " << endl; break;
+						case INTOP_GRE	:	result = op1 >= op2;	cout << " gre " << endl; break;
+						case INTOP_LTE	:	result = op1 <= op2;	cout << " lte " << endl; break;
+						case INTOP_EQ	:	result = op1 == op2;	cout << " eq " << endl; break;
+						case INTOP_NEQ	:	result = op1 != op2;	cout << " neq " << endl; break;
+						case INTOP_AND	:	result = op1 & op2; 	cout << " and " << endl; break;
+						case INTOP_OR	:	result = op1 | op2; 	cout << " or " << endl; break;
+						case INTOP_NOT	:	result = ~op1; 			cout << " not " << endl; break;
+						case INTOP_SHR	:	result = op1 << op2; 	cout << " shr " << endl; break;
+						case INTOP_SHL	:	result = op1 >> op2; 	cout << " shl " << endl; break;
+						default 		:	result = 0;				cout << " IDK " << endl; break;
 					}
 					cout << "[EXECUTE] Integer op result: " << hex << result << endl;
 					regfile[dr] = result;

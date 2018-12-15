@@ -7,7 +7,54 @@ Copyright (C) 1986-2017 Xilinx, Inc. All Rights Reserved.
 
 INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
 INFO: [HLS 200-10] Setting target device to 'xc7z020clg484-1'
-INFO: [SIM 211-2] *************** CSIM start ***************
-INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
-INFO: [SIM 211-1] CSim done with 0 errors.
-INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-10] Analyzing design file 'danke.cpp' ... 
+INFO: [HLS 200-10] Validating synthesis directives ...
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:16 ; elapsed = 00:00:08 . Memory (MB): peak = 351.059 ; gain = 12.586 ; free physical = 5186 ; free virtual = 7066
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:16 ; elapsed = 00:00:08 . Memory (MB): peak = 351.059 ; gain = 12.586 ; free physical = 5177 ; free virtual = 7064
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:16 ; elapsed = 00:00:09 . Memory (MB): peak = 351.523 ; gain = 13.051 ; free physical = 5157 ; free virtual = 7053
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:16 ; elapsed = 00:00:09 . Memory (MB): peak = 479.055 ; gain = 140.582 ; free physical = 5150 ; free virtual = 7047
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (danke.cpp:25:28) to (danke.cpp:63:11) in function 'danke_core'... converting 9 basic blocks.
+INFO: [XFORM 203-11] Balancing expressions in function 'danke_core' (danke.cpp:6)...3 expression(s) balanced.
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:16 ; elapsed = 00:00:09 . Memory (MB): peak = 479.055 ; gain = 140.582 ; free physical = 5119 ; free virtual = 7019
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:16 ; elapsed = 00:00:09 . Memory (MB): peak = 479.055 ; gain = 140.582 ; free physical = 5114 ; free virtual = 7017
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'danke_core' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Implementing module 'danke_core' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 9.2 seconds; current allocated memory: 88.412 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.05 seconds; current allocated memory: 89.059 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'danke_core' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-500] Setting interface mode on port 'danke_core/instruction_memory_V' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'danke_core/data_memory_V' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'danke_core/halted_V' to 'ap_ovld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'danke_core/core_id' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'danke_core' to 'ap_ctrl_hs'.
+INFO: [SYN 201-210] Renamed object name 'danke_core_regfile_V' to 'danke_core_regfilbkb' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'danke_core_special_regfile_V' to 'danke_core_speciacud' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'danke_core_sdiv_32s_32s_32_36_seq' to 'danke_core_sdiv_3dEe' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'danke_core_mul_32s_32s_32_2' to 'danke_core_mul_32eOg' due to the length limit 20
+INFO: [RTGEN 206-100] Generating core module 'danke_core_mul_32eOg': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'danke_core_sdiv_3dEe': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'danke_core'.
+INFO: [HLS 200-111]  Elapsed time: 0.11 seconds; current allocated memory: 90.344 MB.
+INFO: [RTMG 210-282] Generating pipelined core: 'danke_core_sdiv_3dEe_div'
+INFO: [RTMG 210-282] Generating pipelined core: 'danke_core_mul_32eOg_MulnS_0'
+INFO: [RTMG 210-278] Implementing memory 'danke_core_regfilbkb_ram' using block RAMs.
+INFO: [RTMG 210-278] Implementing memory 'danke_core_speciacud_ram' using block RAMs.
+INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:00:17 ; elapsed = 00:00:10 . Memory (MB): peak = 479.055 ; gain = 140.582 ; free physical = 5106 ; free virtual = 7015
+INFO: [SYSC 207-301] Generating SystemC RTL for danke_core.
+INFO: [VHDL 208-304] Generating VHDL RTL for danke_core.
+INFO: [VLOG 209-307] Generating Verilog RTL for danke_core.
+INFO: [HLS 200-112] Total elapsed time: 9.85 seconds; peak allocated memory: 90.344 MB.

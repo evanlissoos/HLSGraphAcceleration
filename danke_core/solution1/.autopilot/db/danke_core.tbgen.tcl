@@ -91,8 +91,8 @@ set RtlHierarchyInfo {[
 set ArgLastReadFirstWriteLatency {
 	danke_core {
 		instruction_memory_V {Type I LastRead 1 FirstWrite -1}
-		data_memory_V {Type IO LastRead 5 FirstWrite 5}
-		halted_V {Type IO LastRead 1 FirstWrite 37}
+		data_memory_V {Type IO LastRead 4 FirstWrite 4}
+		halted_V {Type IO LastRead 1 FirstWrite 3}
 		core_id {Type I LastRead 0 FirstWrite -1}}}
 
 set hasDtUnsupportedChannel 0
@@ -103,7 +103,6 @@ set PerformanceInfo {[
 ]}
 
 set PipelineEnableSignalInfo {[
-	{"Pipeline" : "0", "EnableSignal" : "ap_enable_pp0"}
 ]}
 
 set Spec2ImplPortList { 

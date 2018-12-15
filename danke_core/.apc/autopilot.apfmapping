@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
   <source>
-    <originFiles name="danke.h" path="/home/parallels/Documents/ece527/final_project/danke.h"/>
     <originFiles name="danke.cpp" path="/home/parallels/Documents/ece527/final_project/danke.cpp"/>
+    <originFiles name="danke.h" path="/home/parallels/Documents/ece527/final_project/danke.h"/>
   </source>
   <testbench>
     <originFiles name="danke_testbench.cpp" path="/home/parallels/Documents/ece527/final_project/danke_testbench.cpp"/>

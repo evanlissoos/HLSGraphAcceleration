@@ -10,7 +10,7 @@ library ieee;
 use ieee.std_logic_1164.all; 
 use ieee.std_logic_unsigned.all;
 
-entity danke_core_regfilbkb_ram is 
+entity danke_core_speciacud_ram is 
     generic(
             mem_type    : string := "block"; 
             dwidth     : integer := 32; 
@@ -25,15 +25,13 @@ entity danke_core_regfilbkb_ram is
           q0        : out std_logic_vector(dwidth-1 downto 0);
           addr1     : in std_logic_vector(awidth-1 downto 0); 
           ce1       : in std_logic; 
-          d1        : in std_logic_vector(dwidth-1 downto 0); 
-          we1       : in std_logic; 
           q1        : out std_logic_vector(dwidth-1 downto 0);
           clk        : in std_logic 
     ); 
 end entity; 
 
 
-architecture rtl of danke_core_regfilbkb_ram is 
+architecture rtl of danke_core_speciacud_ram is 
 
 signal addr0_tmp : std_logic_vector(awidth-1 downto 0); 
 signal addr1_tmp : std_logic_vector(awidth-1 downto 0); 
@@ -89,9 +87,6 @@ p_memory_access_1: process (clk)
 begin 
     if (clk'event and clk = '1') then
         if (ce1 = '1') then 
-            if (we1 = '1') then 
-                ram(CONV_INTEGER(addr1_tmp)) := d1; 
-            end if;
             q1 <= ram(CONV_INTEGER(addr1_tmp)); 
         end if;
     end if;
@@ -104,7 +99,7 @@ end rtl;
 Library IEEE;
 use IEEE.std_logic_1164.all;
 
-entity danke_core_regfilbkb is
+entity danke_core_speciacud is
     generic (
         DataWidth : INTEGER := 32;
         AddressRange : INTEGER := 32;
@@ -119,13 +114,11 @@ entity danke_core_regfilbkb is
         q0 : OUT STD_LOGIC_VECTOR(DataWidth - 1 DOWNTO 0);
         address1 : IN STD_LOGIC_VECTOR(AddressWidth - 1 DOWNTO 0);
         ce1 : IN STD_LOGIC;
-        we1 : IN STD_LOGIC;
-        d1 : IN STD_LOGIC_VECTOR(DataWidth - 1 DOWNTO 0);
         q1 : OUT STD_LOGIC_VECTOR(DataWidth - 1 DOWNTO 0));
 end entity;
 
-architecture arch of danke_core_regfilbkb is
-    component danke_core_regfilbkb_ram is
+architecture arch of danke_core_speciacud is
+    component danke_core_speciacud_ram is
         port (
             clk : IN STD_LOGIC;
             addr0 : IN STD_LOGIC_VECTOR;
@@ -135,15 +128,13 @@ architecture arch of danke_core_regfilbkb is
             q0 : OUT STD_LOGIC_VECTOR;
             addr1 : IN STD_LOGIC_VECTOR;
             ce1 : IN STD_LOGIC;
-            d1 : IN STD_LOGIC_VECTOR;
-            we1 : IN STD_LOGIC;
             q1 : OUT STD_LOGIC_VECTOR);
     end component;
 
 
 
 begin
-    danke_core_regfilbkb_ram_U :  component danke_core_regfilbkb_ram
+    danke_core_speciacud_ram_U :  component danke_core_speciacud_ram
     port map (
         clk => clk,
         addr0 => address0,
@@ -153,8 +144,6 @@ begin
         q0 => q0,
         addr1 => address1,
         ce1 => ce1,
-        d1 => d1,
-        we1 => we1,
         q1 => q1);
 
 end architecture;

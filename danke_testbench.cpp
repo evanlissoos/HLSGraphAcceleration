@@ -3,10 +3,13 @@
 #include <iostream>
 using namespace std;
 
+#define DUMP_START_ADDR	10
+#define DUMP_NUM_ADDRS	4
+
 int main()
 {
-	instr_t instruction_memory[INSTR_MEM_SIZE] = {0x208012, 0x1200010, 0x1800000, 0x800000};
-	data_t data_memory[DATA_MEM_SIZE];
+	instr_t instruction_memory[INSTR_MEM_SIZE] = { 0x400410, 0x8020, 0xa00005, 0x20412, 0x420421, 0x20038, 0x8303fd, 0xc00020, 0x28020, 0x1020010, 0x1800000, 0x800000 };
+	data_t data_memory[DATA_MEM_SIZE] = {DUMP_START_ADDR};
 	halted_t halted[4] = {0,0,0,0};
 	unsigned coreids[4] = {0,1,2,3};
 
@@ -19,10 +22,9 @@ int main()
 
 	cout << "DANKE core has completed!" << endl;
 
-	cout << "M[0] = " << hex << data_memory[0] << endl;
-	cout << "M[1] = " << hex << data_memory[1] << endl;
-	cout << "M[2] = " << hex << data_memory[2] << endl;
-	cout << "M[3] = " << hex << data_memory[3] << endl;
+	cout << "Memory dump:" << endl;
+	for(int i = DUMP_START_ADDR; i < DUMP_START_ADDR + DUMP_NUM_ADDRS; i++)
+		cout << hex << i << ": " << data_memory[i] << endl;
 
 	return 0;
 }

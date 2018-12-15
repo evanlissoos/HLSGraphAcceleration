@@ -42359,8 +42359,7 @@ void danke_core(ap_uint<(3 /* Support maximum of 8 opcodes*/ + 4 /* Supports max
   //cout << "[HALT CHECK] " << hex << *halted << endl;
   //if(~(*halted))
   {
-#pragma HLS pipeline
- // FETCH
+   // FETCH
    ir = instruction_memory[pc];
 
    cout << "[FETCH] Program counter: " << hex << pc << endl;
@@ -42404,26 +42403,26 @@ void danke_core(ap_uint<(3 /* Support maximum of 8 opcodes*/ + 4 /* Supports max
     case 0 :
     case 1 :
     {
-     cout << "[EXECUTE] Performing integer op!" << endl;
+     cout << "[EXECUTE] Performing integer op" ;
      ap_int<32> result;
      switch(intop)
      {
-      case 0 : result = op1 + op2; break;
-      case 1 : result = op1 - op2; break;
-      case 2 : result = op1 * op2; break;
-      case 3 : result = op1 / op2; break;
-      case 4 : result = op1 > op2; break;
-      case 5 : result = op1 < op2; break;
-      case 6 : result = op1 >= op2; break;
-      case 7 : result = op1 <= op2; break;
-      case 8 : result = op1 == op2; break;
-      case 9 : result = op1 != op2; break;
-      case 10 : result = op1 & op2; break;
-      case 11 : result = op1 | op2; break;
-      case 12 : result = ~op1; break;
-      case 13 : result = op1 << op2; break;
-      case 14 : result = op1 >> op2; break;
-      default : result = 0; break;
+      case 0 : result = op1 + op2; cout << " add " << endl; break;
+      case 1 : result = op1 - op2; cout << " sub " << endl; break;
+      case 2 : result = op1 * op2; cout << " mul " << endl; break;
+      case 3 : result = op1 / op2; cout << " div " << endl; break;
+      case 4 : result = op1 > op2; cout << " gr " << endl; break;
+      case 5 : result = op1 < op2; cout << " lt " << endl; break;
+      case 6 : result = op1 >= op2; cout << " gre " << endl; break;
+      case 7 : result = op1 <= op2; cout << " lte " << endl; break;
+      case 8 : result = op1 == op2; cout << " eq " << endl; break;
+      case 9 : result = op1 != op2; cout << " neq " << endl; break;
+      case 10 : result = op1 & op2; cout << " and " << endl; break;
+      case 11 : result = op1 | op2; cout << " or " << endl; break;
+      case 12 : result = ~op1; cout << " not " << endl; break;
+      case 13 : result = op1 << op2; cout << " shr " << endl; break;
+      case 14 : result = op1 >> op2; cout << " shl " << endl; break;
+      default : result = 0; cout << " IDK " << endl; break;
      }
      cout << "[EXECUTE] Integer op result: " << hex << result << endl;
      regfile[dr] = result;

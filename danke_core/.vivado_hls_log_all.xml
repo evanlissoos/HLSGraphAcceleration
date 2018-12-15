@@ -11,16 +11,7 @@
   </errorLogs>
   <warningLogs>
     <logs>
-      <synLog>
-        <logs message="WARNING: [SCHED 204-21] The critical path consists of the following:&#xA;&#x9;'load' operation ('regfile_V_load_1', danke.cpp:54) on array 'regfile.V', danke.cpp:11 (3.25 ns)&#xA;&#x9;'select' operation ('sel_tmp5', danke.cpp:87) (2.07 ns)&#xA;&#x9;'select' operation ('__Val2__', danke.cpp:87) (2.07 ns)&#xA;&#x9;'sdiv' operation ('result.V', danke.cpp:76) (4.34 ns)" projectName="danke_core" solutionName="solution1" date="2018-12-14T21:19:35.320-0800" type="Warning"/>
-        <logs message="WARNING: [SCHED 204-21] Estimated clock period (11.7ns) exceeds the target (target clock period: 10ns, clock uncertainty: 1.25ns, effective delay budget: 8.75ns)." projectName="danke_core" solutionName="solution1" date="2018-12-14T21:19:35.313-0800" type="Warning"/>
-        <logs message="WARNING: [SCHED 204-68] Unable to enforce a carried dependence constraint (II = 36, distance = 1, offset = 1)&#xA;   between 'store' operation (danke.cpp:91) of variable 'r.V' on array 'regfile.V', danke.cpp:11 and 'load' operation ('regfile_V_load', danke.cpp:52) on array 'regfile.V', danke.cpp:11." projectName="danke_core" solutionName="solution1" date="2018-12-14T21:19:35.296-0800" type="Warning"/>
-        <logs message="WARNING: [SCHED 204-68] Unable to enforce a carried dependence constraint (II = 35, distance = 1, offset = 1)&#xA;   between 'store' operation (danke.cpp:91) of variable 'r.V' on array 'regfile.V', danke.cpp:11 and 'load' operation ('regfile_V_load', danke.cpp:52) on array 'regfile.V', danke.cpp:11." projectName="danke_core" solutionName="solution1" date="2018-12-14T21:19:35.280-0800" type="Warning"/>
-        <logs message="WARNING: [SCHED 204-68] Unable to enforce a carried dependence constraint (II = 4, distance = 1, offset = 1)&#xA;   between 'store' operation (danke.cpp:91) of variable 'r.V' on array 'regfile.V', danke.cpp:11 and 'load' operation ('regfile_V_load', danke.cpp:52) on array 'regfile.V', danke.cpp:11." projectName="danke_core" solutionName="solution1" date="2018-12-14T21:19:35.270-0800" type="Warning"/>
-        <logs message="WARNING: [SCHED 204-68] Unable to enforce a carried dependence constraint (II = 3, distance = 1, offset = 1)&#xA;   between 'store' operation (danke.cpp:91) of variable 'r.V' on array 'regfile.V', danke.cpp:11 and 'load' operation ('regfile_V_load', danke.cpp:52) on array 'regfile.V', danke.cpp:11." projectName="danke_core" solutionName="solution1" date="2018-12-14T21:19:35.265-0800" type="Warning"/>
-        <logs message="WARNING: [SCHED 204-68] Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 1)&#xA;   between 'store' operation (danke.cpp:116) of variable 'mem_data_read.V', danke.cpp:115 on array 'regfile.V', danke.cpp:11 and 'load' operation ('regfile_V_load', danke.cpp:52) on array 'regfile.V', danke.cpp:11." projectName="danke_core" solutionName="solution1" date="2018-12-14T21:19:35.260-0800" type="Warning"/>
-        <logs message="WARNING: [SCHED 204-68] Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1)&#xA;   between 'store' operation (danke.cpp:116) of variable 'mem_data_read.V', danke.cpp:115 on array 'regfile.V', danke.cpp:11 and 'load' operation ('regfile_V_load', danke.cpp:52) on array 'regfile.V', danke.cpp:11." projectName="danke_core" solutionName="solution1" date="2018-12-14T21:19:35.239-0800" type="Warning"/>
-      </synLog>
+      <synLog/>
       <simLog/>
       <mgLog/>
       <packageLog/>

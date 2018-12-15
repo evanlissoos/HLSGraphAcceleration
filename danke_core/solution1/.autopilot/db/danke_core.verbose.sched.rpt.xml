@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'danke_core'" level="0">
-<item name = "Date">Fri Dec 14 23:19:35 2018
+<item name = "Date">Sat Dec 15 17:50:47 2018
 </item>
 <item name = "Version">2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)</item>
 <item name = "Project">danke_core</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">10.00, 11.73, 1.25</column>
+<column name="ap_clk">10.00, 8.58, 1.25</column>
 </table>
 </item>
 </section>
@@ -35,7 +35,7 @@
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- Loop 1">?, ?, 39, 37, 1, ?, yes</column>
+<column name="- Loop 1">?, ?, 4 ~ 40, -, -, ?, no</column>
 </table>
 </item>
 </section>

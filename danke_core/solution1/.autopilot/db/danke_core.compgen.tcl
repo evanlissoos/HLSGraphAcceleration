@@ -2,7 +2,7 @@
 
 set id 1
 set name danke_core_sdiv_3dEe
-set corename simcore_sdiv
+set corename simcore_sdiv_seq
 set op sdiv
 set stage_num 36
 set max_latency -1
@@ -42,7 +42,7 @@ if {${::AESL::PGuard_rtl_comp_handler}} {
 
 
 set op sdiv
-set corename DivnS
+set corename DivnS_SEQ
 if {${::AESL::PGuard_autocg_gen} && ${::AESL::PGuard_autocg_ipmgen}} {
 if {[info proc ::AESL_LIB_VIRTEX::xil_gen_div] == "::AESL_LIB_VIRTEX::xil_gen_div"} {
 eval "::AESL_LIB_VIRTEX::xil_gen_div { \
@@ -138,6 +138,88 @@ puts "@W \[IMPL-101\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_multicycle_mul, che
 set ID 3
 set MemName danke_core_regfilbkb
 set CoreName ap_simcore_mem
+set PortList { 2 2 }
+set DataWd 32
+set AddrRange 32
+set AddrWd 5
+set impl_style block
+set TrueReset 0
+set HasInitializer 0
+set IsROM 0
+set ROMData {}
+set NumOfStage 2
+set MaxLatency -1
+set DelayBudget 3.254
+set ClkPeriod 10
+set RegisteredInput 0
+if {${::AESL::PGuard_simmodel_gen}} {
+if {[info proc ap_gen_simcore_mem] == "ap_gen_simcore_mem"} {
+    eval "ap_gen_simcore_mem { \
+    id ${ID} \
+    name ${MemName} \
+    corename ${CoreName}  \
+    op mem \
+    reset_level 1 \
+    sync_rst true \
+    stage_num ${NumOfStage}  \
+    registered_input ${RegisteredInput} \
+    port_num 2 \
+    port_list \{${PortList}\} \
+    data_wd ${DataWd} \
+    addr_wd ${AddrWd} \
+    addr_range ${AddrRange} \
+    style ${impl_style} \
+    true_reset ${TrueReset} \
+    delay_budget ${DelayBudget} \
+    clk_period ${ClkPeriod} \
+    HasInitializer ${HasInitializer} \
+    rom_data \{${ROMData}\} \
+ } "
+} else {
+    puts "@W \[IMPL-102\] Cannot find ap_gen_simcore_mem, check your platform lib"
+}
+}
+
+
+if {${::AESL::PGuard_rtl_comp_handler}} {
+  ::AP::rtl_comp_handler $MemName
+}
+
+
+set CoreName RAM
+if {${::AESL::PGuard_autocg_gen} && ${::AESL::PGuard_autocg_ipmgen}} {
+if {[info proc ::AESL_LIB_VIRTEX::xil_gen_RAM] == "::AESL_LIB_VIRTEX::xil_gen_RAM"} {
+    eval "::AESL_LIB_VIRTEX::xil_gen_RAM { \
+    id ${ID} \
+    name ${MemName} \
+    corename ${CoreName}  \
+    op mem \
+    reset_level 1 \
+    sync_rst true \
+    stage_num ${NumOfStage}  \
+    registered_input ${RegisteredInput} \
+    port_num 2 \
+    port_list \{${PortList}\} \
+    data_wd ${DataWd} \
+    addr_wd ${AddrWd} \
+    addr_range ${AddrRange} \
+    style ${impl_style} \
+    true_reset ${TrueReset} \
+    delay_budget ${DelayBudget} \
+    clk_period ${ClkPeriod} \
+    HasInitializer ${HasInitializer} \
+    rom_data \{${ROMData}\} \
+ } "
+  } else {
+    puts "@W \[IMPL-104\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_RAM, check your platform lib"
+  }
+}
+
+
+# Memory (RAM/ROM)  definition:
+set ID 4
+set MemName danke_core_speciacud
+set CoreName ap_simcore_mem
 set PortList { 2 1 }
 set DataWd 32
 set AddrRange 32
@@ -227,7 +309,7 @@ if {${::AESL::PGuard_autoexp_gen}} {
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
 eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 4 \
+    id 5 \
     name instruction_memory_V \
     reset_level 1 \
     sync_rst true \
@@ -246,7 +328,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
 eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 5 \
+    id 6 \
     name data_memory_V \
     reset_level 1 \
     sync_rst true \
@@ -264,7 +346,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 6 \
+    id 7 \
     name halted_V \
     type other \
     dir IO \
@@ -279,7 +361,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 7 \
+    id 8 \
     name core_id \
     type other \
     dir I \
