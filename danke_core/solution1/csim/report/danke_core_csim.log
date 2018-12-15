@@ -1,0 +1,113 @@
+INFO: [SIM 2] *************** CSIM start ***************
+INFO: [SIM 4] CSIM will launch GCC as the compiler.
+   Compiling ../../../../danke_testbench.cpp in debug mode
+   Compiling ../../../../danke.cpp in debug mode
+   Generating csim.exe
+Starting DANKE core!
+[BOOT] Core ID: 0
+[FETCH] Program counter: 0x0
+[FETCH] Fetched instruction: 0x208012
+[DECODE] Opcode: 0x0
+[DECODE] Destination Reg: 0x1
+[DECODE] Operand 1: 0x0
+[DECODE] Operand 2: 0x0
+[EXECUTE] Performing integer op!
+[EXECUTE] Integer op result: 0x0
+[FETCH] Program counter: 0x1
+[FETCH] Fetched instruction: 0x1200010
+[DECODE] Opcode: 0x4
+[DECODE] Destination Reg: 0x1
+[DECODE] Operand 1: 0x0
+[DECODE] Operand 2: 0x0
+[EXECUTE] Performing store!
+[EXECUTE] Store value: 0x0
+[EXECUTE] Store address: 0x0
+[FETCH] Program counter: 0x2
+[FETCH] Fetched instruction: 0x1800000
+[DECODE] Opcode: 0x6
+[DECODE] Destination Reg: 0x0
+[DECODE] Operand 1: 0x0
+[DECODE] Operand 2: 0x0
+[EXECUTE] Performing halt!
+[BOOT] Core ID: 1
+[FETCH] Program counter: 0x0
+[FETCH] Fetched instruction: 0x208012
+[DECODE] Opcode: 0x0
+[DECODE] Destination Reg: 0x1
+[DECODE] Operand 1: 0x1
+[DECODE] Operand 2: 0x1
+[EXECUTE] Performing integer op!
+[EXECUTE] Integer op result: 0x1
+[FETCH] Program counter: 0x1
+[FETCH] Fetched instruction: 0x1200010
+[DECODE] Opcode: 0x4
+[DECODE] Destination Reg: 0x1
+[DECODE] Operand 1: 0x1
+[DECODE] Operand 2: 0x0
+[EXECUTE] Performing store!
+[EXECUTE] Store value: 0x1
+[EXECUTE] Store address: 0x1
+[FETCH] Program counter: 0x2
+[FETCH] Fetched instruction: 0x1800000
+[DECODE] Opcode: 0x6
+[DECODE] Destination Reg: 0x0
+[DECODE] Operand 1: 0x0
+[DECODE] Operand 2: 0x0
+[EXECUTE] Performing halt!
+[BOOT] Core ID: 2
+[FETCH] Program counter: 0x0
+[FETCH] Fetched instruction: 0x208012
+[DECODE] Opcode: 0x0
+[DECODE] Destination Reg: 0x1
+[DECODE] Operand 1: 0x2
+[DECODE] Operand 2: 0x2
+[EXECUTE] Performing integer op!
+[EXECUTE] Integer op result: 0x4
+[FETCH] Program counter: 0x1
+[FETCH] Fetched instruction: 0x1200010
+[DECODE] Opcode: 0x4
+[DECODE] Destination Reg: 0x1
+[DECODE] Operand 1: 0x2
+[DECODE] Operand 2: 0x0
+[EXECUTE] Performing store!
+[EXECUTE] Store value: 0x4
+[EXECUTE] Store address: 0x2
+[FETCH] Program counter: 0x2
+[FETCH] Fetched instruction: 0x1800000
+[DECODE] Opcode: 0x6
+[DECODE] Destination Reg: 0x0
+[DECODE] Operand 1: 0x0
+[DECODE] Operand 2: 0x0
+[EXECUTE] Performing halt!
+[BOOT] Core ID: 3
+[FETCH] Program counter: 0x0
+[FETCH] Fetched instruction: 0x208012
+[DECODE] Opcode: 0x0
+[DECODE] Destination Reg: 0x1
+[DECODE] Operand 1: 0x3
+[DECODE] Operand 2: 0x3
+[EXECUTE] Performing integer op!
+[EXECUTE] Integer op result: 0x09
+[FETCH] Program counter: 0x1
+[FETCH] Fetched instruction: 0x1200010
+[DECODE] Opcode: 0x4
+[DECODE] Destination Reg: 0x1
+[DECODE] Operand 1: 0x3
+[DECODE] Operand 2: 0x0
+[EXECUTE] Performing store!
+[EXECUTE] Store value: 0x09
+[EXECUTE] Store address: 0x3
+[FETCH] Program counter: 0x2
+[FETCH] Fetched instruction: 0x1800000
+[DECODE] Opcode: 0x6
+[DECODE] Destination Reg: 0x0
+[DECODE] Operand 1: 0x0
+[DECODE] Operand 2: 0x0
+[EXECUTE] Performing halt!
+DANKE core has completed!
+M[0] = 0x0
+M[1] = 0x1
+M[2] = 0x4
+M[3] = 0x09
+INFO: [SIM 1] CSim done with 0 errors.
+INFO: [SIM 3] *************** CSIM finish ***************
