@@ -8,7 +8,7 @@ using namespace std;
 
 int main()
 {
-	instr_t instruction_memory[INSTR_MEM_SIZE] = { 0x400410, 0x8020, 0xa00005, 0x20412, 0x420421, 0x20038, 0x8303fd, 0xc00020, 0x28020, 0x1020010, 0x1800000, 0x800000 };
+	unsigned instruction_memory[INSTR_MEM_SIZE] = { 0x400410, 0x8020, 0xa00005, 0x20412, 0x420421, 0x20038, 0x8303fd, 0xc00020, 0x28020, 0x1020010, 0x1800000, 0x800000 };
 	data_t data_memory[DATA_MEM_SIZE] = {DUMP_START_ADDR};
 	halted_t halted[4] = {0,0,0,0};
 	unsigned coreids[4] = {0,1,2,3};

@@ -22,8 +22,8 @@ using namespace sc_dt;
 struct scheduler_historybkb_ram : public sc_core::sc_module {
 
   static const unsigned DataWidth = 32;
-  static const unsigned AddressRange = 1024;
-  static const unsigned AddressWidth = 10;
+  static const unsigned AddressRange = 4096;
+  static const unsigned AddressWidth = 12;
 
 //latency = 1
 //input_reg = 1
@@ -79,8 +79,8 @@ SC_MODULE(scheduler_historybkb) {
 
 
 static const unsigned DataWidth = 32;
-static const unsigned AddressRange = 1024;
-static const unsigned AddressWidth = 10;
+static const unsigned AddressRange = 4096;
+static const unsigned AddressWidth = 12;
 
 sc_core::sc_in <sc_lv<AddressWidth> > address0;
 sc_core::sc_in<sc_logic> ce0;

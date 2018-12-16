@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vivadoHLSLog:LogRoot xmlns:vivadoHLSLog="www.xilinx.com/vivadoHLSLog">
+  <errorLogs>
+    <logs>
+      <synLog/>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </errorLogs>
+  <warningLogs>
+    <logs>
+      <synLog>
+        <logs message="WARNING: [SCHED 204-36] Unable to schedule the protocol specified by region 'hls_label_1'." projectName="global_memory" solutionName="solution1" date="2018-12-16T13:45:59.430-0800" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-36] Invalid protocol 'hls_label_1': additional 'wait'(s) required after the multi-cycle operation:&#xA;   'load' operation ('result', global_memory.cpp:30) on array 'global_memory', global_memory.cpp:5." projectName="global_memory" solutionName="solution1" date="2018-12-16T13:45:59.388-0800" type="Warning"/>
+      </synLog>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </warningLogs>
+</vivadoHLSLog:LogRoot>

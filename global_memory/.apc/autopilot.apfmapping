@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="global_memory.cpp" path="/home/parallels/Documents/ece527/final_project/global_memory.cpp"/>
+    <originFiles name="global_memory.h" path="/home/parallels/Documents/ece527/final_project/global_memory.h"/>
+  </source>
+  <testbench>
+    <originFiles name="global_memory_testbench.cpp" path="/home/parallels/Documents/ece527/final_project/global_memory_testbench.cpp"/>
+  </testbench>
+</autopilotfilemapping:AutoPilotFileMapping>

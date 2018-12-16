@@ -1,0 +1,178 @@
+
+
+================================================================
+== Vivado HLS Report for 'global_memory'
+================================================================
+* Date:           Sun Dec 16 15:45:59 2018
+
+* Version:        2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)
+* Project:        global_memory
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      8.59|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    7|   13|    8|   14|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |          |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        | Loop Name| min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |- Loop 1  |    6|   12|   3 ~ 6  |          -|          -|     2|    no    |
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+-------+
+|       Name      | BRAM_18K| DSP48E|   FF   |  LUT  |
++-----------------+---------+-------+--------+-------+
+|DSP              |        -|      -|       -|      -|
+|Expression       |        -|      -|     112|    225|
+|FIFO             |        -|      -|       -|      -|
+|Instance         |        -|      -|       -|      -|
+|Memory           |        2|      -|       0|      0|
+|Multiplexer      |        -|      -|       -|     69|
+|Register         |        -|      -|     155|      -|
++-----------------+---------+-------+--------+-------+
+|Total            |        2|      0|     267|    294|
++-----------------+---------+-------+--------+-------+
+|Available        |      280|    220|  106400|  53200|
++-----------------+---------+-------+--------+-------+
+|Utilization (%)  |    ~0   |      0|   ~0   |   ~0  |
++-----------------+---------+-------+--------+-------+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP48: 
+    N/A
+
+    * Memory: 
+    +-------------------+----------------------+---------+---+----+------+-----+------+-------------+
+    |       Memory      |        Module        | BRAM_18K| FF| LUT| Words| Bits| Banks| W*Bits*Banks|
+    +-------------------+----------------------+---------+---+----+------+-----+------+-------------+
+    |global_memory_1_U  |global_memory_globkb  |        2|  0|   0|  1024|   32|     1|        32768|
+    +-------------------+----------------------+---------+---+----+------+-----+------+-------------+
+    |Total              |                      |        2|  0|   0|  1024|   32|     1|        32768|
+    +-------------------+----------------------+---------+---+----+------+-----+------+-------------+
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +--------------------------+----------+-------+-----+----+------------+------------+
+    |       Variable Name      | Operation| DSP48E|  FF | LUT| Bitwidth P0| Bitwidth P1|
+    +--------------------------+----------+-------+-----+----+------------+------------+
+    |i_1_fu_157_p2             |     +    |      0|   11|   8|           2|           1|
+    |result_fu_213_p2          |     +    |      0|  101|  37|          32|          32|
+    |exitcond1_fu_151_p2       |   icmp   |      0|    0|   1|           2|           3|
+    |sel_tmp2_fu_201_p2        |   icmp   |      0|    0|   1|           2|           3|
+    |sel_tmp4_fu_207_p2        |   icmp   |      0|    0|   1|           2|           1|
+    |sel_tmp_fu_187_p2         |   icmp   |      0|    0|   1|           2|           2|
+    |tmp_6_fu_173_p2           |   icmp   |      0|    0|  16|          32|          32|
+    |global_memory_1_d0        |  select  |      0|    0|  32|           1|          32|
+    |request_data_2_fu_217_p3  |  select  |      0|    0|  32|           1|          32|
+    |result_2_fu_179_p3        |  select  |      0|    0|  32|           1|          32|
+    |result_4_fu_193_p3        |  select  |      0|    0|  32|           1|          32|
+    |result_5_fu_222_p3        |  select  |      0|    0|  32|           1|          32|
+    +--------------------------+----------+-------+-----+----+------------+------------+
+    |Total                     |          |      0|  112| 225|          79|         234|
+    +--------------------------+----------+-------+-----+----+------------+------------+
+
+    * Multiplexer: 
+    +--------------------------+----+-----------+-----+-----------+
+    |           Name           | LUT| Input Size| Bits| Total Bits|
+    +--------------------------+----+-----------+-----+-----------+
+    |ap_NS_fsm                 |  45|          8|    1|          8|
+    |global_memory_1_address0  |  15|          3|   10|         30|
+    |i_reg_140                 |   9|          2|    2|          4|
+    +--------------------------+----+-----------+-----+-----------+
+    |Total                     |  69|         13|   13|         42|
+    +--------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +--------------------------------+----+----+-----+-----------+
+    |              Name              | FF | LUT| Bits| Const Bits|
+    +--------------------------------+----+----+-----+-----------+
+    |ap_CS_fsm                       |   7|   0|    7|          0|
+    |global_memory_addr_reg_277      |  10|   0|   10|          0|
+    |i_1_reg_239                     |   2|   0|    2|          0|
+    |i_reg_140                       |   2|   0|    2|          0|
+    |mem_interfaces_req_V_2_reg_258  |   1|   0|    1|          0|
+    |request_data_reg_282            |  32|   0|   32|          0|
+    |result_4_reg_299                |  32|   0|   32|          0|
+    |result_6_reg_314                |  32|   0|   32|          0|
+    |result_7_reg_288                |  32|   0|   32|          0|
+    |sel_tmp2_reg_304                |   1|   0|    1|          0|
+    |sel_tmp4_reg_309                |   1|   0|    1|          0|
+    |tmp_6_reg_294                   |   1|   0|    1|          0|
+    |tmp_reg_244                     |   2|   0|   64|         62|
+    +--------------------------------+----+----+-----+-----------+
+    |Total                           | 155|   0|  217|         62|
+    +--------------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++-----------------------------------------+-----+-----+------------+--------------------------------+--------------+
+|                RTL Ports                | Dir | Bits|  Protocol  |          Source Object         |    C Type    |
++-----------------------------------------+-----+-----+------------+--------------------------------+--------------+
+|ap_clk                                   |  in |    1| ap_ctrl_hs |          global_memory         | return value |
+|ap_rst                                   |  in |    1| ap_ctrl_hs |          global_memory         | return value |
+|ap_start                                 |  in |    1| ap_ctrl_hs |          global_memory         | return value |
+|ap_done                                  | out |    1| ap_ctrl_hs |          global_memory         | return value |
+|ap_idle                                  | out |    1| ap_ctrl_hs |          global_memory         | return value |
+|ap_ready                                 | out |    1| ap_ctrl_hs |          global_memory         | return value |
+|mem_interfaces_request_address_address0  | out |    1|  ap_memory | mem_interfaces_request_address |     array    |
+|mem_interfaces_request_address_ce0       | out |    1|  ap_memory | mem_interfaces_request_address |     array    |
+|mem_interfaces_request_address_q0        |  in |   32|  ap_memory | mem_interfaces_request_address |     array    |
+|mem_interfaces_request_data_address0     | out |    1|  ap_memory |   mem_interfaces_request_data  |     array    |
+|mem_interfaces_request_data_ce0          | out |    1|  ap_memory |   mem_interfaces_request_data  |     array    |
+|mem_interfaces_request_data_q0           |  in |   32|  ap_memory |   mem_interfaces_request_data  |     array    |
+|mem_interfaces_request_op_V_address0     | out |    1|  ap_memory |   mem_interfaces_request_op_V  |     array    |
+|mem_interfaces_request_op_V_ce0          | out |    1|  ap_memory |   mem_interfaces_request_op_V  |     array    |
+|mem_interfaces_request_op_V_q0           |  in |    2|  ap_memory |   mem_interfaces_request_op_V  |     array    |
+|mem_interfaces_result_address0           | out |    1|  ap_memory |      mem_interfaces_result     |     array    |
+|mem_interfaces_result_ce0                | out |    1|  ap_memory |      mem_interfaces_result     |     array    |
+|mem_interfaces_result_we0                | out |    1|  ap_memory |      mem_interfaces_result     |     array    |
+|mem_interfaces_result_d0                 | out |   32|  ap_memory |      mem_interfaces_result     |     array    |
+|mem_interfaces_ack_V_address0            | out |    1|  ap_memory |      mem_interfaces_ack_V      |     array    |
+|mem_interfaces_ack_V_ce0                 | out |    1|  ap_memory |      mem_interfaces_ack_V      |     array    |
+|mem_interfaces_ack_V_we0                 | out |    1|  ap_memory |      mem_interfaces_ack_V      |     array    |
+|mem_interfaces_ack_V_d0                  | out |    1|  ap_memory |      mem_interfaces_ack_V      |     array    |
+|mem_interfaces_req_V_address0            | out |    1|  ap_memory |      mem_interfaces_req_V      |     array    |
+|mem_interfaces_req_V_ce0                 | out |    1|  ap_memory |      mem_interfaces_req_V      |     array    |
+|mem_interfaces_req_V_q0                  |  in |    1|  ap_memory |      mem_interfaces_req_V      |     array    |
++-----------------------------------------+-----+-----+------------+--------------------------------+--------------+
+

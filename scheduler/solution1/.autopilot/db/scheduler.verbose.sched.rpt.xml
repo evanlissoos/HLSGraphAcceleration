@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'scheduler'" level="0">
-<item name = "Date">Sat Dec 15 23:27:34 2018
+<item name = "Date">Sun Dec 16 10:50:38 2018
 </item>
 <item name = "Version">2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)</item>
 <item name = "Project">scheduler</item>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="6">, min, max, min, max, Type</keys>
-<column name="">14, 6164, 15, 6165, none</column>
+<column name="">194, 393538, 195, 393539, none</column>
 </table>
 </item>
 <item name = "Detail">
@@ -35,9 +35,9 @@
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- Loop 1">6, 6154, 3 ~ 3077, -, -, 2, no</column>
-<column name=" + Loop 1.1">3072, 3072, 3, -, -, 1024, no</column>
-<column name="- Loop 2">6, 8, 3 ~ 4, -, -, 2, no</column>
+<column name="- Loop 1">96, 393376, 3 ~ 12293, -, -, 32, no</column>
+<column name=" + Loop 1.1">12288, 12288, 3, -, -, 4096, no</column>
+<column name="- Loop 2">96, 160, 3 ~ 5, -, -, 32, no</column>
 </table>
 </item>
 </section>

@@ -7,7 +7,7 @@
 #include <iostream>
 using namespace std;
 
-#define data_t unsigned
+#define data_t int
 #define ready_t ap_uint<1>
 #define atomicop_t ap_uint<2>
 

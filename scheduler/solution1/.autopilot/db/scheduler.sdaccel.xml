@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'scheduler'" level="0">
-<item name = "Date">Sat Dec 15 23:27:35 2018
+<item name = "Date">Sun Dec 16 10:50:39 2018
 </item>
 <item name = "Version">2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)</item>
 <item name = "Project">scheduler</item>
@@ -22,7 +22,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="6">, min, max, min, max, Type</keys>
-<column name="">14, 6164, 15, 6165, none</column>
+<column name="">194, 393538, 195, 393539, none</column>
 </table>
 </item>
 <item name = "Detail">
@@ -33,9 +33,9 @@
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- Loop 1">6, 6154, 3 ~ 3077, -, -, 2, no</column>
-<column name=" + Loop 1.1">3072, 3072, 3, -, -, 1024, no</column>
-<column name="- Loop 2">6, 8, 3 ~ 4, -, -, 2, no</column>
+<column name="- Loop 1">96, 393376, 3 ~ 12293, -, -, 32, no</column>
+<column name=" + Loop 1.1">12288, 12288, 3, -, -, 4096, no</column>
+<column name="- Loop 2">96, 160, 3 ~ 5, -, -, 32, no</column>
 </table>
 </item>
 </section>
@@ -48,23 +48,20 @@
 <item name = "Summary"><table name="" hasTotal="1">
 <keys size="5">Name, BRAM_18K, DSP48E, FF, LUT</keys>
 <column name="DSP">-, -, -, -</column>
-<column name="Expression">-, -, 374, 978</column>
+<column name="Expression">-, -, 393, 308</column>
 <column name="FIFO">-, -, -, -</column>
-<column name="Instance">-, -, 255, 63</column>
-<column name="Memory">6, -, 0, 0</column>
-<column name="Multiplexer">-, -, -, 182</column>
-<column name="Register">-, -, 791, -</column>
+<column name="Instance">-, -, -, -</column>
+<column name="Memory">27, -, 0, 0</column>
+<column name="Multiplexer">-, -, -, 227</column>
+<column name="Register">-, -, 436, -</column>
 <specialColumn name="Available">280, 220, 106400, 53200</specialColumn>
-<specialColumn name="Utilization (%)">2, 0, 1, 2</specialColumn>
+<specialColumn name="Utilization (%)">9, 0, ~0, 1</specialColumn>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="6">Instance, Module, BRAM_18K, DSP48E, FF, LUT</keys>
-<column name="scheduler_mux_42_eOg_U1">scheduler_mux_42_eOg, 0, 0, 85, 21</column>
-<column name="scheduler_mux_42_eOg_U2">scheduler_mux_42_eOg, 0, 0, 85, 21</column>
-<column name="scheduler_mux_42_eOg_U3">scheduler_mux_42_eOg, 0, 0, 85, 21</column>
 </table>
 </item>
 <item name = "DSP48"><table name="" hasTotal="0">
@@ -73,9 +70,12 @@
 </item>
 <item name = "Memory"><table name="" hasTotal="1">
 <keys size="9">Memory, Module, BRAM_18K, FF, LUT, Words, Bits, Banks, W*Bits*Banks</keys>
-<column name="history_current_node_U">scheduler_historybkb, 2, 0, 0, 1024, 32, 1, 32768</column>
-<column name="history_next_node_U">scheduler_historybkb, 2, 0, 0, 1024, 32, 1, 32768</column>
-<column name="history_state_U">scheduler_historybkb, 2, 0, 0, 1024, 32, 1, 32768</column>
+<column name="history_current_node_U">scheduler_historybkb, 8, 0, 0, 4096, 32, 1, 131072</column>
+<column name="history_next_node_U">scheduler_historybkb, 8, 0, 0, 4096, 32, 1, 131072</column>
+<column name="history_state_U">scheduler_historybkb, 8, 0, 0, 4096, 32, 1, 131072</column>
+<column name="queue_current_node_U">scheduler_queue_ceOg, 1, 0, 0, 320, 32, 1, 10240</column>
+<column name="queue_next_node_U">scheduler_queue_ceOg, 1, 0, 0, 320, 32, 1, 10240</column>
+<column name="queue_state_U">scheduler_queue_ceOg, 1, 0, 0, 320, 32, 1, 10240</column>
 </table>
 </item>
 <item name = "FIFO"><table name="" hasTotal="1">
@@ -84,124 +84,89 @@
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
-<column name="history_head_ptr_1_fu_720_p2">+, 0, 101, 37, 1, 32</column>
-<column name="i_1_fu_880_p2">+, 0, 11, 8, 2, 1</column>
-<column name="i_2_fu_459_p2">+, 0, 11, 8, 2, 1</column>
-<column name="j_1_fu_506_p2">+, 0, 38, 16, 11, 1</column>
-<column name="queue_head_ptr_1_fu_930_p2">+, 0, 101, 37, 2, 32</column>
-<column name="queue_head_ptr_1_t_fu_936_p2">+, 0, 11, 8, 2, 2</column>
-<column name="queue_head_ptr_3_fu_715_p2">+, 0, 101, 37, 1, 32</column>
-<column name="demorgan_fu_920_p2">and, 0, 0, 2, 1, 1</column>
-<column name="halted_flag_1_fu_908_p2">and, 0, 0, 2, 1, 1</column>
-<column name="match_found_1_fu_868_p2">and, 0, 0, 2, 1, 1</column>
-<column name="or_cond_5_fu_490_p2">and, 0, 0, 2, 1, 1</column>
-<column name="sel_tmp1_fu_849_p2">and, 0, 0, 2, 1, 1</column>
-<column name="tmp1_fu_840_p2">and, 0, 0, 2, 1, 1</column>
-<column name="tmp2_fu_845_p2">and, 0, 0, 2, 1, 1</column>
-<column name="tmp_3_fu_897_p2">and, 0, 0, 2, 1, 1</column>
-<column name="exitcond1_fu_453_p2">icmp, 0, 0, 1, 2, 3</column>
-<column name="exitcond2_fu_500_p2">icmp, 0, 0, 6, 11, 12</column>
-<column name="exitcond_fu_874_p2">icmp, 0, 0, 1, 2, 3</column>
-<column name="icmp_fu_484_p2">icmp, 0, 0, 16, 30, 1</column>
-<column name="sel_tmp3_fu_528_p2">icmp, 0, 0, 1, 2, 3</column>
-<column name="sel_tmp4_fu_534_p2">icmp, 0, 0, 1, 2, 1</column>
-<column name="sel_tmp5_fu_540_p2">icmp, 0, 0, 1, 2, 1</column>
-<column name="tmp_10_fu_801_p2">icmp, 0, 0, 16, 32, 32</column>
-<column name="tmp_11_fu_806_p2">icmp, 0, 0, 16, 32, 32</column>
-<column name="tmp_2_fu_891_p2">icmp, 0, 0, 16, 32, 1</column>
-<column name="tmp_7_fu_914_p2">icmp, 0, 0, 16, 32, 1</column>
-<column name="tmp_s_fu_796_p2">icmp, 0, 0, 16, 32, 32</column>
-<column name="ult_fu_512_p2">icmp, 0, 0, 16, 32, 32</column>
-<column name="brmerge_fu_816_p2">or, 0, 0, 2, 1, 1</column>
-<column name="match_found_0_mux_fu_828_p2">or, 0, 0, 2, 1, 1</column>
-<column name="or_cond_fu_546_p2">or, 0, 0, 2, 1, 1</column>
-<column name="sel_tmp19_demorgan_fu_863_p2">or, 0, 0, 2, 1, 1</column>
-<column name="newSel1_fu_671_p3">select, 0, 0, 32, 1, 32</column>
-<column name="newSel2_fu_567_p3">select, 0, 0, 32, 1, 32</column>
-<column name="newSel4_fu_604_p3">select, 0, 0, 32, 1, 32</column>
-<column name="newSel6_fu_619_p3">select, 0, 0, 32, 1, 32</column>
-<column name="newSel8_fu_656_p3">select, 0, 0, 32, 1, 32</column>
-<column name="newSel_fu_552_p3">select, 0, 0, 32, 1, 32</column>
-<column name="queue_3_current_nod_10_fu_582_p3">select, 0, 0, 32, 1, 32</column>
-<column name="queue_3_current_nod_11_fu_589_p3">select, 0, 0, 32, 1, 32</column>
-<column name="queue_3_current_nod_12_fu_597_p3">select, 0, 0, 32, 1, 32</column>
-<column name="queue_3_current_nod_8_fu_559_p3">select, 0, 0, 32, 1, 32</column>
-<column name="queue_3_current_nod_9_fu_574_p3">select, 0, 0, 32, 1, 32</column>
-<column name="queue_3_next_node_1_fu_626_p3">select, 0, 0, 32, 1, 32</column>
-<column name="queue_3_next_node_4_fu_634_p3">select, 0, 0, 32, 1, 32</column>
-<column name="queue_3_next_node_5_fu_641_p3">select, 0, 0, 32, 1, 32</column>
-<column name="queue_3_next_node_7_fu_649_p3">select, 0, 0, 32, 1, 32</column>
-<column name="queue_3_next_node_fu_611_p3">select, 0, 0, 32, 1, 32</column>
-<column name="queue_3_state_1_fu_678_p3">select, 0, 0, 32, 1, 32</column>
-<column name="queue_3_state_4_fu_686_p3">select, 0, 0, 32, 1, 32</column>
-<column name="queue_3_state_5_fu_693_p3">select, 0, 0, 32, 1, 32</column>
-<column name="queue_3_state_7_fu_701_p3">select, 0, 0, 32, 1, 32</column>
-<column name="queue_3_state_fu_663_p3">select, 0, 0, 32, 1, 32</column>
-<column name="sel_tmp2_fu_855_p3">select, 0, 0, 2, 1, 1</column>
-<column name="not_not_fu_822_p2">xor, 0, 0, 2, 1, 2</column>
-<column name="rev_fu_811_p2">xor, 0, 0, 2, 1, 2</column>
-<column name="sel_tmp_fu_834_p2">xor, 0, 0, 2, 1, 2</column>
+<column name="history_head_ptr_1_fu_505_p2">+, 0, 101, 37, 32, 1</column>
+<column name="i_1_fu_605_p2">+, 0, 23, 11, 6, 1</column>
+<column name="i_2_fu_431_p2">+, 0, 23, 11, 6, 1</column>
+<column name="j_1_fu_468_p2">+, 0, 44, 18, 13, 1</column>
+<column name="queue_head_ptr_1_fu_651_p2">+, 0, 101, 37, 32, 2</column>
+<column name="queue_head_ptr_3_fu_500_p2">+, 0, 101, 37, 32, 1</column>
+<column name="demorgan_fu_645_p2">and, 0, 0, 2, 1, 1</column>
+<column name="halted_flag_1_fu_633_p2">and, 0, 0, 2, 1, 1</column>
+<column name="match_found_1_fu_593_p2">and, 0, 0, 2, 1, 1</column>
+<column name="or_cond_fu_452_p2">and, 0, 0, 2, 1, 1</column>
+<column name="sel_tmp3_fu_574_p2">and, 0, 0, 2, 1, 1</column>
+<column name="tmp1_fu_570_p2">and, 0, 0, 2, 1, 1</column>
+<column name="tmp9_fu_565_p2">and, 0, 0, 2, 1, 1</column>
+<column name="tmp_3_fu_622_p2">and, 0, 0, 2, 1, 1</column>
+<column name="exitcond1_fu_425_p2">icmp, 0, 0, 4, 6, 7</column>
+<column name="exitcond2_fu_462_p2">icmp, 0, 0, 7, 13, 14</column>
+<column name="exitcond_fu_599_p2">icmp, 0, 0, 4, 6, 7</column>
+<column name="tmp_10_fu_521_p2">icmp, 0, 0, 16, 32, 32</column>
+<column name="tmp_11_fu_526_p2">icmp, 0, 0, 16, 32, 32</column>
+<column name="tmp_12_fu_531_p2">icmp, 0, 0, 16, 32, 32</column>
+<column name="tmp_1_fu_447_p2">icmp, 0, 0, 16, 32, 9</column>
+<column name="tmp_2_fu_616_p2">icmp, 0, 0, 16, 32, 1</column>
+<column name="tmp_7_fu_639_p2">icmp, 0, 0, 16, 32, 1</column>
+<column name="ult_fu_474_p2">icmp, 0, 0, 16, 32, 32</column>
+<column name="brmerge_fu_541_p2">or, 0, 0, 2, 1, 1</column>
+<column name="match_found_0_mux_fu_553_p2">or, 0, 0, 2, 1, 1</column>
+<column name="sel_tmp7_demorgan_fu_588_p2">or, 0, 0, 2, 1, 1</column>
+<column name="sel_tmp4_fu_580_p3">select, 0, 0, 2, 1, 1</column>
+<column name="not_not_fu_547_p2">xor, 0, 0, 2, 1, 2</column>
+<column name="rev4_fu_536_p2">xor, 0, 0, 2, 1, 2</column>
+<column name="sel_tmp_fu_559_p2">xor, 0, 0, 2, 1, 2</column>
 </table>
 </item>
 <item name = "Multiplexer"><table name="" hasTotal="1">
 <keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
-<column name="ap_NS_fsm">65, 13, 1, 13</column>
-<column name="halted_flag_reg_375">9, 2, 1, 2</column>
-<column name="history_current_node_address0">15, 3, 10, 30</column>
-<column name="history_head_ptr_fu_90">9, 2, 32, 64</column>
-<column name="history_next_node_address0">15, 3, 10, 30</column>
-<column name="history_state_address0">15, 3, 10, 30</column>
-<column name="i1_reg_387">9, 2, 2, 4</column>
-<column name="i_reg_341">9, 2, 2, 4</column>
-<column name="j_reg_364">9, 2, 11, 22</column>
-<column name="match_found_reg_352">9, 2, 1, 2</column>
-<column name="queue_head_ptr_2_fu_154">9, 2, 32, 64</column>
-<column name="queue_head_ptr_fu_86">9, 2, 32, 64</column>
+<column name="ap_NS_fsm">65, 14, 1, 14</column>
+<column name="halted_flag_reg_383">9, 2, 1, 2</column>
+<column name="history_current_node_address0">15, 3, 12, 36</column>
+<column name="history_head_ptr_fu_80">9, 2, 32, 64</column>
+<column name="history_next_node_address0">15, 3, 12, 36</column>
+<column name="history_state_address0">15, 3, 12, 36</column>
+<column name="i1_reg_395">9, 2, 6, 12</column>
+<column name="i_reg_349">9, 2, 6, 12</column>
+<column name="j_reg_372">9, 2, 13, 26</column>
+<column name="match_found_reg_360">9, 2, 1, 2</column>
+<column name="queue_current_node_address0">15, 3, 9, 27</column>
+<column name="queue_head_ptr_2_fu_108">9, 2, 32, 64</column>
+<column name="queue_head_ptr_fu_76">9, 2, 32, 64</column>
+<column name="queue_next_node_address0">15, 3, 9, 27</column>
+<column name="queue_state_address0">15, 3, 9, 27</column>
 </table>
 </item>
 <item name = "Register"><table name="" hasTotal="1">
 <keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
-<column name="ap_CS_fsm">12, 0, 12, 0</column>
-<column name="demorgan_reg_1233">1, 0, 1, 0</column>
-<column name="halted_flag_1_reg_1228">1, 0, 1, 0</column>
-<column name="halted_flag_reg_375">1, 0, 1, 0</column>
-<column name="history_head_ptr_fu_90">32, 0, 32, 0</column>
-<column name="i1_reg_387">2, 0, 2, 0</column>
-<column name="i_1_reg_1210">2, 0, 2, 0</column>
-<column name="i_2_reg_1084">2, 0, 2, 0</column>
-<column name="i_reg_341">2, 0, 2, 0</column>
-<column name="j_1_reg_1161">11, 0, 11, 0</column>
-<column name="j_reg_364">11, 0, 11, 0</column>
-<column name="match_found_reg_352">1, 0, 1, 0</column>
-<column name="new_context_current_1_reg_1242">32, 0, 32, 0</column>
-<column name="new_context_current_s_reg_1128">32, 0, 32, 0</column>
-<column name="new_context_next_nod_1_reg_1247">32, 0, 32, 0</column>
-<column name="new_context_next_nod_reg_1138">32, 0, 32, 0</column>
-<column name="new_context_state_1_reg_1252">32, 0, 32, 0</column>
-<column name="new_context_state_reg_1148">32, 0, 32, 0</column>
-<column name="or_cond_5_reg_1109">1, 0, 1, 0</column>
-<column name="queue_3_current_nod_1_fu_98">32, 0, 32, 0</column>
-<column name="queue_3_current_nod_2_fu_102">32, 0, 32, 0</column>
-<column name="queue_3_current_nod_3_fu_106">32, 0, 32, 0</column>
-<column name="queue_3_current_nod_fu_94">32, 0, 32, 0</column>
-<column name="queue_3_next_node_2_fu_110">32, 0, 32, 0</column>
-<column name="queue_3_next_node_3_fu_114">32, 0, 32, 0</column>
-<column name="queue_3_next_node_6_fu_118">32, 0, 32, 0</column>
-<column name="queue_3_next_node_8_fu_122">32, 0, 32, 0</column>
-<column name="queue_3_state_2_fu_126">32, 0, 32, 0</column>
-<column name="queue_3_state_3_fu_130">32, 0, 32, 0</column>
-<column name="queue_3_state_6_fu_134">32, 0, 32, 0</column>
-<column name="queue_3_state_8_fu_138">32, 0, 32, 0</column>
-<column name="queue_head_ptr_1_reg_1237">32, 0, 32, 0</column>
-<column name="queue_head_ptr_2_fu_154">32, 0, 32, 0</column>
-<column name="queue_head_ptr_fu_86">32, 0, 32, 0</column>
-<column name="queue_head_ptr_load_reg_1074">32, 0, 32, 0</column>
-<column name="tmp_10_reg_1192">1, 0, 1, 0</column>
-<column name="tmp_11_reg_1197">1, 0, 1, 0</column>
-<column name="tmp_5_reg_1215">2, 0, 64, 62</column>
-<column name="tmp_reg_1089">2, 0, 64, 62</column>
-<column name="tmp_s_reg_1186">1, 0, 1, 0</column>
-<column name="ult_reg_1166">1, 0, 1, 0</column>
+<column name="ap_CS_fsm">13, 0, 13, 0</column>
+<column name="demorgan_reg_832">1, 0, 1, 0</column>
+<column name="halted_flag_1_reg_827">1, 0, 1, 0</column>
+<column name="halted_flag_reg_383">1, 0, 1, 0</column>
+<column name="history_head_ptr_fu_80">32, 0, 32, 0</column>
+<column name="i1_reg_395">6, 0, 6, 0</column>
+<column name="i_1_reg_809">6, 0, 6, 0</column>
+<column name="i_2_reg_692">6, 0, 6, 0</column>
+<column name="i_reg_349">6, 0, 6, 0</column>
+<column name="j_1_reg_760">13, 0, 13, 0</column>
+<column name="j_reg_372">13, 0, 13, 0</column>
+<column name="match_found_reg_360">1, 0, 1, 0</column>
+<column name="new_context_current_1_reg_856">32, 0, 32, 0</column>
+<column name="new_context_current_s_reg_736">32, 0, 32, 0</column>
+<column name="new_context_next_nod_1_reg_861">32, 0, 32, 0</column>
+<column name="new_context_next_nod_reg_743">32, 0, 32, 0</column>
+<column name="new_context_state_1_reg_866">32, 0, 32, 0</column>
+<column name="new_context_state_reg_750">32, 0, 32, 0</column>
+<column name="or_cond_reg_717">1, 0, 1, 0</column>
+<column name="queue_head_ptr_1_reg_836">32, 0, 32, 0</column>
+<column name="queue_head_ptr_2_fu_108">32, 0, 32, 0</column>
+<column name="queue_head_ptr_fu_76">32, 0, 32, 0</column>
+<column name="queue_head_ptr_load_reg_682">32, 0, 32, 0</column>
+<column name="tmp_10_reg_785">1, 0, 1, 0</column>
+<column name="tmp_11_reg_791">1, 0, 1, 0</column>
+<column name="tmp_12_reg_796">1, 0, 1, 0</column>
+<column name="tmp_5_reg_814">6, 0, 64, 58</column>
+<column name="tmp_reg_697">6, 0, 64, 58</column>
+<column name="ult_reg_765">1, 0, 1, 0</column>
 </table>
 </item>
 </section>
@@ -217,39 +182,39 @@
 <column name="ap_done">out, 1, ap_ctrl_hs, scheduler, return value</column>
 <column name="ap_idle">out, 1, ap_ctrl_hs, scheduler, return value</column>
 <column name="ap_ready">out, 1, ap_ctrl_hs, scheduler, return value</column>
-<column name="sched_interfaces_context_current_node_address0">out, 1, ap_memory, sched_interfaces_context_current_node, array</column>
+<column name="sched_interfaces_context_current_node_address0">out, 5, ap_memory, sched_interfaces_context_current_node, array</column>
 <column name="sched_interfaces_context_current_node_ce0">out, 1, ap_memory, sched_interfaces_context_current_node, array</column>
 <column name="sched_interfaces_context_current_node_q0">in, 32, ap_memory, sched_interfaces_context_current_node, array</column>
-<column name="sched_interfaces_context_next_node_address0">out, 1, ap_memory, sched_interfaces_context_next_node, array</column>
+<column name="sched_interfaces_context_next_node_address0">out, 5, ap_memory, sched_interfaces_context_next_node, array</column>
 <column name="sched_interfaces_context_next_node_ce0">out, 1, ap_memory, sched_interfaces_context_next_node, array</column>
 <column name="sched_interfaces_context_next_node_q0">in, 32, ap_memory, sched_interfaces_context_next_node, array</column>
-<column name="sched_interfaces_context_state_address0">out, 1, ap_memory, sched_interfaces_context_state, array</column>
+<column name="sched_interfaces_context_state_address0">out, 5, ap_memory, sched_interfaces_context_state, array</column>
 <column name="sched_interfaces_context_state_ce0">out, 1, ap_memory, sched_interfaces_context_state, array</column>
 <column name="sched_interfaces_context_state_q0">in, 32, ap_memory, sched_interfaces_context_state, array</column>
-<column name="sched_interfaces_schedule_V_address0">out, 1, ap_memory, sched_interfaces_schedule_V, array</column>
+<column name="sched_interfaces_schedule_V_address0">out, 5, ap_memory, sched_interfaces_schedule_V, array</column>
 <column name="sched_interfaces_schedule_V_ce0">out, 1, ap_memory, sched_interfaces_schedule_V, array</column>
 <column name="sched_interfaces_schedule_V_q0">in, 1, ap_memory, sched_interfaces_schedule_V, array</column>
-<column name="sched_interfaces_ack_V_address0">out, 1, ap_memory, sched_interfaces_ack_V, array</column>
+<column name="sched_interfaces_ack_V_address0">out, 5, ap_memory, sched_interfaces_ack_V, array</column>
 <column name="sched_interfaces_ack_V_ce0">out, 1, ap_memory, sched_interfaces_ack_V, array</column>
 <column name="sched_interfaces_ack_V_we0">out, 1, ap_memory, sched_interfaces_ack_V, array</column>
 <column name="sched_interfaces_ack_V_d0">out, 1, ap_memory, sched_interfaces_ack_V, array</column>
-<column name="setup_interfaces_context_current_node_address0">out, 1, ap_memory, setup_interfaces_context_current_node, array</column>
+<column name="setup_interfaces_context_current_node_address0">out, 5, ap_memory, setup_interfaces_context_current_node, array</column>
 <column name="setup_interfaces_context_current_node_ce0">out, 1, ap_memory, setup_interfaces_context_current_node, array</column>
 <column name="setup_interfaces_context_current_node_we0">out, 1, ap_memory, setup_interfaces_context_current_node, array</column>
 <column name="setup_interfaces_context_current_node_d0">out, 32, ap_memory, setup_interfaces_context_current_node, array</column>
-<column name="setup_interfaces_context_next_node_address0">out, 1, ap_memory, setup_interfaces_context_next_node, array</column>
+<column name="setup_interfaces_context_next_node_address0">out, 5, ap_memory, setup_interfaces_context_next_node, array</column>
 <column name="setup_interfaces_context_next_node_ce0">out, 1, ap_memory, setup_interfaces_context_next_node, array</column>
 <column name="setup_interfaces_context_next_node_we0">out, 1, ap_memory, setup_interfaces_context_next_node, array</column>
 <column name="setup_interfaces_context_next_node_d0">out, 32, ap_memory, setup_interfaces_context_next_node, array</column>
-<column name="setup_interfaces_context_state_address0">out, 1, ap_memory, setup_interfaces_context_state, array</column>
+<column name="setup_interfaces_context_state_address0">out, 5, ap_memory, setup_interfaces_context_state, array</column>
 <column name="setup_interfaces_context_state_ce0">out, 1, ap_memory, setup_interfaces_context_state, array</column>
 <column name="setup_interfaces_context_state_we0">out, 1, ap_memory, setup_interfaces_context_state, array</column>
 <column name="setup_interfaces_context_state_d0">out, 32, ap_memory, setup_interfaces_context_state, array</column>
-<column name="setup_interfaces_restart_V_address0">out, 1, ap_memory, setup_interfaces_restart_V, array</column>
+<column name="setup_interfaces_restart_V_address0">out, 5, ap_memory, setup_interfaces_restart_V, array</column>
 <column name="setup_interfaces_restart_V_ce0">out, 1, ap_memory, setup_interfaces_restart_V, array</column>
 <column name="setup_interfaces_restart_V_we0">out, 1, ap_memory, setup_interfaces_restart_V, array</column>
 <column name="setup_interfaces_restart_V_d0">out, 1, ap_memory, setup_interfaces_restart_V, array</column>
-<column name="setup_interfaces_core_halted_V_address0">out, 1, ap_memory, setup_interfaces_core_halted_V, array</column>
+<column name="setup_interfaces_core_halted_V_address0">out, 5, ap_memory, setup_interfaces_core_halted_V, array</column>
 <column name="setup_interfaces_core_halted_V_ce0">out, 1, ap_memory, setup_interfaces_core_halted_V, array</column>
 <column name="setup_interfaces_core_halted_V_q0">in, 1, ap_memory, setup_interfaces_core_halted_V, array</column>
 <column name="finished">out, 32, ap_vld, finished, pointer</column>
@@ -262,12 +227,12 @@
 <item name = "Max Delay">8.28</item>
 <item name = "Critical Path Table"><table name="Critical Path Table" hasTotal="0">
 <keys size="15">Name, Operator, Delay, Accumulated Delay, Store Source, Resource, Core, Interface, Type, Port, Array, Scope, Pointer, Callee, Phi Node</keys>
-<column name="'rev', scheduler.cpp:38">xor, 2.07, 2.07, -, -, -, -, -, -, -, -, -, -, -</column>
+<column name="'rev4', scheduler.cpp:38">xor, 2.07, 2.07, -, -, -, -, -, -, -, -, -, -, -</column>
 <column name="'brmerge', scheduler.cpp:38">or, 2.07, 4.14, -, -, -, -, -, -, -, -, -, -, -</column>
 <column name="'sel_tmp', scheduler.cpp:38">xor, 0.00, 4.14, -, -, -, -, -, -, -, -, -, -, -</column>
-<column name="'tmp1', scheduler.cpp:40">and, 0.00, 4.14, -, -, -, -, -, -, -, -, -, -, -</column>
-<column name="'sel_tmp1', scheduler.cpp:40">and, 2.07, 6.21, -, -, -, -, -, -, -, -, -, -, -</column>
-<column name="'sel_tmp2', scheduler.cpp:38">select, 0.00, 6.21, -, -, -, -, -, -, -, -, -, -, -</column>
+<column name="'tmp9', scheduler.cpp:40">and, 0.00, 4.14, -, -, -, -, -, -, -, -, -, -, -</column>
+<column name="'sel_tmp3', scheduler.cpp:40">and, 2.07, 6.21, -, -, -, -, -, -, -, -, -, -, -</column>
+<column name="'sel_tmp4', scheduler.cpp:38">select, 0.00, 6.21, -, -, -, -, -, -, -, -, -, -, -</column>
 <column name="'match_found_1', scheduler.cpp:38">and, 2.07, 8.28, -, -, -, -, -, -, -, -, -, -, -</column>
 </table>
 </item>

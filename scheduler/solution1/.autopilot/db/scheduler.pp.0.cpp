@@ -46314,13 +46314,13 @@ typedef struct
  ap_uint<1> core_halted;
 } CoreControlInterface_t;
 
-void scheduler(CoreScheduleInterface_t sched_interfaces[2], CoreControlInterface_t setup_interfaces[2], unsigned * finished);
+void scheduler(CoreScheduleInterface_t sched_interfaces[32], CoreControlInterface_t setup_interfaces[32], unsigned * finished);
 # 2 "scheduler.cpp" 2
 
-void scheduler(CoreScheduleInterface_t sched_interfaces[2], CoreControlInterface_t setup_interfaces[2], unsigned * finished)
+void scheduler(CoreScheduleInterface_t sched_interfaces[32], CoreControlInterface_t setup_interfaces[32], unsigned * finished)
 {
- context_t history[1024];
- context_t queue[4];
+ context_t history[4096];
+ context_t queue[(32*10)];
  unsigned queue_head_ptr = 0;
  unsigned history_head_ptr = 0;
 
@@ -46328,11 +46328,11 @@ void scheduler(CoreScheduleInterface_t sched_interfaces[2], CoreControlInterface
  {
   cout << "Checking for requests..." << endl;
   // Add any new requests to the queue
-  for(int i = 0; i < 2; i++)
+  for(int i = 0; i < 32; i++)
   {
    cout << "Checking for requests on core " << hex << i << "..." << endl;
    // If a there is a schedule request and there is room in the FIFO, push the context
-   if((sched_interfaces[i].schedule == 1) && (queue_head_ptr <= 4 -1))
+   if((sched_interfaces[i].schedule == 1) && (queue_head_ptr <= (32*10)-1))
    {
     // First, read in the new context and then ackowledge so the core may continue
     context_t new_context = sched_interfaces[i].context;
@@ -46350,7 +46350,7 @@ void scheduler(CoreScheduleInterface_t sched_interfaces[2], CoreControlInterface
 
     // Check if this context has already run
     bool match_found = 0;
-    for(int j = 0; j < 1024; j++)
+    for(int j = 0; j < 4096; j++)
     {
      if(j < history_head_ptr)
      {
@@ -46377,7 +46377,7 @@ void scheduler(CoreScheduleInterface_t sched_interfaces[2], CoreControlInterface
   cout << "Checking for halted cores..." << endl;
   bool halted_flag = 1;
   // Check for any halted cores and schedule a new thread if available
-  for(int i = 0; i < 2; i++)
+  for(int i = 0; i < 32; i++)
   {
    cout << "Checking if core " << hex << i << " has halted" << endl;
    halted_flag &= (setup_interfaces[i].core_halted == 1);

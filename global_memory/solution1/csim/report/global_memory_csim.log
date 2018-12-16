@@ -1,0 +1,39 @@
+INFO: [SIM 2] *************** CSIM start ***************
+INFO: [SIM 4] CSIM will launch GCC as the compiler.
+   Compiling ../../../../global_memory.cpp in debug mode
+   Generating csim.exe
+Entering global memory!
+Checking for request on core 0...
+Found request!
+[Request] Address: 0
+[Request] Data: ffffff9c
+[Request] Op: 0x3
+Performing atomic op...
+Data read from memory: 0
+Operation result: 0
+Responding to core...
+Checking for request on core 1...
+Found request!
+[Request] Address: 0
+[Request] Data: 64
+[Request] Op: 0x3
+Performing atomic op...
+Data read from memory: 0
+Operation result: 64
+Responding to core...
+Memory dump:
+0x0: 0x64
+0x1: 0x0
+0x2: 0x0
+0x3: 0x0
+0x4: 0x0
+0x5: 0x0
+0x6: 0x0
+0x7: 0x0
+0x8: 0x0
+0x9: 0x0
+Returned from global memory!
+Result on request line 0: 0
+Result on request line 1: 64
+INFO: [SIM 1] CSim done with 0 errors.
+INFO: [SIM 3] *************** CSIM finish ***************

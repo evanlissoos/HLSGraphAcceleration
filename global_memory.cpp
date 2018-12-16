@@ -45,7 +45,7 @@ void global_memory(CoreGlobalMemoryInterface_t mem_interfaces[NUM_CORES])
 				}
 
 				{
-				#pragma HLS interface fixed
+				#pragma HLS protocol fixed
 					cout << "Responding to core..." << endl;
 					// Send the result back to the requesting core and send an ack
 					mem_interfaces[i].result = result;
@@ -59,6 +59,6 @@ void global_memory(CoreGlobalMemoryInterface_t mem_interfaces[NUM_CORES])
 		// Dump memory contents
 		cout << "Memory dump:" << endl;
 		for(int i = 0; i < DUMP_END_ADDR; i++)
-			cout << hex << i << ": " << data_memory[i] << endl;
+			cout << hex << "0x" << i << ": " << "0x" << global_memory[i] << endl;
 	}
 }

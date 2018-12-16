@@ -1,4 +1,4 @@
-INFO: [HLS 200-0] Workspace /home/parallels/Documents/ece527/final_project/danke_core/solution1 opened at Sat Dec 15 17:50:38 CST 2018
+INFO: [HLS 200-0] Workspace /home/parallels/Documents/ece527/final_project/danke_core/solution1 opened at Sun Dec 16 14:16:48 CST 2018
 INFO: [HLS 200-100] Execute     config_clock -quiet -name default -period 10 -default=false 
 INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
 INFO: [HLS 200-100] Command     config_clock returned 0; 0 sec.
@@ -17,7 +17,7 @@ INFO: [HLS 200-100] Execute           source /opt/Xilinx/Vivado_HLS/2017.2/commo
 INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute           source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/interface/saxilite.lib 
 INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Command         ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Command         ap_source returned 0; 0.01 sec.
 INFO: [HLS 200-100] Execute         source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/common/dsp48.lib 
 INFO: [HLS 200-100] Command         ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute         source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/ip/dds_compiler.lib 
@@ -26,11 +26,11 @@ INFO: [HLS 200-100] Execute         source /opt/Xilinx/Vivado_HLS/2017.2/common/
 INFO: [HLS 200-100] Command         ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute         source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/ip/xfir.lib 
 INFO: [HLS 200-100] Command         ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Command       ap_source returned 0; 0.01 sec.
+INFO: [HLS 200-100] Command       ap_source returned 0; 0.02 sec.
 INFO: [HLS 200-100] Execute       source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/common/xilinx_old.lib 
 INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute       source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/common/xilinx_vivado.lib 
-INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Command       ap_source returned 0; 0.01 sec.
 INFO: [HLS 200-100] Execute       source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/common/xilinx.hlp 
 INFO: [HLS 200-100] Execute         source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/common/target_info.tcl 
 INFO: [HLS 200-100] Command         ap_source returned 0; 0 sec.
@@ -44,7 +44,7 @@ INFO: [HLS 200-100] Execute         source /opt/Xilinx/Vivado_HLS/2017.2/common/
 INFO: [HLS 200-100] Command         ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute       source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/zynq/dsp48e1.hlp 
-INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Command       ap_source returned 0; 0.01 sec.
 INFO: [HLS 200-100] Execute       get_default_platform 
 INFO: [HLS 200-100] Command       get_default_platform returned 0; 0 sec.
 INFO: [HLS 200-100] Execute       config_chip_info -quiet -resource  {SLICE 13300}  {LUT 53200}     {FF 106400} {DSP48E 220}   {BRAM 280}  
@@ -63,12 +63,12 @@ INFO: [HLS 200-100] Command         ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute         source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/common/dsp48.hlp 
 INFO: [HLS 200-100] Command         ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Command     import_lib returned 0; 0.02 sec.
+INFO: [HLS 200-100] Command     import_lib returned 0; 0.04 sec.
 INFO: [HLS 200-100] Execute     source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/zynq/zynq.gen 
 INFO: [HLS 200-100] Execute       source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/common/virtex.gen 
 INFO: [HLS 200-100] Execute         source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/common/xilinx.gen 
 INFO: [HLS 200-100] Execute           source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/interface/plb46.gen 
-INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Command           ap_source returned 0; 0.01 sec.
 INFO: [HLS 200-100] Execute           source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/interface/fsl.gen 
 INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute           source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/interface/axi4.gen 
@@ -82,27 +82,27 @@ INFO: [HLS 200-100] Command           ap_source returned 0; 0.01 sec.
 INFO: [HLS 200-100] Execute           source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/scripts/xilinxcoregen.gen 
 INFO: [HLS 200-100] Command           ap_source returned 0; 0.01 sec.
 INFO: [HLS 200-100] Execute           source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/interface/XilEDKCoreGen.gen 
-INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Command           ap_source returned 0; 0.02 sec.
 INFO: [HLS 200-100] Execute           source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/ip/dds_compiler.gen 
 INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute           source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/ip/xfft.gen 
-INFO: [HLS 200-100] Command           ap_source returned 0; 0.07 sec.
+INFO: [HLS 200-100] Command           ap_source returned 0; 0.1 sec.
 INFO: [HLS 200-100] Execute           source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/ip/util.gen 
-INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Command           ap_source returned 0; 0.01 sec.
 INFO: [HLS 200-100] Execute           source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/ip/xfir.gen 
 INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Command         ap_source returned 0; 0.09 sec.
+INFO: [HLS 200-100] Command         ap_source returned 0; 0.16 sec.
 INFO: [HLS 200-100] Execute         source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/common/dsp48.gen 
 INFO: [HLS 200-100] Command         ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Command       ap_source returned 0; 0.09 sec.
-INFO: [HLS 200-100] Command     ap_source returned 0; 0.09 sec.
+INFO: [HLS 200-100] Command       ap_source returned 0; 0.16 sec.
+INFO: [HLS 200-100] Command     ap_source returned 0; 0.16 sec.
 INFO: [HLS 200-100] Execute     open_platform DefaultPlatform 
 INFO: [HLS 200-100] Command     open_platform returned 0; 0 sec.
 INFO: [HLS 200-100] Execute     import_lib /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/zynq/zynq_fpv6 
 INFO: [HLS 200-100] Execute       source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/common/xilinx_fpv7.lib 
 INFO: [HLS 200-100] Execute         source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/common/xilinx_hp.lib 
 INFO: [HLS 200-100] Command         ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Command       ap_source returned 0; 0.01 sec.
+INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute       source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/common/xilinx_fpv.hlp 
 INFO: [HLS 200-100] Execute         source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/common/xilinx.hlp 
 INFO: [HLS 200-100] Execute           source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/common/target_info.tcl 
@@ -114,12 +114,12 @@ INFO: [HLS 200-100] Execute             source /opt/Xilinx/Vivado_HLS/2017.2/com
 INFO: [HLS 200-100] Command             ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute           source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/common/dsp48.hlp 
-INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Command         ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Command           ap_source returned 0; 0.01 sec.
+INFO: [HLS 200-100] Command         ap_source returned 0; 0.01 sec.
+INFO: [HLS 200-100] Command       ap_source returned 0; 0.01 sec.
 INFO: [HLS 200-100] Execute       source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/zynq/zynq_hp.hlp 
 INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Command     import_lib returned 0; 0.02 sec.
+INFO: [HLS 200-100] Command     import_lib returned 0; 0.03 sec.
 INFO: [HLS 200-100] Execute     source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/zynq/zynq_fpv6.gen 
 INFO: [HLS 200-100] Execute       source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/common/xilinx_fpv6.gen 
 INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
@@ -129,14 +129,14 @@ INFO: [HLS 200-100] Execute       add_library xilinx/zynq/zynq:xc7z020:clg484:-1
 INFO: [HLS 200-100] Execute         get_default_platform 
 INFO: [HLS 200-100] Command         get_default_platform returned 0; 0 sec.
 INFO: [HLS 200-100] Execute         license_isbetapart xc7z020 
-INFO: [HLS 200-100] Command         license_isbetapart returned 1; 0 sec.
+INFO: [HLS 200-100] Command         license_isbetapart returned 1; 0.08 sec.
 INFO: [HLS 200-100] Execute         get_default_platform 
 INFO: [HLS 200-100] Command         get_default_platform returned 0; 0 sec.
 INFO: [HLS 200-100] Execute         config_chip_info -quiet -resource  {SLICE 13300}  {LUT 53200}     {FF 106400} {DSP48E 220}   {BRAM 280}  
 INFO: [HLS 200-100] Command         config_chip_info returned 0; 0 sec.
 INFO: [HLS 200-100] Execute         config_chip_info -quiet -speed slow 
 INFO: [HLS 200-100] Command         config_chip_info returned 0; 0 sec.
-INFO: [HLS 200-100] Command       add_library returned 0; 0 sec.
+INFO: [HLS 200-100] Command       add_library returned 0; 0.08 sec.
 INFO: [HLS 200-100] Execute       add_library xilinx/zynq/zynq_fpv6 
 INFO: [HLS 200-100] Execute         get_default_platform 
 INFO: [HLS 200-100] Command         get_default_platform returned 0; 0 sec.
@@ -144,390 +144,38 @@ INFO: [HLS 200-100] Command       add_library returned 0; 0 sec.
 INFO: [HLS 200-10] Setting target device to 'xc7z020clg484-1'
 INFO: [HLS 200-100] Execute       get_default_platform 
 INFO: [HLS 200-100] Command       get_default_platform returned 0; 0 sec.
-INFO: [HLS 200-100] Command     set_part returned 0; 0.05 sec.
+INFO: [HLS 200-100] Command     set_part returned 0; 0.13 sec.
 INFO: [HLS 200-100] Execute     get_default_platform 
 INFO: [HLS 200-100] Command     get_default_platform returned 0; 0 sec.
 INFO: [HLS 200-100] Execute     config_chip_info -quiet -resource  {SLICE 13300}  {LUT 53200}     {FF 106400} {DSP48E 220}   {BRAM 280}  
 INFO: [HLS 200-100] Command     config_chip_info returned 0; 0 sec.
 INFO: [HLS 200-100] Execute     config_chip_info -quiet -speed slow 
 INFO: [HLS 200-100] Command     config_chip_info returned 0; 0 sec.
-INFO: [HLS 200-100] Command   open_solution returned 0; 0.18 sec.
-INFO: [HLS 200-100] Execute   set_part xc7z020clg484-1 -tool vivado 
-INFO: [HLS 200-100] Execute     add_library xilinx/zynq/zynq:xc7z020:clg484:-1 
-INFO: [HLS 200-100] Execute       get_default_platform 
-INFO: [HLS 200-100] Command       get_default_platform returned 0; 0 sec.
-INFO: [HLS 200-100] Execute       license_isbetapart xc7z020 
-INFO: [HLS 200-100] Command       license_isbetapart returned 1; 0 sec.
-INFO: [HLS 200-100] Execute       get_default_platform 
-INFO: [HLS 200-100] Command       get_default_platform returned 0; 0 sec.
-INFO: [HLS 200-100] Execute       config_chip_info -quiet -resource  {SLICE 13300}  {LUT 53200}     {FF 106400} {DSP48E 220}   {BRAM 280}  
-INFO: [HLS 200-100] Command       config_chip_info returned 0; 0 sec.
-INFO: [HLS 200-100] Execute       config_chip_info -quiet -speed slow 
-INFO: [HLS 200-100] Command       config_chip_info returned 0; 0 sec.
-INFO: [HLS 200-100] Command     add_library returned 0; 0 sec.
-INFO: [HLS 200-100] Execute     add_library xilinx/zynq/zynq_fpv6 
-INFO: [HLS 200-100] Execute       get_default_platform 
-INFO: [HLS 200-100] Command       get_default_platform returned 0; 0 sec.
-INFO: [HLS 200-100] Command     add_library returned 0; 0 sec.
-INFO: [HLS 200-100] Execute     get_default_platform 
-INFO: [HLS 200-100] Command     get_default_platform returned 0; 0 sec.
-INFO: [HLS 200-100] Command   set_part returned 0; 0.03 sec.
-INFO: [HLS 200-100] Execute   create_clock -period 10 -name default 
-INFO: [HLS 200-100] Command   create_clock returned 0; 0 sec.
-INFO: [HLS 200-100] Execute   csynth_design 
-INFO: [HLS 200-100] Execute     elaborate -effort=medium -skip_syncheck=0 -keep_printf=0 -lm=0 -skip_cdt=0 -skip_transform=0 -ng=0 -g=0 -opt_fp=0 
-INFO: [HLS 200-10] Analyzing design file 'danke.cpp' ... 
-INFO: [HLS 200-0] Compiling one TU...
-INFO: [HLS 200-100] Execute       is_m_axi_addr64 
-INFO: [HLS 200-100] Command       is_m_axi_addr64 returned 0; 0 sec.
-INFO: [HLS 200-0] Handling danke.cpp as C++
-INFO: [HLS 200-0] Syntax Checking before pre-processing...
-INFO: [HLS 200-100] Execute       clang  -fno-limit-debug-info -gcc-toolchain "/opt/Xilinx/Vivado_HLS/2017.2/lnx64/tools/gcc" -hls    -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit  -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__   -I "/opt/Xilinx/Vivado_HLS/2017.2/lnx64/tools/systemc/include" -I "/opt/Xilinx/Vivado_HLS/2017.2/include" -I "/opt/Xilinx/Vivado_HLS/2017.2/include/ap_sysc" -fexceptions -I "/opt/Xilinx/Vivado_HLS/2017.2/common/technology/autopilot" -include etc/autopilot_ssdm_op.h "danke.cpp"  -o "/home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/danke.pp.00.o" 
-INFO: [HLS 200-0] exec clang -fno-limit-debug-info -gcc-toolchain /opt/Xilinx/Vivado_HLS/2017.2/lnx64/tools/gcc -hls -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -I /opt/Xilinx/Vivado_HLS/2017.2/lnx64/tools/systemc/include -I /opt/Xilinx/Vivado_HLS/2017.2/include -I /opt/Xilinx/Vivado_HLS/2017.2/include/ap_sysc -fexceptions -I /opt/Xilinx/Vivado_HLS/2017.2/common/technology/autopilot -include etc/autopilot_ssdm_op.h danke.cpp -o /home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/danke.pp.00.o
-INFO: [HLS 200-100] Command       clang returned 0; 0.69 sec.
-INFO: [HLS 200-100] Execute       is_encrypted /home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/danke.pp.00.o 
-INFO: [HLS 200-100] Command       is_encrypted returned 0; 0 sec.
-INFO: [HLS 200-0] Source preprocessing
-INFO: [HLS 200-100] Execute       clang  -fno-limit-debug-info -gcc-toolchain "/opt/Xilinx/Vivado_HLS/2017.2/lnx64/tools/gcc" -hls -fno-exceptions  -D__llvm__  -CC -E "danke.cpp"     -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit  -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "/opt/Xilinx/Vivado_HLS/2017.2/common/technology/autopilot" -I "/opt/Xilinx/Vivado_HLS/2017.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h  -o "/home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/danke.pp.0.cpp" 
-INFO: [HLS 200-0] exec clang -fno-limit-debug-info -gcc-toolchain /opt/Xilinx/Vivado_HLS/2017.2/lnx64/tools/gcc -hls -fno-exceptions -D__llvm__ -CC -E danke.cpp -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /opt/Xilinx/Vivado_HLS/2017.2/common/technology/autopilot -I /opt/Xilinx/Vivado_HLS/2017.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -o /home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/danke.pp.0.cpp
-INFO: [HLS 200-100] Command       clang returned 0; 0.09 sec.
-INFO: [HLS 200-0] GCC PP time: 0 seconds per iteration
-INFO: [HLS 200-100] Execute       list_core -type functional_unit 
-INFO: [HLS 200-100] Command       list_core returned 0; 0 sec.
-INFO: [HLS 200-0] CDT Preprocessing...
-INFO: [HLS 200-0] Marker-Pragma convertor: /home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/danke.pp.0.cpp /home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/danke.pp.0.cpp.ap-line.cpp /home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/danke.pp.0.cpp.ap-line.cpp.CXX 1
-INFO: [HLS 200-0] Converting Markers to Pragmas...
-INFO: [HLS 200-100] Execute       cdt  "/home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/danke.pp.0.cpp.ap-line.cpp"  -m "danke_core" -o "/home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/danke.pp.0.cpp.ap-cdt.cpp" --pp --directive /home/parallels/Documents/ece527/final_project/danke_core/solution1/solution1.directive --source /home/parallels/Documents/ece527/final_project/danke.cpp --error /home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db --funcunit "AddSub AddSub_DSP AddSubnS DAddSub_fulldsp DAddSub_nodsp DDiv DExp_fulldsp DExp_meddsp DExp_nodsp DLog_fulldsp DLog_meddsp DLog_nodsp DMul_fulldsp DMul_maxdsp DMul_meddsp DMul_nodsp DRSqrt DRecip DSqrt DivnS FAddSub_fulldsp FAddSub_nodsp FDiv FExp_fulldsp FExp_meddsp FExp_nodsp FLog_fulldsp FLog_meddsp FLog_nodsp FMul_fulldsp FMul_maxdsp FMul_meddsp FMul_nodsp FRSqrt_fulldsp FRSqrt_nodsp FRecip_fulldsp FRecip_nodsp FSqrt HAddSub_fulldsp HAddSub_meddsp HAddSub_nodsp HDiv HMul_fulldsp HMul_maxdsp HMul_nodsp HSqrt Mul Mul2S Mul3S Mul4S Mul5S Mul6S Mul_LUT MulnS MuxnS" --ve --vetcl /home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db --ca --es --gf --pd --p2d /home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db --sd --scff /home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/.systemc_flag --ad 
-INFO: [HLS 200-0] Error:Syntax error in source:for (__decltype(__n + 0) __niter = __n;
-Error:Missing ; in source:t
-Error:Syntax error in source:)
- *__first = __value;
-Error:Syntax error in source:for (__decltype(__n + 0) __niter = __n;
-Error:Missing ; in source:t
-Error:Syntax error in source:)
- *__first = __tmp;
-INFO: [HLS 200-100] Command       cdt returned 0; 5.33 sec.
-INFO: [HLS 200-0] Marker-Pragma convertor: /home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/danke.pp.0.cpp.ap-cdt.cpp /home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/danke.pragma.0.cpp /home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/danke.pragma.0.cpp.ap-line.CXX 0
-INFO: [HLS 200-0] Converting Pragmas to Markers...
-INFO: [HLS 200-100] Execute       source /home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/pragma.status.tcl 
-INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
-INFO: [HLS 200-0] Pragma Handling...
-INFO: [HLS 200-0] Source preprocessing
-INFO: [HLS 200-100] Execute       clang  -fno-limit-debug-info -gcc-toolchain "/opt/Xilinx/Vivado_HLS/2017.2/lnx64/tools/gcc" -hls -fno-exceptions  -D__llvm__  -CC -E "/home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/danke.pragma.1.cpp"     -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit  -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "/opt/Xilinx/Vivado_HLS/2017.2/common/technology/autopilot" -I "/opt/Xilinx/Vivado_HLS/2017.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h  -o "/home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/danke.pragma.2.cpp" 
-INFO: [HLS 200-0] exec clang -fno-limit-debug-info -gcc-toolchain /opt/Xilinx/Vivado_HLS/2017.2/lnx64/tools/gcc -hls -fno-exceptions -D__llvm__ -CC -E /home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/danke.pragma.1.cpp -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /opt/Xilinx/Vivado_HLS/2017.2/common/technology/autopilot -I /opt/Xilinx/Vivado_HLS/2017.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -o /home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/danke.pragma.2.cpp
-INFO: [HLS 200-100] Command       clang returned 0; 0.06 sec.
-INFO: [HLS 200-0] Processing labels
-INFO: [HLS 200-100] Execute       clang  -fno-limit-debug-info -gcc-toolchain /opt/Xilinx/Vivado_HLS/2017.2/lnx64/tools/gcc -hls -hls-analyze-label -hls-analyze-pragma -fno-exceptions  -D__llvm__  -w  "/home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/danke.pragma.2.cpp"    -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "/opt/Xilinx/Vivado_HLS/2017.2/common/technology/autopilot" -I "/opt/Xilinx/Vivado_HLS/2017.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -g -o "/home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/danke.g.bc" 
-INFO: [HLS 200-0] exec clang -fno-limit-debug-info -gcc-toolchain /opt/Xilinx/Vivado_HLS/2017.2/lnx64/tools/gcc -hls -hls-analyze-label -hls-analyze-pragma -fno-exceptions -D__llvm__ -w /home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/danke.pragma.2.cpp -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /opt/Xilinx/Vivado_HLS/2017.2/common/technology/autopilot -I /opt/Xilinx/Vivado_HLS/2017.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -g -o /home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/danke.g.bc
-INFO: [HLS 200-100] Command       clang returned 0; 0.51 sec.
-INFO: [HLS 200-100] Execute       source /home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/ve_warning.tcl 
-INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
-INFO: [HLS 200-10] Validating synthesis directives ...
-INFO: [HLS 200-100] Execute       source /home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/pragma.status.tcl 
-INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
-INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:16 ; elapsed = 00:00:08 . Memory (MB): peak = 351.059 ; gain = 12.586 ; free physical = 5186 ; free virtual = 7066
-INFO: [HLS 200-0] Linking Release ...
-INFO: [HLS 200-100] Execute       llvm-ld /home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/danke.bc -disable-opt -L/opt/Xilinx/Vivado_HLS/2017.2/lnx64/lib -lm_basic -o /home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/a.o 
-INFO: [HLS 200-100] Command       llvm-ld returned 0; 0.1 sec.
-INFO: [HLS 200-100] Execute       disassemble /home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/a.o /home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/a.o 
-INFO: [HLS 200-100] Execute         is_encrypted /home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/a.o.bc 
-INFO: [HLS 200-100] Command         is_encrypted returned 0; 0 sec.
-INFO: [HLS 200-100] Command       disassemble returned 0; 0.07 sec.
-INFO: [HLS 200-0] Disassemble time: 0 seconds per iteration
-INFO: [HLS 200-0] Linking Debug ...
-INFO: [HLS 200-100] Execute       llvm-ld /home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/danke.g.bc -disable-opt -L/opt/Xilinx/Vivado_HLS/2017.2/lnx64/lib -lm_basic -o /home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/a.g 
-INFO: [HLS 200-100] Command       llvm-ld returned 0; 0.09 sec.
-INFO: [HLS 200-100] Execute       disassemble /home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/a.g /home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/a.g 
-INFO: [HLS 200-100] Execute         is_encrypted /home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/a.g.bc 
-INFO: [HLS 200-100] Command         is_encrypted returned 0; 0 sec.
-INFO: [HLS 200-100] Command       disassemble returned 0; 0.06 sec.
-INFO: [HLS 200-0] Disassemble time: 0 seconds per iteration
-INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:16 ; elapsed = 00:00:08 . Memory (MB): peak = 351.059 ; gain = 12.586 ; free physical = 5177 ; free virtual = 7064
-INFO: [HLS 200-100] Execute       opt_and_import_c a -opt_level=2 -skip_syncheck=0 -ng=0 -keep_printf=0 
-INFO: [HLS 200-100] Execute         cleanup_all_models 
-INFO: [HLS 200-100] Command         cleanup_all_models returned 0; 0 sec.
-INFO: [HLS 200-10] Starting code transformations ...
-INFO: [HLS 200-100] Execute         transform -promote-dbg-pointer /home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/a.pp.bc -o /home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/a.pp.0.bc -f 
-INFO: [HLS 200-100] Command         transform returned 0; 0.06 sec.
-INFO: [HLS 200-100] Execute         llvm-ld /home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/a.pp.0.bc -disable-opt -L/opt/Xilinx/Vivado_HLS/2017.2/lnx64/lib -lfloatconversion -o /home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/a.g.0 
-INFO: [HLS 200-100] Command         llvm-ld returned 0; 0.09 sec.
-INFO: [HLS 200-0] Running Standard Transforms...
-INFO: [HLS 200-100] Execute         transform -hls -share-std-xform -demangle-name -inline-byval-memcpy -always-inline -promote-dbg-pointer -interface-preproc -scalarrepl -mem2reg -keep-read-access -instcombine -dce -promote-dbg-pointer -bitop-raise -loop-simplify -indvarspre -indvars -loop-simplify -xunroll -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -basicaa -simplifycfg -mem2reg -globalopt -global-constprop -deadargelim -instcombine -simplifycfg -prune-eh -simplifycfg -scalarrepl -instcombine -reassociate -licm -simplifycfg -loop-simplify -indvars -instcombine -simplifycfg -mem2reg -loop-simplify -indvars -instcombine -gvn -gvn -instcombine -adce -break-crit-edges -simplifycfg -loop-delete -global-array-opt -dce -dse -adce -find-syn-modules -top danke_core -deadargelim -mem2reg -instcombine -dce -presyn-prepare -auto-rom-infer -interface-preproc -syn-check -check-rec-only -find-region -simplifycfg -func-extr -function-inline -globaldce -mem2reg -instcombine -dce -gvn -globaldce -adce -adse -constprop -instcombine -bit-constprop -instcombine -dce -simplifycfg -bitop-raise -simplifycfg -dce -loop-delete -reassociate -globalopt -global-privatize -mem2reg -dce -global-constprop -pointer-simplify -constprop -dce -func-inst -deadargelim -auto-shift-reg-idiom -promote-dbg-pointer -norm-name /home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/a.g.0.bc -o /home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/a.g.1.bc -f -phase std-opt 
-INFO: [HLS 200-100] Command         transform returned 0; 0.09 sec.
-INFO: [HLS 200-100] Execute         disassemble /home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/a.g.1 /home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/a.g.1 
-INFO: [HLS 200-100] Execute           is_encrypted /home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/a.g.1.bc 
-INFO: [HLS 200-100] Command           is_encrypted returned 0; 0 sec.
-INFO: [HLS 200-100] Command         disassemble returned 0; 0.05 sec.
-INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:16 ; elapsed = 00:00:09 . Memory (MB): peak = 351.523 ; gain = 13.051 ; free physical = 5157 ; free virtual = 7053
-INFO: [HLS 200-10] Checking synthesizability ...
-INFO: [HLS 200-0] Checking Synthesizability 1/2..
-INFO: [HLS 200-100] Execute         transform -hls -syn-check -check-rec-only -disaggr -scalarrepl -norm-name -dce -mem2reg -instcombine -function-uniquify -directive-preproc -mem2reg -dse -dce -auto-rom-infer -dce -array-normalize -instcombine -dce -warn-fifo-pointer -array-seg-normalize -instcombine -dce -array-flatten -instcombine -dce -array-burst -dce -deadargelim -promote-global-argument -simplifycfg -mem2reg -globaldce -resolve-double-ptr -dce -deadargelim -dce -instcombine -function-inline -globaldce -dce -doublePtrSimplify -doublePtrElim -dce -doublePtrSimplify -promote-dbg-pointer -dce -scalarrepl -dse -adse -instcombine -ptrLegalization -simplifycfg -dce -instcombine -pointer-simplify -ptrArgReplace -dce -instcombine -disaggr -scalarrepl -norm-name -dce -mem2reg -instcombine -ptrLegalization -simplifycfg -deadargelim -instcombine -dce -inst-simplify -function-uniquify -directive-preproc -mem2reg -dse -dce -globaldce /home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/a.g.1.bc -o /home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/a.g.2.prechk.bc -f 
-INFO: [HLS 200-100] Command         transform returned 0; 0.05 sec.
-INFO: [HLS 200-0] Checking Synthesizability 2/2..
-INFO: [HLS 200-100] Execute         transform -syn-check /home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/a.g.2.prechk.bc -o /home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/a.g.2.bc -f -phase syn-check 
-INFO: [HLS 200-100] Command         transform returned 0; 0.03 sec.
-INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:16 ; elapsed = 00:00:09 . Memory (MB): peak = 479.055 ; gain = 140.582 ; free physical = 5150 ; free virtual = 7047
-INFO: [HLS 200-0] Compiler optimizing ...
-INFO: [HLS 200-0] Share syncheck's 1.bc for syn flow: copy /home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/a.g.1.bc to /home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/a.o.1.bc
-INFO: [HLS 200-0] Presyn 1...
-INFO: [HLS 200-100] Execute         transform -hls -tmp /home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db -interface-port-rename -type-info -function-uniquify -directive-preproc -mem2reg -dse -dce -disaggr -scalarrepl -norm-name -deadargelim -mem2reg -instcombine -dce -auto-rom-infer -dce -function-uniquify -resource-proc -simplifycfg -mem2reg -globaldce -resolve-double-ptr -dce -deadargelim -dce -instcombine -clib-intrinsic-prepare -dce -func-buffer -dce -array-normalize -func-legal -instcombine -gvn -constprop -dce -ptrArgReplace -mem2reg -instcombine -dce -array-seg-normalize -deadargelim -instcombine -dce -pointer-simplify -dce -port-alignment -dce -interface-preproc -data-pack -instcombine -dce -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -loop-simplify -indvars -instcombine -gvn -loop-simplify -mem2reg -dce -simplifycfg -find-region -instcombine -auto-loop-pipeline -inst-simplify -interface-preproc -cfgopt -instcombine -indvars -auto-loop-unroll -loop-simplify -loop-bound -xunroll -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -clean-region -attach-range -gvn -inst-simplify -constprop -simplifycfg -dce -pointer-simplify -dce -globalopt -constprop -dce -array-promote -constprop -instcombine -dce -ptrArgReplace -mem2reg -instcombine -simplifycfg -dce -auto-par -instcombine -dce -array-transform-check -array-reshape -instcombine -simplifycfg -dce -ptrArgReplace -deadargelim -mem2reg -instcombine -simplifycfg -dce -indvars -loop-simplify -loop-bound -xunroll -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -duplicate-dataflow-processes -globaldce -instcombine -array-partition -instcombine -simplifycfg -dce -ptrArgReplace -global-constprop -deadargelim -mem2reg -func-legal -instcombine -dce -global-constprop -deadargelim -mem2reg -instcombine -simplifycfg -dce -globalopt -constprop -dce -array-promote -constprop -instcombine -dce -ptrArgReplace -mem2reg -instcombine -simplifycfg -dce -mem-intrinsic-preproc -dce -global-privatize -mem2reg -globaldce -promote-global-argument -ptrArgReplace -mem2reg -instcombine -dce -globalopt -mergereturn -simplify-global-access -mem2reg -dce -pointer-simplify -dce -functionattrs -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -inst-simplify -dce -norm-name -function-inline -globaldce -func-inst -constprop -instcombine -simplifycfg -dce -func-legal -dce -loop-bound -arraycheck -bitwidthmin -on-by-dataflow -loop-delete -instcombine -simplifycfg -globaldce -dce -gvn -deadargelim -dce -loop-simplify -clean-region -simplifycfg -propagate-stable-arguments -loop-stream -instcombine -simplifycfg -dce -globaldce -stream-intrinsic-preproc -dce -check-ap-stream -loop-simplify -eliminate-keepreads -extract-dataflow-in-loop -loop-simplify -dce -gvn -deadargelim -dse -check-dataflow-syntax -legalize-stream-variable -legalize-global -extract-subproc -dce -dead-channel-elimination -canonicalize-gep -globaldce -dce -gvn -deadargelim -annotate-dataflow-channels -scalar-propagation -deadargelim -globaldce -mem2reg -check-dataflow-channels -function-stream -dce -globaldce -prop-fifo-spec -internal-stream-gen -canonicalize-gep -globaldce -dce -gvn -deadargelim -mergereturn -indvars -loop-simplify -instcombine -array-stream -array-seg-normalize -array-partition -func-legal -instcombine -simplifycfg -dce -bundle-memfifo-ops -deadargelim -function-uniquify -directive-preproc -mem2reg -dse -dce -group-axi-access -licm -simplifycfg -dce -loop-delete -norm-name /home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/a.o.1.bc -o /home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/a.o.1.tmp.bc -f 
-INFO: [HLS 200-100] Command         transform returned 0; 0.09 sec.
-INFO: [HLS 200-0] Presyn 2...
-INFO: [HLS 200-100] Execute         transform -hls -keep-callgraph -scalarrepl -mem2reg -port-alignment -attach-range -dce -pipe-mux-gen -indvars -loop-bound -inst-simplify -instcombine -dce -merge-array-access -mem2reg -dce -clean-region -mergereturn -if-conv -instcombine -dce -constprop -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -scalarrepl -mem2reg -global-constprop -deadargelim -deadargelim -instcombine -dce -simplifycfg -ptrArgReplace -mem2reg -function-inline -globaldce -mem2reg -instcombine -dce -expr-balance -instcombine -dce -bitwidthmin -interface-preproc -directive-preproc -inst-rectify -instcombine -dce -functionattrs -constprop -instcombine -bit-constprop -simplify-global-access -globalopt -globaldce -inst-simplify -instcombine -elimdeaddata -dce -loop-delete -simplifycfg -loop-simplify -auto-burst -norm-name /home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/a.o.1.tmp.bc -o /home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/a.o.2.bc -f -phase presyn 
-INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (danke.cpp:25:28) to (danke.cpp:63:11) in function 'danke_core'... converting 9 basic blocks.
-INFO: [XFORM 203-11] Balancing expressions in function 'danke_core' (danke.cpp:6)...3 expression(s) balanced.
-INFO: [HLS 200-100] Command         transform returned 0; 0.07 sec.
-INFO: [HLS 200-100] Execute         disassemble /home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/a.o.2 /home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/a.o.2 
-INFO: [HLS 200-100] Execute           is_encrypted /home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/a.o.2.bc 
-INFO: [HLS 200-100] Command           is_encrypted returned 0; 0 sec.
-INFO: [HLS 200-100] Command         disassemble returned 0; 0.04 sec.
-INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:16 ; elapsed = 00:00:09 . Memory (MB): peak = 479.055 ; gain = 140.582 ; free physical = 5119 ; free virtual = 7019
-INFO: [HLS 200-0] Building ssdm...
-INFO: [HLS 200-100] Execute         transform -hls -function-uniquify -auto-function-inline -globaldce -ptrArgReplace -mem2reg -instcombine -dce -reset-lda -loop-simplify -indvars -licm -loop-dep -loop-bound -licm -loop-simplify -flattenloopnest -array-flatten -gvn -instcombine -dce -array-map -dce -func-legal -gvn -adce -instcombine -cfgopt -simplifycfg -loop-simplify -array-burst -promote-global-argument -dce -axi4-lower -array-seg-normalize -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -gvn -gvn -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -dse -adse -adce -licm -inst-simplify -dce -globaldce -instcombine -array-stream -eliminate-keepreads -instcombine -dce -deadargelim -doublePtrSimplify -doublePtrElim -dce -doublePtrSimplify -promote-dbg-pointer -dce -scalarrepl -mem2reg -disaggr -norm-name -mem2reg -instcombine -dse -adse -adce -ptrLegalization -dce -auto-rom-infer -array-flatten -dce -instcombine -check-doubleptr -loop-rot -constprop -cfgopt -simplifycfg -loop-simplify -indvars -pointer-simplify -dce -loop-bound -loop-simplify -loop-preproc -constprop -global-constprop -gvn -mem2reg -instcombine -dce -loop-bound -loop-merge -dce -bitwidthmin -deadargelim -dce -canonicalize-dataflow -dce -scalar-propagation -deadargelim -globaldce -mem2reg -interface-preproc -interface-gen -deadargelim -directive-preproc -inst-simplify -dce -gvn -mem2reg -instcombine -dce -adse -loop-bound -instcombine -cfgopt -simplifycfg -loop-simplify -clean-region -io-protocol -find-region -mem2reg -bitop-raise -inst-simplify -inst-rectify -instcombine -adce -deadargelim -loop-simplify -phi-opt -bitop-raise -cfgopt -simplifycfg -strip-dead-prototypes -interface-lower -bitop-lower -intrinsic-lower -auto-function-inline -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -inst-simplify -simplifycfg -loop-simplify -mergereturn -inst-simplify -inst-rectify -dce -bitop-lower -loop-rewind -pointer-simplify -dce -cfgopt -read-loop-dep -dce -bitwidth -loop-dep -norm-name -legalize -validate-dataflow -cdfg-build /home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/a.o.2.bc -o /home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/a.o.3.bc -f -phase build-ssdm 
-INFO: [HLS 200-100] Command         transform returned 0; 0.11 sec.
-INFO: [HLS 200-100] Execute         disassemble /home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/a.o.3 /home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/a.o.3 
-INFO: [HLS 200-100] Execute           is_encrypted /home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/a.o.3.bc 
-INFO: [HLS 200-100] Command           is_encrypted returned 0; 0 sec.
-INFO: [HLS 200-100] Command         disassemble returned 0; 0.04 sec.
-INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:16 ; elapsed = 00:00:09 . Memory (MB): peak = 479.055 ; gain = 140.582 ; free physical = 5114 ; free virtual = 7017
-INFO: [HLS 200-0] Finish building internal data model.
-INFO: [HLS 200-100] Command       opt_and_import_c returned 0; 0.74 sec.
-INFO: [HLS 200-100] Command     elaborate returned 0; 8.65 sec.
-INFO: [HLS 200-100] Execute     autosyn 
-INFO: [HLS 200-10] Starting hardware synthesis ...
-INFO: [HLS 200-0] Synthesizing C/C++ design ...
-INFO: [HLS 200-10] Synthesizing 'danke_core' ...
-INFO: [HLS 200-100] Execute       ap_set_top_model danke_core 
-INFO: [HLS 200-100] Command       ap_set_top_model returned 0; 0 sec.
-INFO: [HLS 200-100] Execute       get_model_list danke_core -filter all-wo-channel -topdown 
-INFO: [HLS 200-100] Command       get_model_list returned 0; 0 sec.
-INFO: [HLS 200-100] Execute       preproc_iomode -model danke_core 
-INFO: [HLS 200-100] Command       preproc_iomode returned 0; 0 sec.
-INFO: [HLS 200-100] Execute       get_model_list danke_core -filter all-wo-channel 
-INFO: [HLS 200-100] Command       get_model_list returned 0; 0 sec.
-INFO: [HLS 200-0] Model list for configure: danke_core
-INFO: [HLS 200-0] Configuring Module : danke_core ...
-INFO: [HLS 200-100] Execute       set_default_model danke_core 
-INFO: [HLS 200-100] Command       set_default_model returned 0; 0 sec.
-INFO: [HLS 200-100] Execute       apply_spec_resource_limit danke_core 
-INFO: [HLS 200-100] Command       apply_spec_resource_limit returned 0; 0 sec.
-INFO: [HLS 200-0] Model list for preprocess: danke_core
-INFO: [HLS 200-0] Preprocessing Module: danke_core ...
-INFO: [HLS 200-100] Execute       set_default_model danke_core 
-INFO: [HLS 200-100] Command       set_default_model returned 0; 0 sec.
-INFO: [HLS 200-100] Execute       cdfg_preprocess -model danke_core 
-INFO: [HLS 200-100] Command       cdfg_preprocess returned 0; 0 sec.
-INFO: [HLS 200-100] Execute       rtl_gen_preprocess danke_core 
-INFO: [HLS 200-100] Command       rtl_gen_preprocess returned 0; 0 sec.
-INFO: [HLS 200-0] Model list for synthesis: danke_core
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-10] -- Implementing module 'danke_core' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-100] Execute       set_default_model danke_core 
-INFO: [HLS 200-100] Command       set_default_model returned 0; 0 sec.
-INFO: [HLS 200-100] Execute       schedule -model danke_core 
-INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-100] Command       schedule returned 0; 0.11 sec.
-INFO: [HLS 200-111]  Elapsed time: 9.2 seconds; current allocated memory: 88.412 MB.
-INFO: [HLS 200-100] Execute       report -o /home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/danke_core.verbose.sched.rpt -verbose -f 
-INFO: [HLS 200-100] Command       report returned 0; 0.01 sec.
-INFO: [HLS 200-100] Execute       db_write -o /home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/danke_core.sched.adb -f 
-INFO: [HLS 200-100] Command       db_write returned 0; 0.01 sec.
-INFO: [HLS 200-0] Finish scheduling danke_core.
-INFO: [HLS 200-100] Execute       set_default_model danke_core 
-INFO: [HLS 200-100] Command       set_default_model returned 0; 0 sec.
-INFO: [HLS 200-100] Execute       bind -model danke_core 
-INFO: [BIND 205-110] clear=
-INFO: [BIND 205-110] debug=
-INFO: [BIND 205-110] drf=
-INFO: [BIND 205-110] effort=
-INFO: [BIND 205-110] fast_refine=
-INFO: [BIND 205-110] fu_weight=[ 0.0 -- 1.0 ]
-INFO: [BIND 205-110] global_opt=
-INFO: [BIND 205-110] gsearch=
-INFO: [BIND 205-110] help=
-INFO: [BIND 205-110] help-hidden=
-INFO: [BIND 205-110] min_mem_port=
-INFO: [BIND 205-110] min_op=
-INFO: [BIND 205-110] minreg=
-INFO: [BIND 205-110] ml=
-INFO: [BIND 205-110] model=danke_core
-INFO: [BIND 205-110] no_false_path=
-INFO: [BIND 205-110] no_min_op=
-INFO: [BIND 205-110] normalize=
-INFO: [BIND 205-110] quiet=
-INFO: [BIND 205-110] refine=
-INFO: [BIND 205-110] reg_weight=[ 0.0 -- 1.0 ]
-INFO: [BIND 205-110] search=
-INFO: [BIND 205-110] tight_delay=
-INFO: [BIND 205-110] verbose=
-INFO: [BIND 205-110] wFF=
-INFO: [BIND 205-110] wFU=
-INFO: [BIND 205-110] wMUX=
-INFO: [BIND 205-110] wNET=
-INFO: [BIND 205-100] Starting micro-architecture generation ...
-INFO: [BIND 205-101] Performing variable lifetime analysis.
-INFO: [BIND 205-101] Exploring resource sharing.
-INFO: [BIND 205-101] Binding ...
-INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-100] Command       bind returned 0; 0.03 sec.
-INFO: [HLS 200-111]  Elapsed time: 0.05 seconds; current allocated memory: 89.059 MB.
-INFO: [HLS 200-100] Execute       report -o /home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/danke_core.verbose.bind.rpt -verbose -f 
-INFO: [HLS 200-100] Command       report returned 0; 0.06 sec.
-INFO: [HLS 200-100] Execute       db_write -o /home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/danke_core.bind.adb -f 
-INFO: [HLS 200-100] Command       db_write returned 0; 0.01 sec.
-INFO: [HLS 200-0] Finish binding danke_core.
-INFO: [HLS 200-100] Execute       get_model_list danke_core -filter all-wo-channel 
-INFO: [HLS 200-100] Command       get_model_list returned 0; 0 sec.
-INFO: [HLS 200-0] Preprocessing for RTLGen ...
-INFO: [HLS 200-100] Execute       rtl_gen_preprocess danke_core 
-INFO: [HLS 200-100] Command       rtl_gen_preprocess returned 0; 0 sec.
-INFO: [HLS 200-0] Model list for RTL generation: danke_core
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-10] -- Generating RTL for module 'danke_core' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-100] Execute       create_rtl_model danke_core -vendor xilinx -mg_file /home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/danke_core.compgen.tcl 
-INFO: [RTGEN 206-500] Setting interface mode on port 'danke_core/instruction_memory_V' to 'ap_memory'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'danke_core/data_memory_V' to 'ap_memory'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'danke_core/halted_V' to 'ap_ovld'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'danke_core/core_id' to 'ap_none'.
-INFO: [RTGEN 206-500] Setting interface mode on function 'danke_core' to 'ap_ctrl_hs'.
-INFO: [SYN 201-210] Renamed object name 'danke_core_regfile_V' to 'danke_core_regfilbkb' due to the length limit 20
-INFO: [SYN 201-210] Renamed object name 'danke_core_special_regfile_V' to 'danke_core_speciacud' due to the length limit 20
-INFO: [SYN 201-210] Renamed object name 'danke_core_sdiv_32s_32s_32_36_seq' to 'danke_core_sdiv_3dEe' due to the length limit 20
-INFO: [SYN 201-210] Renamed object name 'danke_core_mul_32s_32s_32_2' to 'danke_core_mul_32eOg' due to the length limit 20
-INFO: [RTGEN 206-100] Generating core module 'danke_core_mul_32eOg': 1 instance(s).
-INFO: [RTGEN 206-100] Generating core module 'danke_core_sdiv_3dEe': 1 instance(s).
-INFO: [RTGEN 206-100] Finished creating RTL model for 'danke_core'.
-INFO: [HLS 200-100] Command       create_rtl_model returned 0; 0.04 sec.
-INFO: [HLS 200-111]  Elapsed time: 0.11 seconds; current allocated memory: 90.344 MB.
-INFO: [HLS 200-100] Execute       source /home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/danke_core.rtl_wrap.cfg.tcl 
-INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Execute       gen_rtl danke_core -istop -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o /home/parallels/Documents/ece527/final_project/danke_core/solution1/syn/systemc/danke_core -synmodules danke_core 
-INFO: [HLS 200-100] Command       gen_rtl returned 0; 0 sec.
-INFO: [HLS 200-100] Execute       gen_rtl danke_core -istop -style xilinx -f -lang vhdl -o /home/parallels/Documents/ece527/final_project/danke_core/solution1/syn/vhdl/danke_core 
-INFO: [HLS 200-100] Command       gen_rtl returned 0; 0.04 sec.
-INFO: [HLS 200-100] Execute       gen_rtl danke_core -istop -style xilinx -f -lang vlog -o /home/parallels/Documents/ece527/final_project/danke_core/solution1/syn/verilog/danke_core 
-INFO: [HLS 200-100] Command       gen_rtl returned 0; 0.01 sec.
-INFO: [HLS 200-100] Execute       export_constraint_db -o /home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/danke_core.constraint.tcl -f -tool general 
-INFO: [HLS 200-100] Command       export_constraint_db returned 0; 0 sec.
-INFO: [HLS 200-100] Execute       report -model danke_core -o /home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/danke_core.design.xml -verbose -f -dv 
-INFO: [HLS 200-100] Command       report returned 0; 0.03 sec.
-INFO: [HLS 200-100] Execute       report -model danke_core -o /home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/danke_core.sdaccel.xml -verbose -f -sdaccel 
-INFO: [HLS 200-100] Command       report returned 0; 0.05 sec.
-INFO: [HLS 200-100] Execute       gen_tb_info danke_core -o /home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/danke_core -p /home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db 
-INFO: [HLS 200-100] Command       gen_tb_info returned 0; 0 sec.
-INFO: [HLS 200-100] Execute       report -model danke_core -o /home/parallels/Documents/ece527/final_project/danke_core/solution1/syn/report/danke_core_csynth.rpt -f 
-INFO: [HLS 200-100] Command       report returned 0; 0.02 sec.
-INFO: [HLS 200-100] Execute       report -model danke_core -o /home/parallels/Documents/ece527/final_project/danke_core/solution1/syn/report/danke_core_csynth.xml -f -x 
-INFO: [HLS 200-100] Command       report returned 0; 0.02 sec.
-INFO: [HLS 200-100] Execute       report -model danke_core -o /home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/danke_core.verbose.rpt -verbose -f 
-INFO: [HLS 200-100] Command       report returned 0; 0.07 sec.
-INFO: [HLS 200-100] Execute       db_write -model danke_core -o /home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/danke_core.adb -f 
-INFO: [HLS 200-100] Command       db_write returned 0; 0.03 sec.
-INFO: [HLS 200-100] Execute       sc_get_clocks danke_core 
-INFO: [HLS 200-100] Command       sc_get_clocks returned 0; 0 sec.
-INFO: [HLS 200-100] Execute       sc_get_portdomain danke_core 
-INFO: [HLS 200-100] Command       sc_get_portdomain returned 0; 0 sec.
-INFO: [HLS 200-0] Model list for RTL component generation: danke_core
-INFO: [HLS 200-0] Handling components in module [danke_core] ... 
-INFO: [HLS 200-100] Execute       source /home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/danke_core.compgen.tcl 
-INFO: [HLS 200-0] Found component danke_core_sdiv_3dEe.
-INFO: [HLS 200-0] Append model danke_core_sdiv_3dEe
-INFO: [HLS 200-0] Found component danke_core_mul_32eOg.
-INFO: [HLS 200-0] Append model danke_core_mul_32eOg
-INFO: [HLS 200-0] Found component danke_core_regfilbkb.
-INFO: [HLS 200-0] Append model danke_core_regfilbkb
-INFO: [HLS 200-0] Found component danke_core_speciacud.
-INFO: [HLS 200-0] Append model danke_core_speciacud
-INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
-INFO: [HLS 200-0] Append model danke_core
-INFO: [HLS 200-0] Generating RTL model list ...
-INFO: [HLS 200-0] All models in this session: danke_core_sdiv_3dEe danke_core_mul_32eOg danke_core_regfilbkb danke_core_speciacud danke_core
-INFO: [HLS 200-0] To file: write model danke_core_sdiv_3dEe
-INFO: [HLS 200-0] To file: write model danke_core_mul_32eOg
-INFO: [HLS 200-0] To file: write model danke_core_regfilbkb
-INFO: [HLS 200-0] To file: write model danke_core_speciacud
-INFO: [HLS 200-0] To file: write model danke_core
-INFO: [HLS 200-0] Finished generating RTL model list.
-
-
-INFO: [HLS 200-0] RTL Generation done.
-INFO: [HLS 200-0] CAS Generation done.
-INFO: [HLS 200-0] CBC Generation done.
-INFO: [HLS 200-100] Execute       export_ssdm /home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/a.export.ll 
-INFO: [HLS 200-100] Command       export_ssdm returned 0; 0 sec.
-INFO: [HLS 200-100] Execute       source /home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/global.setting.tcl 
-INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Execute       source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/generic/autopilot/common.gen 
-INFO: [HLS 200-100] Execute         source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/generic/autopilot/APCoreGen.gen 
-INFO: [HLS 200-100] Command         ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Execute       source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/generic/autopilot/op.gen 
-INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Execute       source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/generic/autopilot/op_simcore.gen 
-INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Execute       source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/generic/autopilot/interface.gen 
-INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Execute       source /home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/global.setting.tcl 
-INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Execute       source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/zynq/zynq.gen 
-INFO: [HLS 200-100] Execute         source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/common/virtex.gen 
-INFO: [HLS 200-100] Execute           source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/common/xilinx.gen 
-INFO: [HLS 200-100] Execute             source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/interface/plb46.gen 
-INFO: [HLS 200-100] Command             ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Execute             source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/interface/fsl.gen 
-INFO: [HLS 200-100] Command             ap_source returned 0; 0.01 sec.
-INFO: [HLS 200-100] Execute             source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/interface/axi4.gen 
-INFO: [HLS 200-100] Command             ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Execute             source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/interface/nativeAXI4.gen 
-INFO: [HLS 200-100] Execute               source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/interface/saxilite.gen 
-INFO: [HLS 200-100] Command               ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Execute               source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/interface/maxi.gen 
-INFO: [HLS 200-100] Command               ap_source returned 0; 0.01 sec.
-INFO: [HLS 200-100] Command             ap_source returned 0; 0.01 sec.
-INFO: [HLS 200-100] Execute             source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/scripts/xilinxcoregen.gen 
-INFO: [HLS 200-100] Command             ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Execute             source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/interface/XilEDKCoreGen.gen 
-INFO: [HLS 200-100] Command             ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Execute             source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/ip/dds_compiler.gen 
-INFO: [HLS 200-100] Command             ap_source returned 0; 0.01 sec.
-INFO: [HLS 200-100] Execute             source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/ip/xfft.gen 
-INFO: [HLS 200-100] Command             ap_source returned 0; 0.06 sec.
-INFO: [HLS 200-100] Execute             source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/ip/util.gen 
-INFO: [HLS 200-100] Command             ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Execute             source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/ip/xfir.gen 
-INFO: [HLS 200-100] Command             ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Command           ap_source returned 0; 0.09 sec.
-INFO: [HLS 200-100] Execute           source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/common/dsp48.gen 
-INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Command         ap_source returned 0; 0.09 sec.
-INFO: [HLS 200-100] Command       ap_source returned 0; 0.09 sec.
-INFO: [HLS 200-100] Execute       source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/zynq/zynq_fpv6.gen 
-INFO: [HLS 200-100] Execute         source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/common/xilinx_fpv6.gen 
-INFO: [HLS 200-100] Command         ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Execute       source /home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/global.setting.tcl 
-INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Execute       source /home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/global.setting.tcl 
-INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Execute       source /home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/global.setting.tcl 
-INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Execute       source /home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/global.setting.tcl 
-INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Execute       source /home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/danke_core.compgen.tcl 
-INFO: [RTMG 210-282] Generating pipelined core: 'danke_core_sdiv_3dEe_div'
-INFO: [RTMG 210-282] Generating pipelined core: 'danke_core_mul_32eOg_MulnS_0'
-INFO: [RTMG 210-278] Implementing memory 'danke_core_regfilbkb_ram' using block RAMs.
-INFO: [RTMG 210-278] Implementing memory 'danke_core_speciacud_ram' using block RAMs.
-INFO: [HLS 200-100] Command       ap_source returned 0; 0.05 sec.
-INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:00:17 ; elapsed = 00:00:10 . Memory (MB): peak = 479.055 ; gain = 140.582 ; free physical = 5106 ; free virtual = 7015
-INFO: [SYSC 207-301] Generating SystemC RTL for danke_core.
-INFO: [VHDL 208-304] Generating VHDL RTL for danke_core.
-INFO: [VLOG 209-307] Generating Verilog RTL for danke_core.
-INFO: [HLS 200-100] Command     autosyn returned 0; 0.76 sec.
-INFO: [HLS 200-100] Command   csynth_design returned 0; 9.41 sec.
-INFO: [HLS 200-100] Command ap_source returned 0; 9.64 sec.
+INFO: [HLS 200-100] Command   open_solution returned 0; 0.38 sec.
+INFO: [HLS 200-100] Execute   csim_design -clean -compiler gcc -quiet 
+INFO: [HLS 200-100] Execute     source /home/parallels/Documents/ece527/final_project/danke_core/solution1/.autopilot/db/global.setting.tcl 
+INFO: [HLS 200-100] Command     ap_source returned 0; 0 sec.
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+INFO: [HLS 200-100] Execute     source csim/.lst_opt.tcl 
+INFO: [HLS 200-100] Command     ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute     is_encrypted /home/parallels/Documents/ece527/final_project/danke_testbench.cpp 
+INFO: [HLS 200-100] Command     is_encrypted returned 0; 0 sec.
+INFO: [HLS 200-100] Execute     is_xip /home/parallels/Documents/ece527/final_project/danke_testbench.cpp 
+INFO: [HLS 200-100] Command     is_xip returned 0; 0 sec.
+INFO: [HLS 200-100] Execute     is_encrypted /home/parallels/Documents/ece527/final_project/danke.h 
+INFO: [HLS 200-100] Command     is_encrypted returned 0; 0 sec.
+INFO: [HLS 200-100] Execute     is_xip /home/parallels/Documents/ece527/final_project/danke.h 
+INFO: [HLS 200-100] Command     is_xip returned 0; 0 sec.
+INFO: [HLS 200-100] Execute     is_encrypted /home/parallels/Documents/ece527/final_project/danke.cpp 
+INFO: [HLS 200-100] Command     is_encrypted returned 0; 0 sec.
+INFO: [HLS 200-100] Execute     is_xip /home/parallels/Documents/ece527/final_project/danke.cpp 
+INFO: [HLS 200-100] Command     is_xip returned 0; 0 sec.
+INFO: [HLS 200-100] Execute     source run_sim.tcl 
+INFO: [HLS 200-100] Command     ap_source returned 0; 0.03 sec.
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-100] Command   csim_design returned 0; 2.47 sec.
+INFO: [HLS 200-100] Command ap_source returned 0; 2.85 sec.
 INFO: [HLS 200-100] Execute cleanup_all 
 INFO: [HLS 200-100] Command cleanup_all returned 0; 0 sec.

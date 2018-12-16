@@ -9,8 +9,8 @@
 module scheduler_historybkb_ram (addr0, ce0, d0, we0, q0,  clk);
 
 parameter DWIDTH = 32;
-parameter AWIDTH = 10;
-parameter MEM_SIZE = 1024;
+parameter AWIDTH = 12;
+parameter MEM_SIZE = 4096;
 
 input[AWIDTH-1:0] addr0;
 input ce0;
@@ -53,8 +53,8 @@ module scheduler_historybkb(
     q0);
 
 parameter DataWidth = 32'd32;
-parameter AddressRange = 32'd1024;
-parameter AddressWidth = 32'd10;
+parameter AddressRange = 32'd4096;
+parameter AddressWidth = 32'd12;
 input reset;
 input clk;
 input[AddressWidth - 1:0] address0;

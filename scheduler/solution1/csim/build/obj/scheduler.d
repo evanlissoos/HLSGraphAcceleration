@@ -127,4 +127,7 @@ obj/scheduler.o: ../../../../scheduler.cpp ../../../../scheduler.h \
  /opt/Xilinx/Vivado_HLS/2017.2/include/etc/ap_private.h \
  /opt/Xilinx/Vivado_HLS/2017.2/include/hls_half.h \
  /opt/Xilinx/Vivado_HLS/2017.2/include/etc/ap_fixed_sim.h \
- /opt/Xilinx/Vivado_HLS/2017.2/include/etc/ap_int_sim.h
+ /opt/Xilinx/Vivado_HLS/2017.2/include/etc/ap_int_sim.h \
+ /opt/Xilinx/Vivado_HLS/2017.2/include/ap_utils.h \
+ /opt/Xilinx/Vivado_HLS/2017.2/include/etc/autopilot_enum.h \
+ /opt/Xilinx/Vivado_HLS/2017.2/include/etc/autopilot_ssdm_op.h

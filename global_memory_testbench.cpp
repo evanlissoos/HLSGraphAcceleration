@@ -11,15 +11,15 @@ int main()
 	mem_interfaces[0].ack = 0;
 	mem_interfaces[0].result = 0;
 	mem_interfaces[0].request.address = 0;
-	mem_interfaces[0].request.data = 1;
-	mem_interfaces[0].request.op = GBMEMOP_ADD;
+	mem_interfaces[0].request.data = -100;
+	mem_interfaces[0].request.op = GBMEMOP_MAX;
 
 	mem_interfaces[1].req = 1;
 	mem_interfaces[1].ack = 0;
 	mem_interfaces[1].result = 0;
 	mem_interfaces[1].request.address = 0;
-	mem_interfaces[1].request.data = 1;
-	mem_interfaces[1].request.op = GBMEMOP_ADD;
+	mem_interfaces[1].request.data = 100;
+	mem_interfaces[1].request.op = GBMEMOP_MAX;
 
 	cout << "Entering global memory!" << endl;
 
@@ -28,5 +28,5 @@ int main()
 	cout << "Returned from global memory!" << endl;
 
 	for(int i = 0; i < NUM_CORES; i++)
-		cout << "Result on requst line " << hex << i << ": " << mem_interfaces[i].result;
+		cout << "Result on request line " << hex << i << ": " << mem_interfaces[i].result << endl;
 }
