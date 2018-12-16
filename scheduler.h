@@ -10,9 +10,9 @@ using namespace std;
 #define ready_t ap_uint<1>
 #define halted_t ap_uint<1>
 
-#define NUM_CORES 2
-#define HISTORY_SIZE 1024
-#define QUEUE_SIZE 4
+#define NUM_CORES 4
+#define HISTORY_SIZE 4096
+#define QUEUE_SIZE (NUM_CORES*10)
 
 typedef struct
 {

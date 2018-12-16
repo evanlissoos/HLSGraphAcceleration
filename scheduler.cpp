@@ -1,4 +1,5 @@
 #include "scheduler.h"
+#include "ap_utils.h"
 
 void scheduler(CoreScheduleInterface_t sched_interfaces[NUM_CORES], CoreControlInterface_t setup_interfaces[NUM_CORES], unsigned * finished)
 {
@@ -78,7 +79,7 @@ void scheduler(CoreScheduleInterface_t sched_interfaces[NUM_CORES], CoreControlI
 				#pragma HLS protocol fixed
 					setup_interfaces[i].context = new_context;
 					setup_interfaces[i].restart = 1;
-					//wait();
+					ap_wait();
 					setup_interfaces[i].restart = 0;
 				}
 			}
