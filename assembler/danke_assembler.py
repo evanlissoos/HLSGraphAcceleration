@@ -1,3 +1,5 @@
+from __future__ import print_function
+
 # Define register aliases
 r0 = 0
 r1 = 1
@@ -88,6 +90,8 @@ def intop_imm(operation, dr, sr1, const):
 def halt():
 	instr  = 6 << (BITS_INSTR-BITS_OPCODE)
 	instructions.append(instr)
+	instructions.append(0x800000)
+	print_instructions_c()
 
 # pc = (sr1 == sr2) ? pc + offset : pc + 1; 
 def branch(sr1, sr2, offset):
@@ -112,3 +116,11 @@ def store(src, sr1, sr2):
 	instr |= sr2 << (BITS_INSTR-BITS_OPCODE-(BITS_REG)*2)
 	instr |= src << (BITS_INSTR-BITS_OPCODE-(BITS_REG)*3)
 	instructions.append(instr)
+
+def print_instructions_c():
+	print('{ ', end='')
+	for i in range(len(instructions)):
+		print(format(instructions[i], '#04x'), end='')
+		if i != (len(instructions)-1):
+			print(', ', end='')
+	print(' };')
