@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'scheduler'
 ================================================================
-* Date:           Sat Dec 15 18:12:01 2018
+* Date:           Sat Dec 15 23:27:34 2018
 
 * Version:        2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)
 * Project:        scheduler
@@ -20,30 +20,31 @@
     +--------+-------+----------+------------+
     |  Clock | Target| Estimated| Uncertainty|
     +--------+-------+----------+------------+
-    |ap_clk  |  10.00|      6.92|        1.25|
+    |ap_clk  |  10.00|      8.28|        1.25|
     +--------+-------+----------+------------+
 
 + Latency (clock cycles): 
     * Summary: 
-    +-----+-----+-----+-----+---------+
-    |  Latency  |  Interval | Pipeline|
-    | min | max | min | max |   Type  |
-    +-----+-----+-----+-----+---------+
-    |    ?|    ?|    ?|    ?|   none  |
-    +-----+-----+-----+-----+---------+
+    +-----+------+-----+------+---------+
+    |   Latency  |  Interval  | Pipeline|
+    | min |  max | min |  max |   Type  |
+    +-----+------+-----+------+---------+
+    |   14|  6164|   15|  6165|   none  |
+    +-----+------+-----+------+---------+
 
     + Detail: 
         * Instance: 
         N/A
 
         * Loop: 
-        +-------------+-----+-----+----------+-----------+-----------+------+----------+
-        |             |  Latency  | Iteration|  Initiation Interval  | Trip |          |
-        |  Loop Name  | min | max |  Latency |  achieved |   target  | Count| Pipelined|
-        +-------------+-----+-----+----------+-----------+-----------+------+----------+
-        |- Loop 1     |    ?|    ?|  3 ~ 11  |          -|          -|  inf |    no    |
-        | + Loop 1.1  |    6|    8|   3 ~ 4  |          -|          -|     2|    no    |
-        +-------------+-----+-----+----------+-----------+-----------+------+----------+
+        +-------------+------+------+----------+-----------+-----------+------+----------+
+        |             |   Latency   | Iteration|  Initiation Interval  | Trip |          |
+        |  Loop Name  |  min |  max |  Latency |  achieved |   target  | Count| Pipelined|
+        +-------------+------+------+----------+-----------+-----------+------+----------+
+        |- Loop 1     |     6|  6154| 3 ~ 3077 |          -|          -|     2|    no    |
+        | + Loop 1.1  |  3072|  3072|         3|          -|          -|  1024|    no    |
+        |- Loop 2     |     6|     8|   3 ~ 4  |          -|          -|     2|    no    |
+        +-------------+------+------+----------+-----------+-----------+------+----------+
 
 ============================================================
 + Verbose Summary: Synthesis Manager
@@ -57,7 +58,7 @@ IsTopModel: 1
 ResetActiveHigh: 1
 IsCombinational: 0
 IsDatapathOnly: 0
-HasWiredReturn: 0
+HasWiredReturn: 1
 HasMFsm: 0
 HasVarLatency: 1
 IsPipeline: 0
@@ -71,7 +72,7 @@ IsGatedGlobalClock: 0
 ============================================================
 + Verbose Summary: Schedule
 ============================================================
-* Number of FSM states: 10
+* Number of FSM states: 12
 * Pipeline: 0
 * Dataflow Pipeline: 0
 
@@ -80,7 +81,7 @@ IsGatedGlobalClock: 0
 	2  / true
 2 --> 
 	3  / (!exitcond1)
-	7  / (exitcond1)
+	9  / (exitcond1)
 3 --> 
 	4  / (or_cond_5)
 	6  / (!or_cond_5)
@@ -89,517 +90,693 @@ IsGatedGlobalClock: 0
 5 --> 
 	6  / true
 6 --> 
-	2  / true
+	7  / (or_cond_5 & !exitcond2)
+	2  / (!or_cond_5) | (exitcond2)
 7 --> 
-	8  / (!exitcond)
-	6  / (exitcond)
+	8  / true
 8 --> 
-	9  / (demorgan)
-	10  / (!demorgan)
+	6  / true
 9 --> 
-	10  / true
+	10  / (!exitcond)
 10 --> 
-	7  / true
+	11  / (demorgan)
+	12  / (!demorgan)
+11 --> 
+	12  / true
+12 --> 
+	9  / true
 * FSM state operations: 
 
  <State 1>: 1.59ns
-ST_1: i (11)  [1/1] 0.00ns
-:0  %i = alloca i32
+ST_1: queue_head_ptr (12)  [1/1] 0.00ns
+:0  %queue_head_ptr = alloca i32
 
-ST_1: queue_3_current_nod (12)  [1/1] 0.00ns
-:1  %queue_3_current_nod = alloca i32
+ST_1: history_head_ptr (13)  [1/1] 0.00ns
+:1  %history_head_ptr = alloca i32
 
-ST_1: queue_3_current_nod_1 (13)  [1/1] 0.00ns
-:2  %queue_3_current_nod_1 = alloca i32
+ST_1: queue_3_current_nod (14)  [1/1] 0.00ns
+:2  %queue_3_current_nod = alloca i32
 
-ST_1: queue_3_current_nod_2 (14)  [1/1] 0.00ns
-:3  %queue_3_current_nod_2 = alloca i32
+ST_1: queue_3_current_nod_1 (15)  [1/1] 0.00ns
+:3  %queue_3_current_nod_1 = alloca i32
 
-ST_1: queue_3_current_nod_3 (15)  [1/1] 0.00ns
-:4  %queue_3_current_nod_3 = alloca i32
+ST_1: queue_3_current_nod_2 (16)  [1/1] 0.00ns
+:4  %queue_3_current_nod_2 = alloca i32
 
-ST_1: queue_3_next_node_2 (16)  [1/1] 0.00ns
-:5  %queue_3_next_node_2 = alloca i32
+ST_1: queue_3_current_nod_3 (17)  [1/1] 0.00ns
+:5  %queue_3_current_nod_3 = alloca i32
 
-ST_1: queue_3_next_node_3 (17)  [1/1] 0.00ns
-:6  %queue_3_next_node_3 = alloca i32
+ST_1: queue_3_next_node_2 (18)  [1/1] 0.00ns
+:6  %queue_3_next_node_2 = alloca i32
 
-ST_1: queue_3_next_node_6 (18)  [1/1] 0.00ns
-:7  %queue_3_next_node_6 = alloca i32
+ST_1: queue_3_next_node_3 (19)  [1/1] 0.00ns
+:7  %queue_3_next_node_3 = alloca i32
 
-ST_1: queue_3_next_node_8 (19)  [1/1] 0.00ns
-:8  %queue_3_next_node_8 = alloca i32
+ST_1: queue_3_next_node_6 (20)  [1/1] 0.00ns
+:8  %queue_3_next_node_6 = alloca i32
 
-ST_1: queue_3_state_2 (20)  [1/1] 0.00ns
-:9  %queue_3_state_2 = alloca i32
+ST_1: queue_3_next_node_8 (21)  [1/1] 0.00ns
+:9  %queue_3_next_node_8 = alloca i32
 
-ST_1: queue_3_state_3 (21)  [1/1] 0.00ns
-:10  %queue_3_state_3 = alloca i32
+ST_1: queue_3_state_2 (22)  [1/1] 0.00ns
+:10  %queue_3_state_2 = alloca i32
 
-ST_1: queue_3_state_6 (22)  [1/1] 0.00ns
-:11  %queue_3_state_6 = alloca i32
+ST_1: queue_3_state_3 (23)  [1/1] 0.00ns
+:11  %queue_3_state_3 = alloca i32
 
-ST_1: queue_3_state_8 (23)  [1/1] 0.00ns
-:12  %queue_3_state_8 = alloca i32
+ST_1: queue_3_state_6 (24)  [1/1] 0.00ns
+:12  %queue_3_state_6 = alloca i32
 
-ST_1: StgValue_24 (24)  [1/1] 0.00ns
-:13  call void (...)* @_ssdm_op_SpecBitsMap([2 x i32]* %sched_interfaces_context_current_node), !map !39
+ST_1: queue_3_state_8 (25)  [1/1] 0.00ns
+:13  %queue_3_state_8 = alloca i32
 
-ST_1: StgValue_25 (25)  [1/1] 0.00ns
-:14  call void (...)* @_ssdm_op_SpecBitsMap([2 x i32]* %sched_interfaces_context_next_node), !map !45
+ST_1: StgValue_27 (26)  [1/1] 0.00ns
+:14  call void (...)* @_ssdm_op_SpecBitsMap([2 x i32]* %sched_interfaces_context_current_node), !map !53
 
-ST_1: StgValue_26 (26)  [1/1] 0.00ns
-:15  call void (...)* @_ssdm_op_SpecBitsMap([2 x i32]* %sched_interfaces_context_state), !map !49
+ST_1: StgValue_28 (27)  [1/1] 0.00ns
+:15  call void (...)* @_ssdm_op_SpecBitsMap([2 x i32]* %sched_interfaces_context_next_node), !map !59
 
-ST_1: StgValue_27 (27)  [1/1] 0.00ns
-:16  call void (...)* @_ssdm_op_SpecBitsMap([2 x i1]* %sched_interfaces_schedule_V), !map !53
+ST_1: StgValue_29 (28)  [1/1] 0.00ns
+:16  call void (...)* @_ssdm_op_SpecBitsMap([2 x i32]* %sched_interfaces_context_state), !map !63
 
-ST_1: StgValue_28 (28)  [1/1] 0.00ns
-:17  call void (...)* @_ssdm_op_SpecBitsMap([2 x i1]* %sched_interfaces_ack_V), !map !57
+ST_1: StgValue_30 (29)  [1/1] 0.00ns
+:17  call void (...)* @_ssdm_op_SpecBitsMap([2 x i1]* %sched_interfaces_schedule_V), !map !67
 
-ST_1: StgValue_29 (29)  [1/1] 0.00ns
-:18  call void (...)* @_ssdm_op_SpecBitsMap([2 x i32]* %setup_interfaces_context_current_node), !map !61
+ST_1: StgValue_31 (30)  [1/1] 0.00ns
+:18  call void (...)* @_ssdm_op_SpecBitsMap([2 x i1]* %sched_interfaces_ack_V), !map !71
 
-ST_1: StgValue_30 (30)  [1/1] 0.00ns
-:19  call void (...)* @_ssdm_op_SpecBitsMap([2 x i32]* %setup_interfaces_context_next_node), !map !65
+ST_1: StgValue_32 (31)  [1/1] 0.00ns
+:19  call void (...)* @_ssdm_op_SpecBitsMap([2 x i32]* %setup_interfaces_context_current_node), !map !75
 
-ST_1: StgValue_31 (31)  [1/1] 0.00ns
-:20  call void (...)* @_ssdm_op_SpecBitsMap([2 x i32]* %setup_interfaces_context_state), !map !69
+ST_1: StgValue_33 (32)  [1/1] 0.00ns
+:20  call void (...)* @_ssdm_op_SpecBitsMap([2 x i32]* %setup_interfaces_context_next_node), !map !79
 
-ST_1: StgValue_32 (32)  [1/1] 0.00ns
-:21  call void (...)* @_ssdm_op_SpecBitsMap([2 x i1]* %setup_interfaces_restart_V), !map !73
+ST_1: StgValue_34 (33)  [1/1] 0.00ns
+:21  call void (...)* @_ssdm_op_SpecBitsMap([2 x i32]* %setup_interfaces_context_state), !map !83
 
-ST_1: StgValue_33 (33)  [1/1] 0.00ns
-:22  call void (...)* @_ssdm_op_SpecBitsMap([2 x i1]* %setup_interfaces_core_halted_V), !map !77
+ST_1: StgValue_35 (34)  [1/1] 0.00ns
+:22  call void (...)* @_ssdm_op_SpecBitsMap([2 x i1]* %setup_interfaces_restart_V), !map !87
 
-ST_1: StgValue_34 (34)  [1/1] 0.00ns
-:23  call void (...)* @_ssdm_op_SpecTopModule([10 x i8]* @scheduler_str) nounwind
+ST_1: StgValue_36 (35)  [1/1] 0.00ns
+:23  call void (...)* @_ssdm_op_SpecBitsMap([2 x i1]* %setup_interfaces_core_halted_V), !map !91
 
-ST_1: StgValue_35 (35)  [1/1] 1.59ns
-:24  store i32 0, i32* %i
+ST_1: StgValue_37 (36)  [1/1] 0.00ns
+:24  call void (...)* @_ssdm_op_SpecBitsMap(i32* %finished), !map !95
 
-ST_1: StgValue_36 (36)  [1/1] 1.59ns  loc: scheduler.cpp:10
-:25  br label %.backedge
+ST_1: StgValue_38 (37)  [1/1] 0.00ns
+:25  call void (...)* @_ssdm_op_SpecTopModule([10 x i8]* @scheduler_str) nounwind
+
+ST_1: history_current_node (38)  [1/1] 0.00ns  loc: scheduler.cpp:5
+:26  %history_current_node = alloca [1024 x i32], align 4
+
+ST_1: history_next_node (39)  [1/1] 0.00ns  loc: scheduler.cpp:5
+:27  %history_next_node = alloca [1024 x i32], align 4
+
+ST_1: history_state (40)  [1/1] 0.00ns  loc: scheduler.cpp:5
+:28  %history_state = alloca [1024 x i32], align 4
+
+ST_1: StgValue_42 (41)  [1/1] 1.59ns
+:29  store i32 0, i32* %history_head_ptr
+
+ST_1: StgValue_43 (42)  [1/1] 1.59ns
+:30  store i32 0, i32* %queue_head_ptr
+
+ST_1: StgValue_44 (43)  [1/1] 1.59ns  loc: scheduler.cpp:14
+:31  br label %._crit_edge
 
 
- <State 2>: 3.26ns
-ST_2: queue_head_ptr_1 (38)  [1/1] 0.00ns  loc: scheduler.cpp:44
-.backedge:0  %queue_head_ptr_1 = phi i32 [ 0, %0 ], [ %queue_head_ptr_1_be, %.backedge.backedge ]
+ <State 2>: 2.32ns
+ST_2: i (45)  [1/1] 0.00ns
+._crit_edge:0  %i = phi i2 [ 0, %0 ], [ %i_2, %._crit_edge.backedge ]
 
-ST_2: i_load (39)  [1/1] 0.00ns  loc: scheduler.cpp:13
-.backedge:1  %i_load = load i32* %i
+ST_2: queue_head_ptr_load (46)  [1/1] 0.00ns  loc: scheduler.cpp:51
+._crit_edge:1  %queue_head_ptr_load = load i32* %queue_head_ptr
 
-ST_2: loop_begin (40)  [1/1] 0.00ns
-.backedge:2  %loop_begin = call i32 (...)* @_ssdm_op_SpecLoopBegin() nounwind
+ST_2: exitcond1 (47)  [1/1] 2.07ns  loc: scheduler.cpp:14
+._crit_edge:2  %exitcond1 = icmp eq i2 %i, -2
 
-ST_2: exitcond1 (41)  [1/1] 3.26ns  loc: scheduler.cpp:13
-.backedge:3  %exitcond1 = icmp eq i32 %i_load, 2
+ST_2: empty (48)  [1/1] 0.00ns
+._crit_edge:3  %empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 2, i64 2, i64 2)
 
-ST_2: StgValue_41 (42)  [1/1] 0.00ns  loc: scheduler.cpp:13
-.backedge:4  br i1 %exitcond1, label %.preheader.preheader, label %1
+ST_2: i_2 (49)  [1/1] 2.17ns  loc: scheduler.cpp:14
+._crit_edge:4  %i_2 = add i2 %i, 1
 
-ST_2: tmp (44)  [1/1] 0.00ns  loc: scheduler.cpp:16
-:0  %tmp = sext i32 %i_load to i64
+ST_2: StgValue_50 (50)  [1/1] 0.00ns  loc: scheduler.cpp:14
+._crit_edge:5  br i1 %exitcond1, label %.preheader.preheader, label %1
 
-ST_2: sched_interfaces_sch (45)  [1/1] 0.00ns  loc: scheduler.cpp:16
+ST_2: tmp (52)  [1/1] 0.00ns  loc: scheduler.cpp:18
+:0  %tmp = zext i2 %i to i64
+
+ST_2: sched_interfaces_sch (53)  [1/1] 0.00ns  loc: scheduler.cpp:18
 :1  %sched_interfaces_sch = getelementptr [2 x i1]* %sched_interfaces_schedule_V, i64 0, i64 %tmp
 
-ST_2: sched_interfaces_sch_1 (46)  [2/2] 2.32ns  loc: scheduler.cpp:16
+ST_2: sched_interfaces_sch_1 (54)  [2/2] 2.32ns  loc: scheduler.cpp:18
 :2  %sched_interfaces_sch_1 = load i1* %sched_interfaces_sch, align 1
 
-ST_2: StgValue_45 (122)  [1/1] 1.59ns  loc: scheduler.cpp:50
-.preheader.preheader:0  br label %.preheader
+ST_2: queue_head_ptr_2 (174)  [1/1] 0.00ns
+.preheader.preheader:0  %queue_head_ptr_2 = alloca i32
+
+ST_2: StgValue_55 (175)  [1/1] 1.59ns  loc: scheduler.cpp:51
+.preheader.preheader:1  store i32 %queue_head_ptr_load, i32* %queue_head_ptr_2
+
+ST_2: StgValue_56 (176)  [1/1] 1.59ns  loc: scheduler.cpp:63
+.preheader.preheader:2  br label %.preheader
 
 
- <State 3>: 6.92ns
-ST_3: sched_interfaces_sch_1 (46)  [1/2] 2.32ns  loc: scheduler.cpp:16
+ <State 3>: 5.33ns
+ST_3: sched_interfaces_sch_1 (54)  [1/2] 2.32ns  loc: scheduler.cpp:18
 :2  %sched_interfaces_sch_1 = load i1* %sched_interfaces_sch, align 1
 
-ST_3: tmp_1 (47)  [1/1] 0.00ns  loc: scheduler.cpp:16
-:3  %tmp_1 = call i30 @_ssdm_op_PartSelect.i30.i32.i32.i32(i32 %queue_head_ptr_1, i32 2, i32 31)
+ST_3: tmp_1 (55)  [1/1] 0.00ns  loc: scheduler.cpp:18
+:3  %tmp_1 = call i30 @_ssdm_op_PartSelect.i30.i32.i32.i32(i32 %queue_head_ptr_load, i32 2, i32 31)
 
-ST_3: icmp (48)  [1/1] 3.26ns  loc: scheduler.cpp:16
+ST_3: icmp (56)  [1/1] 3.26ns  loc: scheduler.cpp:18
 :4  %icmp = icmp eq i30 %tmp_1, 0
 
-ST_3: or_cond_5 (49)  [1/1] 2.07ns  loc: scheduler.cpp:16
+ST_3: or_cond_5 (57)  [1/1] 2.07ns  loc: scheduler.cpp:18
 :5  %or_cond_5 = and i1 %sched_interfaces_sch_1, %icmp
 
-ST_3: StgValue_50 (50)  [1/1] 1.59ns  loc: scheduler.cpp:16
-:6  br i1 %or_cond_5, label %_ZN7_ap_sc_7sc_core4waitEi.exit2_ifconv, label %._crit_edge
+ST_3: StgValue_61 (58)  [1/1] 0.00ns  loc: scheduler.cpp:18
+:6  br i1 %or_cond_5, label %2, label %._crit_edge.backedge
 
-ST_3: sched_interfaces_con (64)  [1/1] 0.00ns  loc: scheduler.cpp:19
-_ZN7_ap_sc_7sc_core4waitEi.exit2_ifconv:12  %sched_interfaces_con = getelementptr [2 x i32]* %sched_interfaces_context_current_node, i64 0, i64 %tmp
+ST_3: sched_interfaces_con (60)  [1/1] 0.00ns  loc: scheduler.cpp:21
+:0  %sched_interfaces_con = getelementptr [2 x i32]* %sched_interfaces_context_current_node, i64 0, i64 %tmp
 
-ST_3: new_context_current_s (65)  [2/2] 2.32ns  loc: scheduler.cpp:19
-_ZN7_ap_sc_7sc_core4waitEi.exit2_ifconv:13  %new_context_current_s = load i32* %sched_interfaces_con, align 4
+ST_3: new_context_current_s (61)  [2/2] 2.32ns  loc: scheduler.cpp:21
+:1  %new_context_current_s = load i32* %sched_interfaces_con, align 4
 
-ST_3: sched_interfaces_con_1 (66)  [1/1] 0.00ns  loc: scheduler.cpp:19
-_ZN7_ap_sc_7sc_core4waitEi.exit2_ifconv:14  %sched_interfaces_con_1 = getelementptr [2 x i32]* %sched_interfaces_context_next_node, i64 0, i64 %tmp
+ST_3: sched_interfaces_con_1 (62)  [1/1] 0.00ns  loc: scheduler.cpp:21
+:2  %sched_interfaces_con_1 = getelementptr [2 x i32]* %sched_interfaces_context_next_node, i64 0, i64 %tmp
 
-ST_3: new_context_next_nod (67)  [2/2] 2.32ns  loc: scheduler.cpp:19
-_ZN7_ap_sc_7sc_core4waitEi.exit2_ifconv:15  %new_context_next_nod = load i32* %sched_interfaces_con_1, align 4
+ST_3: new_context_next_nod (63)  [2/2] 2.32ns  loc: scheduler.cpp:21
+:3  %new_context_next_nod = load i32* %sched_interfaces_con_1, align 4
 
-ST_3: sched_interfaces_con_2 (68)  [1/1] 0.00ns  loc: scheduler.cpp:19
-_ZN7_ap_sc_7sc_core4waitEi.exit2_ifconv:16  %sched_interfaces_con_2 = getelementptr [2 x i32]* %sched_interfaces_context_state, i64 0, i64 %tmp
+ST_3: sched_interfaces_con_2 (64)  [1/1] 0.00ns  loc: scheduler.cpp:21
+:4  %sched_interfaces_con_2 = getelementptr [2 x i32]* %sched_interfaces_context_state, i64 0, i64 %tmp
 
-ST_3: new_context_state_2 (69)  [2/2] 2.32ns  loc: scheduler.cpp:19
-_ZN7_ap_sc_7sc_core4waitEi.exit2_ifconv:17  %new_context_state_2 = load i32* %sched_interfaces_con_2, align 4
+ST_3: new_context_state (65)  [2/2] 2.32ns  loc: scheduler.cpp:21
+:5  %new_context_state = load i32* %sched_interfaces_con_2, align 4
 
 
  <State 4>: 2.32ns
-ST_4: queue_3_current_nod_4 (52)  [1/1] 0.00ns
-_ZN7_ap_sc_7sc_core4waitEi.exit2_ifconv:0  %queue_3_current_nod_4 = load i32* %queue_3_current_nod
+ST_4: new_context_current_s (61)  [1/2] 2.32ns  loc: scheduler.cpp:21
+:1  %new_context_current_s = load i32* %sched_interfaces_con, align 4
 
-ST_4: queue_3_current_nod_5 (53)  [1/1] 0.00ns
-_ZN7_ap_sc_7sc_core4waitEi.exit2_ifconv:1  %queue_3_current_nod_5 = load i32* %queue_3_current_nod_1
+ST_4: new_context_next_nod (63)  [1/2] 2.32ns  loc: scheduler.cpp:21
+:3  %new_context_next_nod = load i32* %sched_interfaces_con_1, align 4
 
-ST_4: queue_3_current_nod_6 (54)  [1/1] 0.00ns
-_ZN7_ap_sc_7sc_core4waitEi.exit2_ifconv:2  %queue_3_current_nod_6 = load i32* %queue_3_current_nod_2
-
-ST_4: queue_3_current_nod_7 (55)  [1/1] 0.00ns
-_ZN7_ap_sc_7sc_core4waitEi.exit2_ifconv:3  %queue_3_current_nod_7 = load i32* %queue_3_current_nod_3
-
-ST_4: queue_3_next_node_2_1 (56)  [1/1] 0.00ns
-_ZN7_ap_sc_7sc_core4waitEi.exit2_ifconv:4  %queue_3_next_node_2_1 = load i32* %queue_3_next_node_2
-
-ST_4: queue_3_next_node_3_1 (57)  [1/1] 0.00ns
-_ZN7_ap_sc_7sc_core4waitEi.exit2_ifconv:5  %queue_3_next_node_3_1 = load i32* %queue_3_next_node_3
-
-ST_4: queue_3_next_node_6_1 (58)  [1/1] 0.00ns
-_ZN7_ap_sc_7sc_core4waitEi.exit2_ifconv:6  %queue_3_next_node_6_1 = load i32* %queue_3_next_node_6
-
-ST_4: queue_3_next_node_8_1 (59)  [1/1] 0.00ns
-_ZN7_ap_sc_7sc_core4waitEi.exit2_ifconv:7  %queue_3_next_node_8_1 = load i32* %queue_3_next_node_8
-
-ST_4: queue_3_state_2_loa (60)  [1/1] 0.00ns
-_ZN7_ap_sc_7sc_core4waitEi.exit2_ifconv:8  %queue_3_state_2_loa = load i32* %queue_3_state_2
-
-ST_4: queue_3_state_3_loa (61)  [1/1] 0.00ns
-_ZN7_ap_sc_7sc_core4waitEi.exit2_ifconv:9  %queue_3_state_3_loa = load i32* %queue_3_state_3
-
-ST_4: queue_3_state_6_loa (62)  [1/1] 0.00ns
-_ZN7_ap_sc_7sc_core4waitEi.exit2_ifconv:10  %queue_3_state_6_loa = load i32* %queue_3_state_6
-
-ST_4: queue_3_state_8_loa (63)  [1/1] 0.00ns
-_ZN7_ap_sc_7sc_core4waitEi.exit2_ifconv:11  %queue_3_state_8_loa = load i32* %queue_3_state_8
-
-ST_4: new_context_current_s (65)  [1/2] 2.32ns  loc: scheduler.cpp:19
-_ZN7_ap_sc_7sc_core4waitEi.exit2_ifconv:13  %new_context_current_s = load i32* %sched_interfaces_con, align 4
-
-ST_4: new_context_next_nod (67)  [1/2] 2.32ns  loc: scheduler.cpp:19
-_ZN7_ap_sc_7sc_core4waitEi.exit2_ifconv:15  %new_context_next_nod = load i32* %sched_interfaces_con_1, align 4
-
-ST_4: new_context_state_2 (69)  [1/2] 2.32ns  loc: scheduler.cpp:19
-_ZN7_ap_sc_7sc_core4waitEi.exit2_ifconv:17  %new_context_state_2 = load i32* %sched_interfaces_con_2, align 4
+ST_4: new_context_state (65)  [1/2] 2.32ns  loc: scheduler.cpp:21
+:5  %new_context_state = load i32* %sched_interfaces_con_2, align 4
 
 
  <State 5>: 2.32ns
-ST_5: tmp_2 (70)  [1/1] 0.00ns  loc: scheduler.cpp:21
-_ZN7_ap_sc_7sc_core4waitEi.exit2_ifconv:18  %tmp_2 = call i32 (...)* @_ssdm_op_SpecRegionBegin([12 x i8]* @p_str)
+ST_5: tmp_9 (66)  [1/1] 0.00ns  loc: scheduler.cpp:27
+:6  %tmp_9 = call i32 (...)* @_ssdm_op_SpecRegionBegin([12 x i8]* @p_str7)
 
-ST_5: StgValue_73 (71)  [1/1] 0.00ns  loc: scheduler.cpp:22
-_ZN7_ap_sc_7sc_core4waitEi.exit2_ifconv:19  call void (...)* @_ssdm_op_SpecProtocol(i32 1, [1 x i8]* @p_str1) nounwind
+ST_5: StgValue_72 (67)  [1/1] 0.00ns  loc: scheduler.cpp:28
+:7  call void (...)* @_ssdm_op_SpecProtocol(i32 1, [1 x i8]* @p_str8) nounwind
 
-ST_5: sched_interfaces_ack (72)  [1/1] 0.00ns  loc: scheduler.cpp:23
-_ZN7_ap_sc_7sc_core4waitEi.exit2_ifconv:20  %sched_interfaces_ack = getelementptr [2 x i1]* %sched_interfaces_ack_V, i64 0, i64 %tmp
+ST_5: sched_interfaces_ack (68)  [1/1] 0.00ns  loc: scheduler.cpp:29
+:8  %sched_interfaces_ack = getelementptr [2 x i1]* %sched_interfaces_ack_V, i64 0, i64 %tmp
 
-ST_5: StgValue_75 (73)  [1/1] 0.00ns  loc: scheduler.cpp:24
-_ZN7_ap_sc_7sc_core4waitEi.exit2_ifconv:21  call void (...)* @_ssdm_op_Wait(i32 1) nounwind
+ST_5: StgValue_74 (69)  [1/1] 2.32ns  loc: scheduler.cpp:31
+:9  store i1 false, i1* %sched_interfaces_ack, align 1
 
-ST_5: StgValue_76 (74)  [1/1] 2.32ns  loc: scheduler.cpp:25
-_ZN7_ap_sc_7sc_core4waitEi.exit2_ifconv:22  store i1 false, i1* %sched_interfaces_ack, align 1
+ST_5: empty_6 (70)  [1/1] 0.00ns  loc: scheduler.cpp:32
+:10  %empty_6 = call i32 (...)* @_ssdm_op_SpecRegionEnd([12 x i8]* @p_str7, i32 %tmp_9)
 
-ST_5: empty (75)  [1/1] 0.00ns  loc: scheduler.cpp:26
-_ZN7_ap_sc_7sc_core4waitEi.exit2_ifconv:23  %empty = call i32 (...)* @_ssdm_op_SpecRegionEnd([12 x i8]* @p_str, i32 %tmp_2)
+ST_5: StgValue_76 (71)  [1/1] 1.59ns  loc: scheduler.cpp:36
+:11  br label %3
 
 
  <State 6>: 6.21ns
-ST_6: tmp_3 (76)  [1/1] 0.00ns  loc: scheduler.cpp:13
-_ZN7_ap_sc_7sc_core4waitEi.exit2_ifconv:24  %tmp_3 = trunc i32 %i_load to i2
+ST_6: match_found (73)  [1/1] 0.00ns  loc: scheduler.cpp:38
+:0  %match_found = phi i1 [ false, %2 ], [ %match_found_1, %_ifconv ]
 
-ST_6: sel_tmp (77)  [1/1] 2.07ns  loc: scheduler.cpp:13
-_ZN7_ap_sc_7sc_core4waitEi.exit2_ifconv:25  %sel_tmp = icmp eq i2 %tmp_3, -2
+ST_6: j (74)  [1/1] 0.00ns
+:1  %j = phi i11 [ 0, %2 ], [ %j_1, %_ifconv ]
 
-ST_6: sel_tmp1 (78)  [1/1] 2.07ns  loc: scheduler.cpp:13
-_ZN7_ap_sc_7sc_core4waitEi.exit2_ifconv:26  %sel_tmp1 = icmp eq i2 %tmp_3, 1
+ST_6: j_cast (75)  [1/1] 0.00ns  loc: scheduler.cpp:36
+:2  %j_cast = zext i11 %j to i32
 
-ST_6: sel_tmp2 (79)  [1/1] 2.07ns  loc: scheduler.cpp:13
-_ZN7_ap_sc_7sc_core4waitEi.exit2_ifconv:27  %sel_tmp2 = icmp eq i2 %tmp_3, 0
+ST_6: exitcond2 (76)  [1/1] 2.94ns  loc: scheduler.cpp:36
+:3  %exitcond2 = icmp eq i11 %j, -1024
 
-ST_6: or_cond (80)  [1/1] 2.07ns  loc: scheduler.cpp:13
-_ZN7_ap_sc_7sc_core4waitEi.exit2_ifconv:28  %or_cond = or i1 %sel_tmp2, %sel_tmp1
+ST_6: empty_7 (77)  [1/1] 0.00ns
+:4  %empty_7 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 1024, i64 1024, i64 1024)
 
-ST_6: newSel (81)  [1/1] 0.00ns  loc: scheduler.cpp:13 (grouped into LUT with out node queue_3_current_nod_8)
-_ZN7_ap_sc_7sc_core4waitEi.exit2_ifconv:29  %newSel = select i1 %sel_tmp, i32 %queue_3_current_nod_7, i32 %new_context_current_s
+ST_6: j_1 (78)  [1/1] 2.33ns  loc: scheduler.cpp:36
+:5  %j_1 = add i11 %j, 1
 
-ST_6: queue_3_current_nod_8 (82)  [1/1] 2.07ns  loc: scheduler.cpp:13 (out node of the LUT)
-_ZN7_ap_sc_7sc_core4waitEi.exit2_ifconv:30  %queue_3_current_nod_8 = select i1 %or_cond, i32 %queue_3_current_nod_7, i32 %newSel
+ST_6: StgValue_83 (79)  [1/1] 0.00ns  loc: scheduler.cpp:36
+:6  br i1 %exitcond2, label %4, label %_ifconv
 
-ST_6: newSel2 (83)  [1/1] 0.00ns  loc: scheduler.cpp:13 (grouped into LUT with out node queue_3_current_nod_9)
-_ZN7_ap_sc_7sc_core4waitEi.exit2_ifconv:31  %newSel2 = select i1 %sel_tmp, i32 %new_context_current_s, i32 %queue_3_current_nod_6
+ST_6: history_head_ptr_loa (81)  [1/1] 0.00ns  loc: scheduler.cpp:38
+_ifconv:0  %history_head_ptr_loa = load i32* %history_head_ptr
 
-ST_6: queue_3_current_nod_9 (84)  [1/1] 2.07ns  loc: scheduler.cpp:13 (out node of the LUT)
-_ZN7_ap_sc_7sc_core4waitEi.exit2_ifconv:32  %queue_3_current_nod_9 = select i1 %or_cond, i32 %queue_3_current_nod_6, i32 %newSel2
+ST_6: ult (82)  [1/1] 3.26ns  loc: scheduler.cpp:38
+_ifconv:1  %ult = icmp ult i32 %j_cast, %history_head_ptr_loa
 
-ST_6: queue_3_current_nod_10 (85)  [1/1] 0.00ns  loc: scheduler.cpp:13 (grouped into LUT with out node queue_3_current_nod_11)
-_ZN7_ap_sc_7sc_core4waitEi.exit2_ifconv:33  %queue_3_current_nod_10 = select i1 %sel_tmp1, i32 %new_context_current_s, i32 %queue_3_current_nod_5
+ST_6: tmp_8 (87)  [1/1] 0.00ns  loc: scheduler.cpp:40
+_ifconv:6  %tmp_8 = zext i11 %j to i64
 
-ST_6: queue_3_current_nod_11 (86)  [1/1] 2.07ns  loc: scheduler.cpp:13 (out node of the LUT)
-_ZN7_ap_sc_7sc_core4waitEi.exit2_ifconv:34  %queue_3_current_nod_11 = select i1 %sel_tmp2, i32 %queue_3_current_nod_5, i32 %queue_3_current_nod_10
+ST_6: history_current_node_1 (88)  [1/1] 0.00ns  loc: scheduler.cpp:40
+_ifconv:7  %history_current_node_1 = getelementptr [1024 x i32]* %history_current_node, i64 0, i64 %tmp_8
 
-ST_6: queue_3_current_nod_12 (87)  [1/1] 2.07ns  loc: scheduler.cpp:13
-_ZN7_ap_sc_7sc_core4waitEi.exit2_ifconv:35  %queue_3_current_nod_12 = select i1 %sel_tmp2, i32 %new_context_current_s, i32 %queue_3_current_nod_4
+ST_6: history_current_node_2 (89)  [2/2] 3.25ns  loc: scheduler.cpp:40
+_ifconv:8  %history_current_node_2 = load i32* %history_current_node_1, align 4
 
-ST_6: newSel4 (88)  [1/1] 0.00ns  loc: scheduler.cpp:13 (grouped into LUT with out node queue_3_next_node)
-_ZN7_ap_sc_7sc_core4waitEi.exit2_ifconv:36  %newSel4 = select i1 %sel_tmp, i32 %queue_3_next_node_8_1, i32 %new_context_next_nod
+ST_6: history_next_node_ad (91)  [1/1] 0.00ns  loc: scheduler.cpp:40
+_ifconv:10  %history_next_node_ad = getelementptr [1024 x i32]* %history_next_node, i64 0, i64 %tmp_8
 
-ST_6: queue_3_next_node (89)  [1/1] 2.07ns  loc: scheduler.cpp:13 (out node of the LUT)
-_ZN7_ap_sc_7sc_core4waitEi.exit2_ifconv:37  %queue_3_next_node = select i1 %or_cond, i32 %queue_3_next_node_8_1, i32 %newSel4
+ST_6: history_next_node_lo (92)  [2/2] 3.25ns  loc: scheduler.cpp:40
+_ifconv:11  %history_next_node_lo = load i32* %history_next_node_ad, align 4
 
-ST_6: newSel6 (90)  [1/1] 0.00ns  loc: scheduler.cpp:13 (grouped into LUT with out node queue_3_next_node_1)
-_ZN7_ap_sc_7sc_core4waitEi.exit2_ifconv:38  %newSel6 = select i1 %sel_tmp, i32 %new_context_next_nod, i32 %queue_3_next_node_6_1
+ST_6: history_state_addr_1 (94)  [1/1] 0.00ns  loc: scheduler.cpp:40
+_ifconv:13  %history_state_addr_1 = getelementptr [1024 x i32]* %history_state, i64 0, i64 %tmp_8
 
-ST_6: queue_3_next_node_1 (91)  [1/1] 2.07ns  loc: scheduler.cpp:13 (out node of the LUT)
-_ZN7_ap_sc_7sc_core4waitEi.exit2_ifconv:39  %queue_3_next_node_1 = select i1 %or_cond, i32 %queue_3_next_node_6_1, i32 %newSel6
+ST_6: history_state_load (95)  [2/2] 3.25ns  loc: scheduler.cpp:40
+_ifconv:14  %history_state_load = load i32* %history_state_addr_1, align 4
 
-ST_6: queue_3_next_node_4 (92)  [1/1] 0.00ns  loc: scheduler.cpp:13 (grouped into LUT with out node queue_3_next_node_5)
-_ZN7_ap_sc_7sc_core4waitEi.exit2_ifconv:40  %queue_3_next_node_4 = select i1 %sel_tmp1, i32 %new_context_next_nod, i32 %queue_3_next_node_3_1
+ST_6: StgValue_93 (106)  [1/1] 0.00ns  loc: scheduler.cpp:47
+:0  br i1 %match_found, label %._crit_edge.backedge, label %_ifconv21
 
-ST_6: queue_3_next_node_5 (93)  [1/1] 2.07ns  loc: scheduler.cpp:13 (out node of the LUT)
-_ZN7_ap_sc_7sc_core4waitEi.exit2_ifconv:41  %queue_3_next_node_5 = select i1 %sel_tmp2, i32 %queue_3_next_node_3_1, i32 %queue_3_next_node_4
+ST_6: history_head_ptr_loa_1 (108)  [1/1] 0.00ns  loc: scheduler.cpp:52
+_ifconv21:0  %history_head_ptr_loa_1 = load i32* %history_head_ptr
 
-ST_6: queue_3_next_node_7 (94)  [1/1] 2.07ns  loc: scheduler.cpp:13
-_ZN7_ap_sc_7sc_core4waitEi.exit2_ifconv:42  %queue_3_next_node_7 = select i1 %sel_tmp2, i32 %new_context_next_nod, i32 %queue_3_next_node_2_1
+ST_6: queue_3_current_nod_4 (109)  [1/1] 0.00ns
+_ifconv21:1  %queue_3_current_nod_4 = load i32* %queue_3_current_nod
 
-ST_6: newSel8 (95)  [1/1] 0.00ns  loc: scheduler.cpp:13 (grouped into LUT with out node queue_3_state)
-_ZN7_ap_sc_7sc_core4waitEi.exit2_ifconv:43  %newSel8 = select i1 %sel_tmp, i32 %queue_3_state_8_loa, i32 %new_context_state_2
+ST_6: queue_3_current_nod_5 (110)  [1/1] 0.00ns
+_ifconv21:2  %queue_3_current_nod_5 = load i32* %queue_3_current_nod_1
 
-ST_6: queue_3_state (96)  [1/1] 2.07ns  loc: scheduler.cpp:13 (out node of the LUT)
-_ZN7_ap_sc_7sc_core4waitEi.exit2_ifconv:44  %queue_3_state = select i1 %or_cond, i32 %queue_3_state_8_loa, i32 %newSel8
+ST_6: queue_3_current_nod_6 (111)  [1/1] 0.00ns
+_ifconv21:3  %queue_3_current_nod_6 = load i32* %queue_3_current_nod_2
 
-ST_6: newSel1 (97)  [1/1] 0.00ns  loc: scheduler.cpp:13 (grouped into LUT with out node queue_3_state_1)
-_ZN7_ap_sc_7sc_core4waitEi.exit2_ifconv:45  %newSel1 = select i1 %sel_tmp, i32 %new_context_state_2, i32 %queue_3_state_6_loa
+ST_6: queue_3_current_nod_7 (112)  [1/1] 0.00ns
+_ifconv21:4  %queue_3_current_nod_7 = load i32* %queue_3_current_nod_3
 
-ST_6: queue_3_state_1 (98)  [1/1] 2.07ns  loc: scheduler.cpp:13 (out node of the LUT)
-_ZN7_ap_sc_7sc_core4waitEi.exit2_ifconv:46  %queue_3_state_1 = select i1 %or_cond, i32 %queue_3_state_6_loa, i32 %newSel1
+ST_6: queue_3_next_node_2_1 (113)  [1/1] 0.00ns
+_ifconv21:5  %queue_3_next_node_2_1 = load i32* %queue_3_next_node_2
 
-ST_6: queue_3_state_4 (99)  [1/1] 0.00ns  loc: scheduler.cpp:13 (grouped into LUT with out node queue_3_state_5)
-_ZN7_ap_sc_7sc_core4waitEi.exit2_ifconv:47  %queue_3_state_4 = select i1 %sel_tmp1, i32 %new_context_state_2, i32 %queue_3_state_3_loa
+ST_6: queue_3_next_node_3_1 (114)  [1/1] 0.00ns
+_ifconv21:6  %queue_3_next_node_3_1 = load i32* %queue_3_next_node_3
 
-ST_6: queue_3_state_5 (100)  [1/1] 2.07ns  loc: scheduler.cpp:13 (out node of the LUT)
-_ZN7_ap_sc_7sc_core4waitEi.exit2_ifconv:48  %queue_3_state_5 = select i1 %sel_tmp2, i32 %queue_3_state_3_loa, i32 %queue_3_state_4
+ST_6: queue_3_next_node_6_1 (115)  [1/1] 0.00ns
+_ifconv21:7  %queue_3_next_node_6_1 = load i32* %queue_3_next_node_6
 
-ST_6: queue_3_state_7 (101)  [1/1] 2.07ns  loc: scheduler.cpp:13
-_ZN7_ap_sc_7sc_core4waitEi.exit2_ifconv:49  %queue_3_state_7 = select i1 %sel_tmp2, i32 %new_context_state_2, i32 %queue_3_state_2_loa
+ST_6: queue_3_next_node_8_1 (116)  [1/1] 0.00ns
+_ifconv21:8  %queue_3_next_node_8_1 = load i32* %queue_3_next_node_8
 
-ST_6: queue_head_ptr (102)  [1/1] 2.90ns  loc: scheduler.cpp:44
-_ZN7_ap_sc_7sc_core4waitEi.exit2_ifconv:50  %queue_head_ptr = add i32 1, %queue_head_ptr_1
+ST_6: queue_3_state_2_loa (117)  [1/1] 0.00ns
+_ifconv21:9  %queue_3_state_2_loa = load i32* %queue_3_state_2
 
-ST_6: StgValue_105 (103)  [1/1] 0.00ns  loc: scheduler.cpp:43
-_ZN7_ap_sc_7sc_core4waitEi.exit2_ifconv:51  store i32 %queue_3_state, i32* %queue_3_state_8
+ST_6: queue_3_state_3_loa (118)  [1/1] 0.00ns
+_ifconv21:10  %queue_3_state_3_loa = load i32* %queue_3_state_3
 
-ST_6: StgValue_106 (104)  [1/1] 0.00ns  loc: scheduler.cpp:43
-_ZN7_ap_sc_7sc_core4waitEi.exit2_ifconv:52  store i32 %queue_3_state_1, i32* %queue_3_state_6
+ST_6: queue_3_state_6_loa (119)  [1/1] 0.00ns
+_ifconv21:11  %queue_3_state_6_loa = load i32* %queue_3_state_6
 
-ST_6: StgValue_107 (105)  [1/1] 0.00ns  loc: scheduler.cpp:43
-_ZN7_ap_sc_7sc_core4waitEi.exit2_ifconv:53  store i32 %queue_3_state_5, i32* %queue_3_state_3
+ST_6: queue_3_state_8_loa (120)  [1/1] 0.00ns
+_ifconv21:12  %queue_3_state_8_loa = load i32* %queue_3_state_8
 
-ST_6: StgValue_108 (106)  [1/1] 0.00ns  loc: scheduler.cpp:43
-_ZN7_ap_sc_7sc_core4waitEi.exit2_ifconv:54  store i32 %queue_3_state_7, i32* %queue_3_state_2
+ST_6: tmp_14 (121)  [1/1] 0.00ns  loc: scheduler.cpp:51
+_ifconv21:13  %tmp_14 = trunc i32 %queue_head_ptr_load to i2
 
-ST_6: StgValue_109 (107)  [1/1] 0.00ns  loc: scheduler.cpp:43
-_ZN7_ap_sc_7sc_core4waitEi.exit2_ifconv:55  store i32 %queue_3_next_node, i32* %queue_3_next_node_8
+ST_6: sel_tmp3 (122)  [1/1] 2.07ns  loc: scheduler.cpp:51
+_ifconv21:14  %sel_tmp3 = icmp eq i2 %tmp_14, -2
 
-ST_6: StgValue_110 (108)  [1/1] 0.00ns  loc: scheduler.cpp:43
-_ZN7_ap_sc_7sc_core4waitEi.exit2_ifconv:56  store i32 %queue_3_next_node_1, i32* %queue_3_next_node_6
+ST_6: sel_tmp4 (123)  [1/1] 2.07ns  loc: scheduler.cpp:51
+_ifconv21:15  %sel_tmp4 = icmp eq i2 %tmp_14, 1
 
-ST_6: StgValue_111 (109)  [1/1] 0.00ns  loc: scheduler.cpp:43
-_ZN7_ap_sc_7sc_core4waitEi.exit2_ifconv:57  store i32 %queue_3_next_node_5, i32* %queue_3_next_node_3
+ST_6: sel_tmp5 (124)  [1/1] 2.07ns  loc: scheduler.cpp:51
+_ifconv21:16  %sel_tmp5 = icmp eq i2 %tmp_14, 0
 
-ST_6: StgValue_112 (110)  [1/1] 0.00ns  loc: scheduler.cpp:43
-_ZN7_ap_sc_7sc_core4waitEi.exit2_ifconv:58  store i32 %queue_3_next_node_7, i32* %queue_3_next_node_2
+ST_6: or_cond (125)  [1/1] 2.07ns  loc: scheduler.cpp:51
+_ifconv21:17  %or_cond = or i1 %sel_tmp5, %sel_tmp4
 
-ST_6: StgValue_113 (111)  [1/1] 0.00ns  loc: scheduler.cpp:43
-_ZN7_ap_sc_7sc_core4waitEi.exit2_ifconv:59  store i32 %queue_3_current_nod_8, i32* %queue_3_current_nod_3
+ST_6: newSel (126)  [1/1] 0.00ns  loc: scheduler.cpp:51 (grouped into LUT with out node queue_3_current_nod_8)
+_ifconv21:18  %newSel = select i1 %sel_tmp3, i32 %queue_3_current_nod_7, i32 %new_context_current_s
 
-ST_6: StgValue_114 (112)  [1/1] 0.00ns  loc: scheduler.cpp:43
-_ZN7_ap_sc_7sc_core4waitEi.exit2_ifconv:60  store i32 %queue_3_current_nod_9, i32* %queue_3_current_nod_2
+ST_6: queue_3_current_nod_8 (127)  [1/1] 2.07ns  loc: scheduler.cpp:51 (out node of the LUT)
+_ifconv21:19  %queue_3_current_nod_8 = select i1 %or_cond, i32 %queue_3_current_nod_7, i32 %newSel
 
-ST_6: StgValue_115 (113)  [1/1] 0.00ns  loc: scheduler.cpp:43
-_ZN7_ap_sc_7sc_core4waitEi.exit2_ifconv:61  store i32 %queue_3_current_nod_11, i32* %queue_3_current_nod_1
+ST_6: newSel2 (128)  [1/1] 0.00ns  loc: scheduler.cpp:51 (grouped into LUT with out node queue_3_current_nod_9)
+_ifconv21:20  %newSel2 = select i1 %sel_tmp3, i32 %new_context_current_s, i32 %queue_3_current_nod_6
 
-ST_6: StgValue_116 (114)  [1/1] 0.00ns  loc: scheduler.cpp:43
-_ZN7_ap_sc_7sc_core4waitEi.exit2_ifconv:62  store i32 %queue_3_current_nod_12, i32* %queue_3_current_nod
+ST_6: queue_3_current_nod_9 (129)  [1/1] 2.07ns  loc: scheduler.cpp:51 (out node of the LUT)
+_ifconv21:21  %queue_3_current_nod_9 = select i1 %or_cond, i32 %queue_3_current_nod_6, i32 %newSel2
 
-ST_6: StgValue_117 (115)  [1/1] 1.59ns  loc: scheduler.cpp:45
-_ZN7_ap_sc_7sc_core4waitEi.exit2_ifconv:63  br label %._crit_edge
+ST_6: queue_3_current_nod_10 (130)  [1/1] 0.00ns  loc: scheduler.cpp:51 (grouped into LUT with out node queue_3_current_nod_11)
+_ifconv21:22  %queue_3_current_nod_10 = select i1 %sel_tmp4, i32 %new_context_current_s, i32 %queue_3_current_nod_5
 
-ST_6: queue_head_ptr_3 (117)  [1/1] 0.00ns
-._crit_edge:0  %queue_head_ptr_3 = phi i32 [ %queue_head_ptr, %_ZN7_ap_sc_7sc_core4waitEi.exit2_ifconv ], [ %queue_head_ptr_1, %1 ]
+ST_6: queue_3_current_nod_11 (131)  [1/1] 2.07ns  loc: scheduler.cpp:51 (out node of the LUT)
+_ifconv21:23  %queue_3_current_nod_11 = select i1 %sel_tmp5, i32 %queue_3_current_nod_5, i32 %queue_3_current_nod_10
 
-ST_6: i_1 (118)  [1/1] 2.90ns  loc: scheduler.cpp:13
-._crit_edge:1  %i_1 = add nsw i32 %i_load, 1
+ST_6: queue_3_current_nod_12 (132)  [1/1] 2.07ns  loc: scheduler.cpp:51
+_ifconv21:24  %queue_3_current_nod_12 = select i1 %sel_tmp5, i32 %new_context_current_s, i32 %queue_3_current_nod_4
 
-ST_6: StgValue_120 (119)  [1/1] 1.59ns  loc: scheduler.cpp:13
-._crit_edge:2  store i32 %i_1, i32* %i
+ST_6: newSel4 (133)  [1/1] 0.00ns  loc: scheduler.cpp:51 (grouped into LUT with out node queue_3_next_node)
+_ifconv21:25  %newSel4 = select i1 %sel_tmp3, i32 %queue_3_next_node_8_1, i32 %new_context_next_nod
 
-ST_6: StgValue_121 (120)  [1/1] 1.59ns  loc: scheduler.cpp:13
-._crit_edge:3  br label %.backedge.backedge
+ST_6: queue_3_next_node (134)  [1/1] 2.07ns  loc: scheduler.cpp:51 (out node of the LUT)
+_ifconv21:26  %queue_3_next_node = select i1 %or_cond, i32 %queue_3_next_node_8_1, i32 %newSel4
 
-ST_6: queue_head_ptr_1_be (175)  [1/1] 0.00ns  loc: scheduler.cpp:44
-.backedge.backedge:0  %queue_head_ptr_1_be = phi i32 [ %queue_head_ptr_3, %._crit_edge ], [ %queue_head_ptr_4, %.backedge.loopexit ]
+ST_6: newSel6 (135)  [1/1] 0.00ns  loc: scheduler.cpp:51 (grouped into LUT with out node queue_3_next_node_1)
+_ifconv21:27  %newSel6 = select i1 %sel_tmp3, i32 %new_context_next_nod, i32 %queue_3_next_node_6_1
 
-ST_6: StgValue_123 (176)  [1/1] 0.00ns
-.backedge.backedge:1  br label %.backedge
+ST_6: queue_3_next_node_1 (136)  [1/1] 2.07ns  loc: scheduler.cpp:51 (out node of the LUT)
+_ifconv21:28  %queue_3_next_node_1 = select i1 %or_cond, i32 %queue_3_next_node_6_1, i32 %newSel6
+
+ST_6: queue_3_next_node_4 (137)  [1/1] 0.00ns  loc: scheduler.cpp:51 (grouped into LUT with out node queue_3_next_node_5)
+_ifconv21:29  %queue_3_next_node_4 = select i1 %sel_tmp4, i32 %new_context_next_nod, i32 %queue_3_next_node_3_1
+
+ST_6: queue_3_next_node_5 (138)  [1/1] 2.07ns  loc: scheduler.cpp:51 (out node of the LUT)
+_ifconv21:30  %queue_3_next_node_5 = select i1 %sel_tmp5, i32 %queue_3_next_node_3_1, i32 %queue_3_next_node_4
+
+ST_6: queue_3_next_node_7 (139)  [1/1] 2.07ns  loc: scheduler.cpp:51
+_ifconv21:31  %queue_3_next_node_7 = select i1 %sel_tmp5, i32 %new_context_next_nod, i32 %queue_3_next_node_2_1
+
+ST_6: newSel8 (140)  [1/1] 0.00ns  loc: scheduler.cpp:51 (grouped into LUT with out node queue_3_state)
+_ifconv21:32  %newSel8 = select i1 %sel_tmp3, i32 %queue_3_state_8_loa, i32 %new_context_state
+
+ST_6: queue_3_state (141)  [1/1] 2.07ns  loc: scheduler.cpp:51 (out node of the LUT)
+_ifconv21:33  %queue_3_state = select i1 %or_cond, i32 %queue_3_state_8_loa, i32 %newSel8
+
+ST_6: newSel1 (142)  [1/1] 0.00ns  loc: scheduler.cpp:51 (grouped into LUT with out node queue_3_state_1)
+_ifconv21:34  %newSel1 = select i1 %sel_tmp3, i32 %new_context_state, i32 %queue_3_state_6_loa
+
+ST_6: queue_3_state_1 (143)  [1/1] 2.07ns  loc: scheduler.cpp:51 (out node of the LUT)
+_ifconv21:35  %queue_3_state_1 = select i1 %or_cond, i32 %queue_3_state_6_loa, i32 %newSel1
+
+ST_6: queue_3_state_4 (144)  [1/1] 0.00ns  loc: scheduler.cpp:51 (grouped into LUT with out node queue_3_state_5)
+_ifconv21:36  %queue_3_state_4 = select i1 %sel_tmp4, i32 %new_context_state, i32 %queue_3_state_3_loa
+
+ST_6: queue_3_state_5 (145)  [1/1] 2.07ns  loc: scheduler.cpp:51 (out node of the LUT)
+_ifconv21:37  %queue_3_state_5 = select i1 %sel_tmp5, i32 %queue_3_state_3_loa, i32 %queue_3_state_4
+
+ST_6: queue_3_state_7 (146)  [1/1] 2.07ns  loc: scheduler.cpp:51
+_ifconv21:38  %queue_3_state_7 = select i1 %sel_tmp5, i32 %new_context_state, i32 %queue_3_state_2_loa
+
+ST_6: tmp_6 (147)  [1/1] 0.00ns  loc: scheduler.cpp:50
+_ifconv21:39  %tmp_6 = zext i32 %history_head_ptr_loa_1 to i64
+
+ST_6: history_current_node_3 (148)  [1/1] 0.00ns  loc: scheduler.cpp:50
+_ifconv21:40  %history_current_node_3 = getelementptr [1024 x i32]* %history_current_node, i64 0, i64 %tmp_6
+
+ST_6: StgValue_135 (149)  [1/1] 3.25ns  loc: scheduler.cpp:50
+_ifconv21:41  store i32 %new_context_current_s, i32* %history_current_node_3, align 4
+
+ST_6: history_next_node_ad_1 (150)  [1/1] 0.00ns  loc: scheduler.cpp:50
+_ifconv21:42  %history_next_node_ad_1 = getelementptr [1024 x i32]* %history_next_node, i64 0, i64 %tmp_6
+
+ST_6: StgValue_137 (151)  [1/1] 3.25ns  loc: scheduler.cpp:50
+_ifconv21:43  store i32 %new_context_next_nod, i32* %history_next_node_ad_1, align 4
+
+ST_6: history_state_addr (152)  [1/1] 0.00ns  loc: scheduler.cpp:50
+_ifconv21:44  %history_state_addr = getelementptr [1024 x i32]* %history_state, i64 0, i64 %tmp_6
+
+ST_6: StgValue_139 (153)  [1/1] 3.25ns  loc: scheduler.cpp:50
+_ifconv21:45  store i32 %new_context_state, i32* %history_state_addr, align 4
+
+ST_6: queue_head_ptr_3 (154)  [1/1] 2.90ns  loc: scheduler.cpp:51
+_ifconv21:46  %queue_head_ptr_3 = add i32 1, %queue_head_ptr_load
+
+ST_6: history_head_ptr_1 (155)  [1/1] 2.90ns  loc: scheduler.cpp:52
+_ifconv21:47  %history_head_ptr_1 = add i32 1, %history_head_ptr_loa_1
+
+ST_6: StgValue_142 (156)  [1/1] 0.00ns  loc: scheduler.cpp:49
+_ifconv21:48  store i32 %queue_3_state, i32* %queue_3_state_8
+
+ST_6: StgValue_143 (157)  [1/1] 0.00ns  loc: scheduler.cpp:49
+_ifconv21:49  store i32 %queue_3_state_1, i32* %queue_3_state_6
+
+ST_6: StgValue_144 (158)  [1/1] 0.00ns  loc: scheduler.cpp:49
+_ifconv21:50  store i32 %queue_3_state_5, i32* %queue_3_state_3
+
+ST_6: StgValue_145 (159)  [1/1] 0.00ns  loc: scheduler.cpp:49
+_ifconv21:51  store i32 %queue_3_state_7, i32* %queue_3_state_2
+
+ST_6: StgValue_146 (160)  [1/1] 0.00ns  loc: scheduler.cpp:49
+_ifconv21:52  store i32 %queue_3_next_node, i32* %queue_3_next_node_8
+
+ST_6: StgValue_147 (161)  [1/1] 0.00ns  loc: scheduler.cpp:49
+_ifconv21:53  store i32 %queue_3_next_node_1, i32* %queue_3_next_node_6
+
+ST_6: StgValue_148 (162)  [1/1] 0.00ns  loc: scheduler.cpp:49
+_ifconv21:54  store i32 %queue_3_next_node_5, i32* %queue_3_next_node_3
+
+ST_6: StgValue_149 (163)  [1/1] 0.00ns  loc: scheduler.cpp:49
+_ifconv21:55  store i32 %queue_3_next_node_7, i32* %queue_3_next_node_2
+
+ST_6: StgValue_150 (164)  [1/1] 0.00ns  loc: scheduler.cpp:49
+_ifconv21:56  store i32 %queue_3_current_nod_8, i32* %queue_3_current_nod_3
+
+ST_6: StgValue_151 (165)  [1/1] 0.00ns  loc: scheduler.cpp:49
+_ifconv21:57  store i32 %queue_3_current_nod_9, i32* %queue_3_current_nod_2
+
+ST_6: StgValue_152 (166)  [1/1] 0.00ns  loc: scheduler.cpp:49
+_ifconv21:58  store i32 %queue_3_current_nod_11, i32* %queue_3_current_nod_1
+
+ST_6: StgValue_153 (167)  [1/1] 0.00ns  loc: scheduler.cpp:49
+_ifconv21:59  store i32 %queue_3_current_nod_12, i32* %queue_3_current_nod
+
+ST_6: StgValue_154 (168)  [1/1] 1.59ns  loc: scheduler.cpp:52
+_ifconv21:60  store i32 %history_head_ptr_1, i32* %history_head_ptr
+
+ST_6: StgValue_155 (169)  [1/1] 1.59ns  loc: scheduler.cpp:51
+_ifconv21:61  store i32 %queue_head_ptr_3, i32* %queue_head_ptr
+
+ST_6: StgValue_156 (170)  [1/1] 0.00ns  loc: scheduler.cpp:54
+_ifconv21:62  br label %._crit_edge.backedge
+
+ST_6: StgValue_157 (172)  [1/1] 0.00ns
+._crit_edge.backedge:0  br label %._crit_edge
 
 
- <State 7>: 2.32ns
-ST_7: queue_head_ptr_4 (124)  [1/1] 0.00ns  loc: scheduler.cpp:44
-.preheader:0  %queue_head_ptr_4 = phi i32 [ %queue_head_ptr_1, %.preheader.preheader ], [ %queue_head_ptr_4_be, %.preheader.backedge ]
+ <State 7>: 6.52ns
+ST_7: history_current_node_2 (89)  [1/2] 3.25ns  loc: scheduler.cpp:40
+_ifconv:8  %history_current_node_2 = load i32* %history_current_node_1, align 4
 
-ST_7: i1 (125)  [1/1] 0.00ns
-.preheader:1  %i1 = phi i2 [ 0, %.preheader.preheader ], [ %i_2, %.preheader.backedge ]
+ST_7: tmp_s (90)  [1/1] 3.26ns  loc: scheduler.cpp:40
+_ifconv:9  %tmp_s = icmp eq i32 %history_current_node_2, %new_context_current_s
 
-ST_7: exitcond (126)  [1/1] 2.07ns  loc: scheduler.cpp:50
+ST_7: history_next_node_lo (92)  [1/2] 3.25ns  loc: scheduler.cpp:40
+_ifconv:11  %history_next_node_lo = load i32* %history_next_node_ad, align 4
+
+ST_7: tmp_10 (93)  [1/1] 3.26ns  loc: scheduler.cpp:40
+_ifconv:12  %tmp_10 = icmp eq i32 %history_next_node_lo, %new_context_next_nod
+
+ST_7: history_state_load (95)  [1/2] 3.25ns  loc: scheduler.cpp:40
+_ifconv:14  %history_state_load = load i32* %history_state_addr_1, align 4
+
+ST_7: tmp_11 (96)  [1/1] 3.26ns  loc: scheduler.cpp:40
+_ifconv:15  %tmp_11 = icmp eq i32 %history_state_load, %new_context_state
+
+
+ <State 8>: 8.28ns
+ST_8: rev (83)  [1/1] 2.07ns  loc: scheduler.cpp:38
+_ifconv:2  %rev = xor i1 %ult, true
+
+ST_8: brmerge (84)  [1/1] 2.07ns  loc: scheduler.cpp:38
+_ifconv:3  %brmerge = or i1 %rev, %match_found
+
+ST_8: not_not (85)  [1/1] 0.00ns  loc: scheduler.cpp:38 (grouped into LUT with out node match_found_1)
+_ifconv:4  %not_not = xor i1 %rev, true
+
+ST_8: match_found_0_mux (86)  [1/1] 0.00ns  loc: scheduler.cpp:38 (grouped into LUT with out node match_found_1)
+_ifconv:5  %match_found_0_mux = or i1 %match_found, %not_not
+
+ST_8: sel_tmp (97)  [1/1] 0.00ns  loc: scheduler.cpp:38 (grouped into LUT with out node sel_tmp1)
+_ifconv:16  %sel_tmp = xor i1 %brmerge, true
+
+ST_8: tmp1 (98)  [1/1] 0.00ns  loc: scheduler.cpp:40 (grouped into LUT with out node sel_tmp1)
+_ifconv:17  %tmp1 = and i1 %tmp_s, %sel_tmp
+
+ST_8: tmp2 (99)  [1/1] 0.00ns  loc: scheduler.cpp:40 (grouped into LUT with out node sel_tmp1)
+_ifconv:18  %tmp2 = and i1 %tmp_10, %tmp_11
+
+ST_8: sel_tmp1 (100)  [1/1] 2.07ns  loc: scheduler.cpp:40 (out node of the LUT)
+_ifconv:19  %sel_tmp1 = and i1 %tmp2, %tmp1
+
+ST_8: sel_tmp2 (101)  [1/1] 0.00ns  loc: scheduler.cpp:38 (grouped into LUT with out node match_found_1)
+_ifconv:20  %sel_tmp2 = select i1 %brmerge, i1 %match_found_0_mux, i1 %sel_tmp1
+
+ST_8: sel_tmp19_demorgan (102)  [1/1] 0.00ns  loc: scheduler.cpp:38 (grouped into LUT with out node match_found_1)
+_ifconv:21  %sel_tmp19_demorgan = or i1 %brmerge, %tmp_s
+
+ST_8: match_found_1 (103)  [1/1] 2.07ns  loc: scheduler.cpp:38 (out node of the LUT)
+_ifconv:22  %match_found_1 = and i1 %sel_tmp2, %sel_tmp19_demorgan
+
+ST_8: StgValue_175 (104)  [1/1] 0.00ns  loc: scheduler.cpp:36
+_ifconv:23  br label %3
+
+
+ <State 9>: 5.33ns
+ST_9: halted_flag (178)  [1/1] 0.00ns
+.preheader:0  %halted_flag = phi i1 [ true, %.preheader.preheader ], [ %halted_flag_1, %.preheader.backedge ]
+
+ST_9: i1 (179)  [1/1] 0.00ns
+.preheader:1  %i1 = phi i2 [ 0, %.preheader.preheader ], [ %i_1, %.preheader.backedge ]
+
+ST_9: exitcond (180)  [1/1] 2.07ns  loc: scheduler.cpp:63
 .preheader:2  %exitcond = icmp eq i2 %i1, -2
 
-ST_7: empty_6 (127)  [1/1] 0.00ns
-.preheader:3  %empty_6 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 2, i64 2, i64 2)
+ST_9: empty_8 (181)  [1/1] 0.00ns
+.preheader:3  %empty_8 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 2, i64 2, i64 2)
 
-ST_7: i_2 (128)  [1/1] 2.17ns  loc: scheduler.cpp:50
-.preheader:4  %i_2 = add i2 %i1, 1
+ST_9: i_1 (182)  [1/1] 2.17ns  loc: scheduler.cpp:63
+.preheader:4  %i_1 = add i2 %i1, 1
 
-ST_7: StgValue_129 (129)  [1/1] 0.00ns  loc: scheduler.cpp:50
-.preheader:5  br i1 %exitcond, label %.backedge.loopexit, label %2
+ST_9: StgValue_181 (183)  [1/1] 0.00ns  loc: scheduler.cpp:63
+.preheader:5  br i1 %exitcond, label %7, label %5
 
-ST_7: tmp_4 (131)  [1/1] 0.00ns  loc: scheduler.cpp:52
-:0  %tmp_4 = zext i2 %i1 to i64
+ST_9: tmp_5 (186)  [1/1] 0.00ns  loc: scheduler.cpp:66
+:1  %tmp_5 = zext i2 %i1 to i64
 
-ST_7: setup_interfaces_cor (132)  [1/1] 0.00ns  loc: scheduler.cpp:52
-:1  %setup_interfaces_cor = getelementptr [2 x i1]* %setup_interfaces_core_halted_V, i64 0, i64 %tmp_4
+ST_9: setup_interfaces_cor (187)  [1/1] 0.00ns  loc: scheduler.cpp:66
+:2  %setup_interfaces_cor = getelementptr [2 x i1]* %setup_interfaces_core_halted_V, i64 0, i64 %tmp_5
 
-ST_7: setup_interfaces_cor_1 (133)  [2/2] 2.32ns  loc: scheduler.cpp:52
-:2  %setup_interfaces_cor_1 = load i1* %setup_interfaces_cor, align 1
+ST_9: setup_interfaces_cor_1 (188)  [2/2] 2.32ns  loc: scheduler.cpp:66
+:3  %setup_interfaces_cor_1 = load i1* %setup_interfaces_cor, align 1
 
-ST_7: StgValue_133 (172)  [1/1] 1.59ns
-.backedge.loopexit:0  store i32 0, i32* %i
+ST_9: queue_head_ptr_2_loa_1 (228)  [1/1] 0.00ns  loc: scheduler.cpp:86
+:0  %queue_head_ptr_2_loa_1 = load i32* %queue_head_ptr_2
 
-ST_7: StgValue_134 (173)  [1/1] 1.59ns
-.backedge.loopexit:1  br label %.backedge.backedge
+ST_9: tmp_2 (229)  [1/1] 3.26ns  loc: scheduler.cpp:86
+:1  %tmp_2 = icmp eq i32 %queue_head_ptr_2_loa_1, 0
 
+ST_9: tmp_3 (230)  [1/1] 2.07ns  loc: scheduler.cpp:86
+:2  %tmp_3 = and i1 %halted_flag, %tmp_2
 
- <State 8>: 6.92ns
-ST_8: setup_interfaces_cor_1 (133)  [1/2] 2.32ns  loc: scheduler.cpp:52
-:2  %setup_interfaces_cor_1 = load i1* %setup_interfaces_cor, align 1
+ST_9: tmp_4 (231)  [1/1] 0.00ns  loc: scheduler.cpp:86
+:3  %tmp_4 = zext i1 %tmp_3 to i32
 
-ST_8: tmp_5 (134)  [1/1] 3.26ns  loc: scheduler.cpp:52
-:3  %tmp_5 = icmp ne i32 %queue_head_ptr_4, 0
+ST_9: StgValue_189 (232)  [1/1] 0.00ns  loc: scheduler.cpp:86
+:4  call void @_ssdm_op_Write.ap_auto.i32P(i32* %finished, i32 %tmp_4)
 
-ST_8: demorgan (135)  [1/1] 2.07ns  loc: scheduler.cpp:52
-:4  %demorgan = and i1 %setup_interfaces_cor_1, %tmp_5
-
-ST_8: StgValue_138 (136)  [1/1] 1.59ns  loc: scheduler.cpp:52
-:5  br i1 %demorgan, label %_ZN7_ap_sc_7sc_core4waitEi.exit, label %.preheader.backedge
-
-ST_8: queue_3_current_nod_13 (138)  [1/1] 0.00ns
-_ZN7_ap_sc_7sc_core4waitEi.exit:0  %queue_3_current_nod_13 = load i32* %queue_3_current_nod
-
-ST_8: queue_3_current_nod_14 (139)  [1/1] 0.00ns
-_ZN7_ap_sc_7sc_core4waitEi.exit:1  %queue_3_current_nod_14 = load i32* %queue_3_current_nod_1
-
-ST_8: queue_3_current_nod_15 (140)  [1/1] 0.00ns
-_ZN7_ap_sc_7sc_core4waitEi.exit:2  %queue_3_current_nod_15 = load i32* %queue_3_current_nod_2
-
-ST_8: queue_3_current_nod_16 (141)  [1/1] 0.00ns
-_ZN7_ap_sc_7sc_core4waitEi.exit:3  %queue_3_current_nod_16 = load i32* %queue_3_current_nod_3
-
-ST_8: queue_3_next_node_2_2 (142)  [1/1] 0.00ns
-_ZN7_ap_sc_7sc_core4waitEi.exit:4  %queue_3_next_node_2_2 = load i32* %queue_3_next_node_2
-
-ST_8: queue_3_next_node_3_2 (143)  [1/1] 0.00ns
-_ZN7_ap_sc_7sc_core4waitEi.exit:5  %queue_3_next_node_3_2 = load i32* %queue_3_next_node_3
-
-ST_8: queue_3_next_node_6_2 (144)  [1/1] 0.00ns
-_ZN7_ap_sc_7sc_core4waitEi.exit:6  %queue_3_next_node_6_2 = load i32* %queue_3_next_node_6
-
-ST_8: queue_3_next_node_8_2 (145)  [1/1] 0.00ns
-_ZN7_ap_sc_7sc_core4waitEi.exit:7  %queue_3_next_node_8_2 = load i32* %queue_3_next_node_8
-
-ST_8: queue_3_state_2_loa_1 (146)  [1/1] 0.00ns
-_ZN7_ap_sc_7sc_core4waitEi.exit:8  %queue_3_state_2_loa_1 = load i32* %queue_3_state_2
-
-ST_8: queue_3_state_3_loa_1 (147)  [1/1] 0.00ns
-_ZN7_ap_sc_7sc_core4waitEi.exit:9  %queue_3_state_3_loa_1 = load i32* %queue_3_state_3
-
-ST_8: queue_3_state_6_loa_1 (148)  [1/1] 0.00ns
-_ZN7_ap_sc_7sc_core4waitEi.exit:10  %queue_3_state_6_loa_1 = load i32* %queue_3_state_6
-
-ST_8: queue_3_state_8_loa_1 (149)  [1/1] 0.00ns
-_ZN7_ap_sc_7sc_core4waitEi.exit:11  %queue_3_state_8_loa_1 = load i32* %queue_3_state_8
-
-ST_8: tmp_6 (150)  [1/1] 0.00ns  loc: scheduler.cpp:44
-_ZN7_ap_sc_7sc_core4waitEi.exit:12  %tmp_6 = trunc i32 %queue_head_ptr_4 to i2
-
-ST_8: new_context_current_1 (151)  [1/1] 1.96ns  loc: scheduler.cpp:44
-_ZN7_ap_sc_7sc_core4waitEi.exit:13  %new_context_current_1 = call i32 @_ssdm_op_Mux.ap_auto.4i32.i2(i32 %queue_3_current_nod_13, i32 %queue_3_current_nod_14, i32 %queue_3_current_nod_15, i32 %queue_3_current_nod_16, i2 %tmp_6)
-
-ST_8: new_context_next_nod_1 (152)  [1/1] 1.96ns  loc: scheduler.cpp:44
-_ZN7_ap_sc_7sc_core4waitEi.exit:14  %new_context_next_nod_1 = call i32 @_ssdm_op_Mux.ap_auto.4i32.i2(i32 %queue_3_next_node_2_2, i32 %queue_3_next_node_3_2, i32 %queue_3_next_node_6_2, i32 %queue_3_next_node_8_2, i2 %tmp_6)
-
-ST_8: new_context_state (153)  [1/1] 1.96ns  loc: scheduler.cpp:44
-_ZN7_ap_sc_7sc_core4waitEi.exit:15  %new_context_state = call i32 @_ssdm_op_Mux.ap_auto.4i32.i2(i32 %queue_3_state_2_loa_1, i32 %queue_3_state_3_loa_1, i32 %queue_3_state_6_loa_1, i32 %queue_3_state_8_loa_1, i2 %tmp_6)
-
-ST_8: queue_head_ptr_2 (154)  [1/1] 2.90ns  loc: scheduler.cpp:56
-_ZN7_ap_sc_7sc_core4waitEi.exit:16  %queue_head_ptr_2 = add i32 -1, %queue_head_ptr_4
+ST_9: StgValue_190 (233)  [1/1] 0.00ns  loc: scheduler.cpp:88
+:5  ret void
 
 
- <State 9>: 2.32ns
-ST_9: tmp_8 (155)  [1/1] 0.00ns  loc: scheduler.cpp:59
-_ZN7_ap_sc_7sc_core4waitEi.exit:17  %tmp_8 = call i32 (...)* @_ssdm_op_SpecRegionBegin([12 x i8]* @p_str2)
+ <State 10>: 5.33ns
+ST_10: queue_head_ptr_2_loa (185)  [1/1] 0.00ns  loc: scheduler.cpp:67
+:0  %queue_head_ptr_2_loa = load i32* %queue_head_ptr_2
 
-ST_9: StgValue_157 (156)  [1/1] 0.00ns  loc: scheduler.cpp:60
-_ZN7_ap_sc_7sc_core4waitEi.exit:18  call void (...)* @_ssdm_op_SpecProtocol(i32 1, [1 x i8]* @p_str1) nounwind
+ST_10: setup_interfaces_cor_1 (188)  [1/2] 2.32ns  loc: scheduler.cpp:66
+:3  %setup_interfaces_cor_1 = load i1* %setup_interfaces_cor, align 1
 
-ST_9: setup_interfaces_con (157)  [1/1] 0.00ns  loc: scheduler.cpp:61
-_ZN7_ap_sc_7sc_core4waitEi.exit:19  %setup_interfaces_con = getelementptr [2 x i32]* %setup_interfaces_context_current_node, i64 0, i64 %tmp_4
+ST_10: halted_flag_1 (189)  [1/1] 2.07ns  loc: scheduler.cpp:66
+:4  %halted_flag_1 = and i1 %setup_interfaces_cor_1, %halted_flag
 
-ST_9: StgValue_159 (158)  [1/1] 2.32ns  loc: scheduler.cpp:61
-_ZN7_ap_sc_7sc_core4waitEi.exit:20  store i32 %new_context_current_1, i32* %setup_interfaces_con, align 4
+ST_10: tmp_7 (190)  [1/1] 3.26ns  loc: scheduler.cpp:67
+:5  %tmp_7 = icmp ne i32 %queue_head_ptr_2_loa, 0
 
-ST_9: setup_interfaces_con_1 (159)  [1/1] 0.00ns  loc: scheduler.cpp:61
-_ZN7_ap_sc_7sc_core4waitEi.exit:21  %setup_interfaces_con_1 = getelementptr [2 x i32]* %setup_interfaces_context_next_node, i64 0, i64 %tmp_4
+ST_10: demorgan (191)  [1/1] 2.07ns  loc: scheduler.cpp:67
+:6  %demorgan = and i1 %setup_interfaces_cor_1, %tmp_7
 
-ST_9: StgValue_161 (160)  [1/1] 2.32ns  loc: scheduler.cpp:61
-_ZN7_ap_sc_7sc_core4waitEi.exit:22  store i32 %new_context_next_nod_1, i32* %setup_interfaces_con_1, align 4
+ST_10: StgValue_196 (192)  [1/1] 0.00ns  loc: scheduler.cpp:67
+:7  br i1 %demorgan, label %6, label %.preheader.backedge
 
-ST_9: setup_interfaces_con_2 (161)  [1/1] 0.00ns  loc: scheduler.cpp:61
-_ZN7_ap_sc_7sc_core4waitEi.exit:23  %setup_interfaces_con_2 = getelementptr [2 x i32]* %setup_interfaces_context_state, i64 0, i64 %tmp_4
+ST_10: queue_3_current_nod_13 (194)  [1/1] 0.00ns
+:0  %queue_3_current_nod_13 = load i32* %queue_3_current_nod
 
-ST_9: StgValue_163 (162)  [1/1] 2.32ns  loc: scheduler.cpp:61
-_ZN7_ap_sc_7sc_core4waitEi.exit:24  store i32 %new_context_state, i32* %setup_interfaces_con_2, align 4
+ST_10: queue_3_current_nod_14 (195)  [1/1] 0.00ns
+:1  %queue_3_current_nod_14 = load i32* %queue_3_current_nod_1
 
-ST_9: setup_interfaces_res (163)  [1/1] 0.00ns  loc: scheduler.cpp:62
-_ZN7_ap_sc_7sc_core4waitEi.exit:25  %setup_interfaces_res = getelementptr [2 x i1]* %setup_interfaces_restart_V, i64 0, i64 %tmp_4
+ST_10: queue_3_current_nod_15 (196)  [1/1] 0.00ns
+:2  %queue_3_current_nod_15 = load i32* %queue_3_current_nod_2
 
-ST_9: StgValue_165 (164)  [1/1] 0.00ns  loc: scheduler.cpp:63
-_ZN7_ap_sc_7sc_core4waitEi.exit:26  call void (...)* @_ssdm_op_Wait(i32 1) nounwind
+ST_10: queue_3_current_nod_16 (197)  [1/1] 0.00ns
+:3  %queue_3_current_nod_16 = load i32* %queue_3_current_nod_3
 
-ST_9: StgValue_166 (165)  [1/1] 2.32ns  loc: scheduler.cpp:64
-_ZN7_ap_sc_7sc_core4waitEi.exit:27  store i1 false, i1* %setup_interfaces_res, align 1
+ST_10: queue_3_next_node_2_2 (198)  [1/1] 0.00ns
+:4  %queue_3_next_node_2_2 = load i32* %queue_3_next_node_2
 
-ST_9: empty_7 (166)  [1/1] 0.00ns  loc: scheduler.cpp:65
-_ZN7_ap_sc_7sc_core4waitEi.exit:28  %empty_7 = call i32 (...)* @_ssdm_op_SpecRegionEnd([12 x i8]* @p_str2, i32 %tmp_8)
+ST_10: queue_3_next_node_3_2 (199)  [1/1] 0.00ns
+:5  %queue_3_next_node_3_2 = load i32* %queue_3_next_node_3
 
-ST_9: StgValue_168 (167)  [1/1] 1.59ns  loc: scheduler.cpp:66
-_ZN7_ap_sc_7sc_core4waitEi.exit:29  br label %.preheader.backedge
+ST_10: queue_3_next_node_6_2 (200)  [1/1] 0.00ns
+:6  %queue_3_next_node_6_2 = load i32* %queue_3_next_node_6
+
+ST_10: queue_3_next_node_8_2 (201)  [1/1] 0.00ns
+:7  %queue_3_next_node_8_2 = load i32* %queue_3_next_node_8
+
+ST_10: queue_3_state_2_loa_1 (202)  [1/1] 0.00ns
+:8  %queue_3_state_2_loa_1 = load i32* %queue_3_state_2
+
+ST_10: queue_3_state_3_loa_1 (203)  [1/1] 0.00ns
+:9  %queue_3_state_3_loa_1 = load i32* %queue_3_state_3
+
+ST_10: queue_3_state_6_loa_1 (204)  [1/1] 0.00ns
+:10  %queue_3_state_6_loa_1 = load i32* %queue_3_state_6
+
+ST_10: queue_3_state_8_loa_1 (205)  [1/1] 0.00ns
+:11  %queue_3_state_8_loa_1 = load i32* %queue_3_state_8
+
+ST_10: tmp_12 (206)  [1/1] 0.00ns  loc: scheduler.cpp:67
+:12  %tmp_12 = trunc i32 %queue_head_ptr_2_loa to i2
+
+ST_10: queue_head_ptr_1 (207)  [1/1] 2.90ns  loc: scheduler.cpp:71
+:13  %queue_head_ptr_1 = add i32 -1, %queue_head_ptr_2_loa
+
+ST_10: queue_head_ptr_1_t (208)  [1/1] 2.17ns  loc: scheduler.cpp:67
+:14  %queue_head_ptr_1_t = add i2 -1, %tmp_12
+
+ST_10: new_context_current_1 (209)  [1/1] 1.96ns  loc: scheduler.cpp:67
+:15  %new_context_current_1 = call i32 @_ssdm_op_Mux.ap_auto.4i32.i2(i32 %queue_3_current_nod_13, i32 %queue_3_current_nod_14, i32 %queue_3_current_nod_15, i32 %queue_3_current_nod_16, i2 %queue_head_ptr_1_t)
+
+ST_10: new_context_next_nod_1 (210)  [1/1] 1.96ns  loc: scheduler.cpp:67
+:16  %new_context_next_nod_1 = call i32 @_ssdm_op_Mux.ap_auto.4i32.i2(i32 %queue_3_next_node_2_2, i32 %queue_3_next_node_3_2, i32 %queue_3_next_node_6_2, i32 %queue_3_next_node_8_2, i2 %queue_head_ptr_1_t)
+
+ST_10: new_context_state_1 (211)  [1/1] 1.96ns  loc: scheduler.cpp:67
+:17  %new_context_state_1 = call i32 @_ssdm_op_Mux.ap_auto.4i32.i2(i32 %queue_3_state_2_loa_1, i32 %queue_3_state_3_loa_1, i32 %queue_3_state_6_loa_1, i32 %queue_3_state_8_loa_1, i2 %queue_head_ptr_1_t)
 
 
- <State 10>: 0.00ns
-ST_10: queue_head_ptr_4_be (169)  [1/1] 0.00ns
-.preheader.backedge:0  %queue_head_ptr_4_be = phi i32 [ %queue_head_ptr_2, %_ZN7_ap_sc_7sc_core4waitEi.exit ], [ %queue_head_ptr_4, %2 ]
+ <State 11>: 2.32ns
+ST_11: tmp_13 (212)  [1/1] 0.00ns  loc: scheduler.cpp:77
+:18  %tmp_13 = call i32 (...)* @_ssdm_op_SpecRegionBegin([12 x i8]* @p_str17)
 
-ST_10: StgValue_170 (170)  [1/1] 0.00ns
-.preheader.backedge:1  br label %.preheader
+ST_11: StgValue_216 (213)  [1/1] 0.00ns  loc: scheduler.cpp:78
+:19  call void (...)* @_ssdm_op_SpecProtocol(i32 1, [1 x i8]* @p_str8) nounwind
+
+ST_11: setup_interfaces_con (214)  [1/1] 0.00ns  loc: scheduler.cpp:79
+:20  %setup_interfaces_con = getelementptr [2 x i32]* %setup_interfaces_context_current_node, i64 0, i64 %tmp_5
+
+ST_11: StgValue_218 (215)  [1/1] 2.32ns  loc: scheduler.cpp:79
+:21  store i32 %new_context_current_1, i32* %setup_interfaces_con, align 4
+
+ST_11: setup_interfaces_con_1 (216)  [1/1] 0.00ns  loc: scheduler.cpp:79
+:22  %setup_interfaces_con_1 = getelementptr [2 x i32]* %setup_interfaces_context_next_node, i64 0, i64 %tmp_5
+
+ST_11: StgValue_220 (217)  [1/1] 2.32ns  loc: scheduler.cpp:79
+:23  store i32 %new_context_next_nod_1, i32* %setup_interfaces_con_1, align 4
+
+ST_11: setup_interfaces_con_2 (218)  [1/1] 0.00ns  loc: scheduler.cpp:79
+:24  %setup_interfaces_con_2 = getelementptr [2 x i32]* %setup_interfaces_context_state, i64 0, i64 %tmp_5
+
+ST_11: StgValue_222 (219)  [1/1] 2.32ns  loc: scheduler.cpp:79
+:25  store i32 %new_context_state_1, i32* %setup_interfaces_con_2, align 4
+
+ST_11: setup_interfaces_res (220)  [1/1] 0.00ns  loc: scheduler.cpp:80
+:26  %setup_interfaces_res = getelementptr [2 x i1]* %setup_interfaces_restart_V, i64 0, i64 %tmp_5
+
+ST_11: StgValue_224 (221)  [1/1] 2.32ns  loc: scheduler.cpp:82
+:27  store i1 false, i1* %setup_interfaces_res, align 1
+
+ST_11: empty_9 (222)  [1/1] 0.00ns  loc: scheduler.cpp:83
+:28  %empty_9 = call i32 (...)* @_ssdm_op_SpecRegionEnd([12 x i8]* @p_str17, i32 %tmp_13)
+
+
+ <State 12>: 1.59ns
+ST_12: StgValue_226 (223)  [1/1] 1.59ns  loc: scheduler.cpp:72
+:29  store i32 %queue_head_ptr_1, i32* %queue_head_ptr_2
+
+ST_12: StgValue_227 (224)  [1/1] 0.00ns  loc: scheduler.cpp:84
+:30  br label %.preheader.backedge
+
+ST_12: StgValue_228 (226)  [1/1] 0.00ns
+.preheader.backedge:0  br label %.preheader
 
 
 
@@ -610,54 +787,71 @@ Target clock period: 10ns, clock uncertainty: 1.25ns.
 
  <State 1>: 1.59ns
 The critical path consists of the following:
-	'alloca' operation ('i') [11]  (0 ns)
-	'store' operation of constant 0 on local variable 'i' [35]  (1.59 ns)
+	'alloca' operation ('queue_head_ptr') [12]  (0 ns)
+	'store' operation of constant 0 on local variable 'queue_head_ptr' [42]  (1.59 ns)
 
- <State 2>: 3.26ns
+ <State 2>: 2.32ns
 The critical path consists of the following:
-	'load' operation ('i_load', scheduler.cpp:13) on local variable 'i' [39]  (0 ns)
-	'icmp' operation ('exitcond1', scheduler.cpp:13) [41]  (3.26 ns)
+	'phi' operation ('i') with incoming values : ('i', scheduler.cpp:14) [45]  (0 ns)
+	'getelementptr' operation ('sched_interfaces_sch', scheduler.cpp:18) [53]  (0 ns)
+	'load' operation ('sched_interfaces_sch_1', scheduler.cpp:18) on array 'sched_interfaces_schedule_V' [54]  (2.32 ns)
 
- <State 3>: 6.92ns
+ <State 3>: 5.33ns
 The critical path consists of the following:
-	'icmp' operation ('icmp', scheduler.cpp:16) [48]  (3.26 ns)
-	'and' operation ('or_cond_5', scheduler.cpp:16) [49]  (2.07 ns)
-	multiplexor before 'phi' operation ('queue_head_ptr') with incoming values : ('queue_head_ptr', scheduler.cpp:44) ('queue_head_ptr', scheduler.cpp:56) [117]  (1.59 ns)
+	'icmp' operation ('icmp', scheduler.cpp:18) [56]  (3.26 ns)
+	'and' operation ('or_cond_5', scheduler.cpp:18) [57]  (2.07 ns)
 
  <State 4>: 2.32ns
 The critical path consists of the following:
-	'load' operation ('new_context.current_node', scheduler.cpp:19) on array 'sched_interfaces_context_current_node' [65]  (2.32 ns)
+	'load' operation ('new_context.current_node', scheduler.cpp:21) on array 'sched_interfaces_context_current_node' [61]  (2.32 ns)
 
  <State 5>: 2.32ns
 The critical path consists of the following:
-	'getelementptr' operation ('sched_interfaces_ack', scheduler.cpp:23) [72]  (0 ns)
-	'store' operation (scheduler.cpp:25) of constant 0 on array 'sched_interfaces_ack_V' [74]  (2.32 ns)
+	'getelementptr' operation ('sched_interfaces_ack', scheduler.cpp:29) [68]  (0 ns)
+	'store' operation (scheduler.cpp:31) of constant 0 on array 'sched_interfaces_ack_V' [69]  (2.32 ns)
 
  <State 6>: 6.21ns
 The critical path consists of the following:
-	'icmp' operation ('sel_tmp1', scheduler.cpp:13) [78]  (2.07 ns)
-	'or' operation ('or_cond', scheduler.cpp:13) [80]  (2.07 ns)
-	'select' operation ('queue[3].state', scheduler.cpp:13) [96]  (2.07 ns)
+	'icmp' operation ('sel_tmp4', scheduler.cpp:51) [123]  (2.07 ns)
+	'or' operation ('or_cond', scheduler.cpp:51) [125]  (2.07 ns)
+	'select' operation ('queue[3].state', scheduler.cpp:51) [141]  (2.07 ns)
+	'store' operation (scheduler.cpp:49) of variable 'queue[3].state', scheduler.cpp:51 on local variable 'queue[3].state' [156]  (0 ns)
 
- <State 7>: 2.32ns
+ <State 7>: 6.52ns
 The critical path consists of the following:
-	'phi' operation ('i') with incoming values : ('i', scheduler.cpp:50) [125]  (0 ns)
-	'getelementptr' operation ('setup_interfaces_cor', scheduler.cpp:52) [132]  (0 ns)
-	'load' operation ('setup_interfaces_cor_1', scheduler.cpp:52) on array 'setup_interfaces_core_halted_V' [133]  (2.32 ns)
+	'load' operation ('history_current_node_2', scheduler.cpp:40) on array 'history.current_node', scheduler.cpp:5 [89]  (3.25 ns)
+	'icmp' operation ('tmp_s', scheduler.cpp:40) [90]  (3.26 ns)
 
- <State 8>: 6.92ns
+ <State 8>: 8.28ns
 The critical path consists of the following:
-	'icmp' operation ('tmp_5', scheduler.cpp:52) [134]  (3.26 ns)
-	'and' operation ('demorgan', scheduler.cpp:52) [135]  (2.07 ns)
-	multiplexor before 'phi' operation ('queue_head_ptr') with incoming values : ('queue_head_ptr', scheduler.cpp:44) ('queue_head_ptr', scheduler.cpp:56) [169]  (1.59 ns)
+	'xor' operation ('rev', scheduler.cpp:38) [83]  (2.07 ns)
+	'or' operation ('brmerge', scheduler.cpp:38) [84]  (2.07 ns)
+	'xor' operation ('sel_tmp', scheduler.cpp:38) [97]  (0 ns)
+	'and' operation ('tmp1', scheduler.cpp:40) [98]  (0 ns)
+	'and' operation ('sel_tmp1', scheduler.cpp:40) [100]  (2.07 ns)
+	'select' operation ('sel_tmp2', scheduler.cpp:38) [101]  (0 ns)
+	'and' operation ('match_found_1', scheduler.cpp:38) [103]  (2.07 ns)
 
- <State 9>: 2.32ns
+ <State 9>: 5.33ns
 The critical path consists of the following:
-	'getelementptr' operation ('setup_interfaces_con', scheduler.cpp:61) [157]  (0 ns)
-	'store' operation (scheduler.cpp:61) of variable 'new_context.current_node', scheduler.cpp:44 on array 'setup_interfaces_context_current_node' [158]  (2.32 ns)
+	'load' operation ('queue_head_ptr_2_loa_1', scheduler.cpp:86) on local variable 'queue_head_ptr' [228]  (0 ns)
+	'icmp' operation ('tmp_2', scheduler.cpp:86) [229]  (3.26 ns)
+	'and' operation ('tmp_3', scheduler.cpp:86) [230]  (2.07 ns)
 
- <State 10>: 0ns
+ <State 10>: 5.33ns
 The critical path consists of the following:
+	'load' operation ('queue_head_ptr_2_loa', scheduler.cpp:67) on local variable 'queue_head_ptr' [185]  (0 ns)
+	'icmp' operation ('tmp_7', scheduler.cpp:67) [190]  (3.26 ns)
+	'and' operation ('demorgan', scheduler.cpp:67) [191]  (2.07 ns)
+
+ <State 11>: 2.32ns
+The critical path consists of the following:
+	'getelementptr' operation ('setup_interfaces_con', scheduler.cpp:79) [214]  (0 ns)
+	'store' operation (scheduler.cpp:79) of variable 'new_context.current_node', scheduler.cpp:67 on array 'setup_interfaces_context_current_node' [215]  (2.32 ns)
+
+ <State 12>: 1.59ns
+The critical path consists of the following:
+	'store' operation (scheduler.cpp:72) of variable 'queue_head_ptr', scheduler.cpp:71 on local variable 'queue_head_ptr' [223]  (1.59 ns)
 
 
 ============================================================
@@ -678,6 +872,8 @@ N/A
 	State 8
 	State 9
 	State 10
+	State 11
+	State 12
 
 
 ============================================================

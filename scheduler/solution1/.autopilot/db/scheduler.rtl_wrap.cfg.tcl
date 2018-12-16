@@ -192,6 +192,18 @@ set structIsPacked1 "0"
 set DataType1 [list "CoreControlInterface_t" "struct " $structMem1 0 0 $structParameter1 $structArgument1 $NameSpace1 $structIsPacked1]
 set Port1 [list $PortName1 $Interface1 $DataType1 $Pointer1 $Dims1 $Const1 $Volatile1 $ArrayOpt1]
 lappend PortList $Port1
+set PortName2 "finished"
+set BitWidth2 "64"
+set ArrayOpt2 ""
+set Const2 "0"
+set Volatile2 "0"
+set Pointer2 "1"
+set Reference2 "0"
+set Dims2 [list 0]
+set Interface2 "wire"
+set DataType2 "unsigned int"
+set Port2 [list $PortName2 $Interface2 $DataType2 $Pointer2 $Dims2 $Const2 $Volatile2 $ArrayOpt2]
+lappend PortList $Port2
 set globalAPint "" 
 set returnAPInt "" 
 set hasCPPAPInt 1 

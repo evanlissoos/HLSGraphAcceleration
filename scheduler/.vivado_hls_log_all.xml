@@ -11,9 +11,7 @@
   </errorLogs>
   <warningLogs>
     <logs>
-      <synLog>
-        <logs message="WARNING: [XFORM 203-561] 'Loop-1' (scheduler.cpp:13:16) in function 'scheduler' is an infinite loop." projectName="scheduler" solutionName="solution1" date="2018-12-15T16:12:01.048-0800" type="Warning"/>
-      </synLog>
+      <synLog/>
       <simLog/>
       <mgLog/>
       <packageLog/>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
   <source>
-    <originFiles name="scheduler.cpp" path="/home/parallels/Documents/ece527/final_project/scheduler.cpp"/>
     <originFiles name="scheduler.h" path="/home/parallels/Documents/ece527/final_project/scheduler.h"/>
+    <originFiles name="scheduler.cpp" path="/home/parallels/Documents/ece527/final_project/scheduler.cpp"/>
   </source>
   <testbench>
     <originFiles name="scheduler_testbench.cpp" path="/home/parallels/Documents/ece527/final_project/scheduler_testbench.cpp"/>

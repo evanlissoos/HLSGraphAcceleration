@@ -10,7 +10,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.NUMERIC_STD.all;
 
-entity scheduler_mux_42_bkb is
+entity scheduler_mux_42_eOg is
 generic (
     ID            :integer := 0;
     NUM_STAGE     :integer := 1;
@@ -29,7 +29,7 @@ port (
     dout     :out std_logic_vector(31 downto 0));
 end entity;
 
-architecture rtl of scheduler_mux_42_bkb is
+architecture rtl of scheduler_mux_42_eOg is
     -- puts internal signals
     signal sel    : std_logic_vector(1 downto 0);
     -- level 1 signals

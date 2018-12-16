@@ -1,5 +1,4 @@
-#include "danke.h"
-#include <ap_int.h>
+#include "scheduler.h"
 #include <iostream>
 using namespace std;
 
@@ -8,23 +7,37 @@ using namespace std;
 
 int main()
 {
-	instr_t instruction_memory[INSTR_MEM_SIZE] = { 0x400410, 0x8020, 0xa00005, 0x20412, 0x420421, 0x20038, 0x8303fd, 0xc00020, 0x28020, 0x1020010, 0x1800000, 0x800000 };
-	data_t data_memory[DATA_MEM_SIZE] = {DUMP_START_ADDR};
-	halted_t halted[4] = {0,0,0,0};
-	unsigned coreids[4] = {0,1,2,3};
+	CoreScheduleInterface_t sched_interfaces[NUM_CORES];
+	CoreControlInterface_t setup_interfaces[NUM_CORES];
+	unsigned finished = 0;
 
-	cout << "Starting DANKE core!" << endl;
+	sched_interfaces[0].context.current_node = 1;
+	sched_interfaces[0].context.next_node = 2;
+	sched_interfaces[0].context.state = 1;
+	sched_interfaces[0].schedule = 1;
+	sched_interfaces[0].ack = 0;
 
-	danke_core(instruction_memory, data_memory, &(halted[0]), &(coreids[0]));
-	danke_core(instruction_memory, data_memory, &(halted[1]), &(coreids[1]));
-	danke_core(instruction_memory, data_memory, &(halted[2]), &(coreids[2]));
-	danke_core(instruction_memory, data_memory, &(halted[3]), &(coreids[3]));
+	sched_interfaces[1].context.current_node = 1;
+	sched_interfaces[1].context.next_node = 2;
+	sched_interfaces[1].context.state = 1;
+	sched_interfaces[1].schedule = 1;
+	sched_interfaces[1].ack = 0;
 
-	cout << "DANKE core has completed!" << endl;
+	setup_interfaces[0].context.current_node = 0;
+	setup_interfaces[0].context.next_node = 0;
+	setup_interfaces[0].context.state = 0;
+	setup_interfaces[0].core_halted = 1;
+	setup_interfaces[0].restart = 0;
 
-	cout << "Memory dump:" << endl;
-	for(int i = DUMP_START_ADDR; i < DUMP_START_ADDR + DUMP_NUM_ADDRS; i++)
-		cout << hex << i << ": " << data_memory[i] << endl;
+	setup_interfaces[1].context.current_node = 0;
+	setup_interfaces[1].context.next_node = 0;
+	setup_interfaces[1].context.state = 0;
+	setup_interfaces[1].core_halted = 1;
+	setup_interfaces[1].restart = 0;
 
-	return 0;
+	cout << "Entering scheduler!" << endl;
+
+	scheduler(sched_interfaces, setup_interfaces, &finished);
+
+	cout << "Returned from scheduler!" << endl;
 }

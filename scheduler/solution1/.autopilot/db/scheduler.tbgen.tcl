@@ -1,12 +1,12 @@
 set C_TypeInfoList {{ 
-"scheduler" : [[], { "return": [[], "void"]} , [{"ExternC" : 0}], [ {"sched_interfaces": [[], {"array": ["0", [2]]}] }, {"setup_interfaces": [[], {"array": ["1", [2]]}] }],[],""], 
-"1": [ "CoreControlInterface_t", {"typedef": [[[],"2"],""]}], 
-"2": [ "", {"struct": [[],[],[{ "context": [[96], "3"]},{ "restart": [[], "4"]},{ "core_halted": [[], "4"]}],""]}], 
+"scheduler" : [[], { "return": [[], "void"]} , [{"ExternC" : 0}], [ {"sched_interfaces": [[], {"array": ["0", [2]]}] }, {"setup_interfaces": [[], {"array": ["1", [2]]}] }, {"finished": [[],{ "pointer":  {"scalar": "unsigned int"}}] }],[],""], 
+"0": [ "CoreScheduleInterface_t", {"typedef": [[[],"2"],""]}], 
+"2": [ "", {"struct": [[],[],[{ "context": [[96], "3"]},{ "schedule": [[], "4"]},{ "ack": [[], "4"]}],""]}], 
 "3": [ "context_t", {"typedef": [[[],"5"],""]}], 
 "5": [ "", {"struct": [[],[],[{ "current_node": [[],  {"scalar": "unsigned int"}]},{ "next_node": [[],  {"scalar": "unsigned int"}]},{ "state": [[],  {"scalar": "unsigned int"}]}],""]}], 
-"4": [ "ap_uint<1>", {"hls_type": {"ap_uint": [[[[], {"scalar": { "int": 1}}]],""]}}], 
-"0": [ "CoreScheduleInterface_t", {"typedef": [[[],"6"],""]}], 
-"6": [ "", {"struct": [[],[],[{ "context": [[96], "3"]},{ "schedule": [[], "4"]},{ "ack": [[], "4"]}],""]}]
+"1": [ "CoreControlInterface_t", {"typedef": [[[],"6"],""]}], 
+"6": [ "", {"struct": [[],[],[{ "context": [[96], "3"]},{ "restart": [[], "4"]},{ "core_halted": [[], "4"]}],""]}], 
+"4": [ "ap_uint<1>", {"hls_type": {"ap_uint": [[[[], {"scalar": { "int": 1}}]],""]}}]
 }}
 set moduleName scheduler
 set isCombinational 0
@@ -30,6 +30,7 @@ set C_modelArgList {
 	{ setup_interfaces_context_state int 32 regular {array 2 { 0 3 } 0 1 }  }
 	{ setup_interfaces_restart_V int 1 regular {array 2 { 0 3 } 0 1 }  }
 	{ setup_interfaces_core_halted_V int 1 regular {array 2 { 1 3 } 1 1 }  }
+	{ finished int 32 regular {pointer 1}  }
 }
 set C_modelArgMapList {[ 
 	{ "Name" : "sched_interfaces_context_current_node", "interface" : "memory", "bitwidth" : 32, "direction" : "READONLY", "bitSlice":[{"low":0,"up":31,"cElement": [{"cName": "sched_interfaces.context.current_node","cData": "unsigned int","bit_use": { "low": 0,"up": 31},"cArray": [{"low" : 0,"up" : 1,"step" : 1}]}]}]} , 
@@ -41,9 +42,10 @@ set C_modelArgMapList {[
  	{ "Name" : "setup_interfaces_context_next_node", "interface" : "memory", "bitwidth" : 32, "direction" : "WRITEONLY", "bitSlice":[{"low":0,"up":31,"cElement": [{"cName": "setup_interfaces.context.next_node","cData": "unsigned int","bit_use": { "low": 0,"up": 31},"cArray": [{"low" : 0,"up" : 1,"step" : 1}]}]}]} , 
  	{ "Name" : "setup_interfaces_context_state", "interface" : "memory", "bitwidth" : 32, "direction" : "WRITEONLY", "bitSlice":[{"low":0,"up":31,"cElement": [{"cName": "setup_interfaces.context.state","cData": "unsigned int","bit_use": { "low": 0,"up": 31},"cArray": [{"low" : 0,"up" : 1,"step" : 1}]}]}]} , 
  	{ "Name" : "setup_interfaces_restart_V", "interface" : "memory", "bitwidth" : 1, "direction" : "WRITEONLY", "bitSlice":[{"low":0,"up":0,"cElement": [{"cName": "setup_interfaces.restart.V","cData": "uint1","bit_use": { "low": 0,"up": 0},"cArray": [{"low" : 0,"up" : 1,"step" : 1}]}]}]} , 
- 	{ "Name" : "setup_interfaces_core_halted_V", "interface" : "memory", "bitwidth" : 1, "direction" : "READONLY", "bitSlice":[{"low":0,"up":0,"cElement": [{"cName": "setup_interfaces.core_halted.V","cData": "uint1","bit_use": { "low": 0,"up": 0},"cArray": [{"low" : 0,"up" : 1,"step" : 1}]}]}]} ]}
+ 	{ "Name" : "setup_interfaces_core_halted_V", "interface" : "memory", "bitwidth" : 1, "direction" : "READONLY", "bitSlice":[{"low":0,"up":0,"cElement": [{"cName": "setup_interfaces.core_halted.V","cData": "uint1","bit_use": { "low": 0,"up": 0},"cArray": [{"low" : 0,"up" : 1,"step" : 1}]}]}]} , 
+ 	{ "Name" : "finished", "interface" : "wire", "bitwidth" : 32, "direction" : "WRITEONLY", "bitSlice":[{"low":0,"up":31,"cElement": [{"cName": "finished","cData": "unsigned int","bit_use": { "low": 0,"up": 31},"cArray": [{"low" : 0,"up" : 0,"step" : 1}]}]}]} ]}
 # RTL Port declarations: 
-set portNum 41
+set portNum 43
 set portList { 
 	{ ap_clk sc_in sc_logic 1 clock -1 } 
 	{ ap_rst sc_in sc_logic 1 reset -1 active_high_sync } 
@@ -86,6 +88,8 @@ set portList {
 	{ setup_interfaces_core_halted_V_address0 sc_out sc_lv 1 signal 9 } 
 	{ setup_interfaces_core_halted_V_ce0 sc_out sc_logic 1 signal 9 } 
 	{ setup_interfaces_core_halted_V_q0 sc_in sc_lv 1 signal 9 } 
+	{ finished sc_out sc_lv 32 signal 10 } 
+	{ finished_ap_vld sc_out sc_logic 1 outvld 10 } 
 }
 set NewPortList {[ 
 	{ "name": "ap_clk", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "clock", "bundle":{"name": "ap_clk", "role": "default" }} , 
@@ -128,10 +132,12 @@ set NewPortList {[
  	{ "name": "setup_interfaces_restart_V_d0", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "setup_interfaces_restart_V", "role": "d0" }} , 
  	{ "name": "setup_interfaces_core_halted_V_address0", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "setup_interfaces_core_halted_V", "role": "address0" }} , 
  	{ "name": "setup_interfaces_core_halted_V_ce0", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "setup_interfaces_core_halted_V", "role": "ce0" }} , 
- 	{ "name": "setup_interfaces_core_halted_V_q0", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "setup_interfaces_core_halted_V", "role": "q0" }}  ]}
+ 	{ "name": "setup_interfaces_core_halted_V_q0", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "setup_interfaces_core_halted_V", "role": "q0" }} , 
+ 	{ "name": "finished", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "finished", "role": "default" }} , 
+ 	{ "name": "finished_ap_vld", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "outvld", "bundle":{"name": "finished", "role": "ap_vld" }}  ]}
 
 set RtlHierarchyInfo {[
-	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "2", "3"],
+	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "2", "3", "4", "5", "6"],
 		"CDFG" : "scheduler",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
 		"Pipeline" : "None", "AlignedPipeline" : "0", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
@@ -149,10 +155,14 @@ set RtlHierarchyInfo {[
 			{"Name" : "setup_interfaces_context_next_node", "Type" : "Memory", "Direction" : "O"},
 			{"Name" : "setup_interfaces_context_state", "Type" : "Memory", "Direction" : "O"},
 			{"Name" : "setup_interfaces_restart_V", "Type" : "Memory", "Direction" : "O"},
-			{"Name" : "setup_interfaces_core_halted_V", "Type" : "Memory", "Direction" : "I"}]},
-	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.scheduler_mux_42_bkb_U1", "Parent" : "0"},
-	{"ID" : "2", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.scheduler_mux_42_bkb_U2", "Parent" : "0"},
-	{"ID" : "3", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.scheduler_mux_42_bkb_U3", "Parent" : "0"}]}
+			{"Name" : "setup_interfaces_core_halted_V", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "finished", "Type" : "Vld", "Direction" : "O"}]},
+	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.history_current_node_U", "Parent" : "0"},
+	{"ID" : "2", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.history_next_node_U", "Parent" : "0"},
+	{"ID" : "3", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.history_state_U", "Parent" : "0"},
+	{"ID" : "4", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.scheduler_mux_42_eOg_U1", "Parent" : "0"},
+	{"ID" : "5", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.scheduler_mux_42_eOg_U2", "Parent" : "0"},
+	{"ID" : "6", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.scheduler_mux_42_eOg_U3", "Parent" : "0"}]}
 
 
 set ArgLastReadFirstWriteLatency {
@@ -166,13 +176,14 @@ set ArgLastReadFirstWriteLatency {
 		setup_interfaces_context_next_node {Type O LastRead -1 FirstWrite 4}
 		setup_interfaces_context_state {Type O LastRead -1 FirstWrite 4}
 		setup_interfaces_restart_V {Type O LastRead -1 FirstWrite 4}
-		setup_interfaces_core_halted_V {Type I LastRead 2 FirstWrite -1}}}
+		setup_interfaces_core_halted_V {Type I LastRead 2 FirstWrite -1}
+		finished {Type O LastRead -1 FirstWrite 2}}}
 
 set hasDtUnsupportedChannel 0
 
 set PerformanceInfo {[
-	{"Name" : "Latency", "Min" : "-1", "Max" : "-1"}
-	, {"Name" : "Interval", "Min" : "0", "Max" : "0"}
+	{"Name" : "Latency", "Min" : "14", "Max" : "6164"}
+	, {"Name" : "Interval", "Min" : "15", "Max" : "6165"}
 ]}
 
 set PipelineEnableSignalInfo {[
@@ -189,6 +200,7 @@ set Spec2ImplPortList {
 	setup_interfaces_context_state { ap_memory {  { setup_interfaces_context_state_address0 mem_address 1 1 }  { setup_interfaces_context_state_ce0 mem_ce 1 1 }  { setup_interfaces_context_state_we0 mem_we 1 1 }  { setup_interfaces_context_state_d0 mem_din 1 32 } } }
 	setup_interfaces_restart_V { ap_memory {  { setup_interfaces_restart_V_address0 mem_address 1 1 }  { setup_interfaces_restart_V_ce0 mem_ce 1 1 }  { setup_interfaces_restart_V_we0 mem_we 1 1 }  { setup_interfaces_restart_V_d0 mem_din 1 1 } } }
 	setup_interfaces_core_halted_V { ap_memory {  { setup_interfaces_core_halted_V_address0 mem_address 1 1 }  { setup_interfaces_core_halted_V_ce0 mem_ce 1 1 }  { setup_interfaces_core_halted_V_q0 mem_dout 0 1 } } }
+	finished { ap_vld {  { finished out_data 1 32 }  { finished_ap_vld out_vld 1 1 } } }
 }
 
 set busDeadlockParameterList { 

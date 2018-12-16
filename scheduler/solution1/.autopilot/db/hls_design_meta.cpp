@@ -41,5 +41,7 @@ const Port_Property HLS_Design_Meta::port_props[]={
 	Port_Property("setup_interfaces_core_halted_V_address0", 1, hls_out, 9, "ap_memory", "mem_address", 1),
 	Port_Property("setup_interfaces_core_halted_V_ce0", 1, hls_out, 9, "ap_memory", "mem_ce", 1),
 	Port_Property("setup_interfaces_core_halted_V_q0", 1, hls_in, 9, "ap_memory", "mem_dout", 1),
+	Port_Property("finished", 32, hls_out, 10, "ap_vld", "out_data", 1),
+	Port_Property("finished_ap_vld", 1, hls_out, 10, "ap_vld", "out_vld", 1),
 };
 const char* HLS_Design_Meta::dut_name = "scheduler";

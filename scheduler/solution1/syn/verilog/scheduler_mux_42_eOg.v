@@ -8,7 +8,7 @@
 
 `timescale 1ns/1ps
 
-module scheduler_mux_42_bkb #(
+module scheduler_mux_42_eOg #(
 parameter
     ID                = 0,
     NUM_STAGE         = 1,

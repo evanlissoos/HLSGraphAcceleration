@@ -3,6 +3,8 @@
 
 #include <systemc.h>
 #include <ap_int.h>
+#include <iostream>
+using namespace std;
 
 #define nodeid_t unsigned
 #define ready_t ap_uint<1>
@@ -34,6 +36,6 @@ typedef struct
 	halted_t core_halted;
 } CoreControlInterface_t;
 
-void scheduler(CoreScheduleInterface_t * sched_interfaces[NUM_CORES], CoreControlInterface_t * setup_interfaces[NUM_CORES]);
+void scheduler(CoreScheduleInterface_t sched_interfaces[NUM_CORES], CoreControlInterface_t setup_interfaces[NUM_CORES], unsigned * finished);
 
 #endif

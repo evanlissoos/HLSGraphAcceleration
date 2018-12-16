@@ -1,4 +1,4 @@
-INFO: [HLS 200-0] Workspace /home/parallels/Documents/ece527/final_project/scheduler/solution1 opened at Sat Dec 15 18:11:52 CST 2018
+INFO: [HLS 200-0] Workspace /home/parallels/Documents/ece527/final_project/scheduler/solution1 opened at Sat Dec 15 23:27:25 CST 2018
 INFO: [HLS 200-100] Execute     config_clock -quiet -name default -period 10 -default=false 
 INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
 INFO: [HLS 200-100] Command     config_clock returned 0; 0 sec.
@@ -14,10 +14,10 @@ INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute           source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/interface/axi4.lib 
 INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute           source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/interface/maxi.lib 
-INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Command           ap_source returned 0; 0.01 sec.
 INFO: [HLS 200-100] Execute           source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/interface/saxilite.lib 
 INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Command         ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Command         ap_source returned 0; 0.01 sec.
 INFO: [HLS 200-100] Execute         source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/common/dsp48.lib 
 INFO: [HLS 200-100] Command         ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute         source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/ip/dds_compiler.lib 
@@ -26,7 +26,7 @@ INFO: [HLS 200-100] Execute         source /opt/Xilinx/Vivado_HLS/2017.2/common/
 INFO: [HLS 200-100] Command         ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute         source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/ip/xfir.lib 
 INFO: [HLS 200-100] Command         ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Command       ap_source returned 0; 0.01 sec.
 INFO: [HLS 200-100] Execute       source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/common/xilinx_old.lib 
 INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute       source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/common/xilinx_vivado.lib 
@@ -39,10 +39,10 @@ INFO: [HLS 200-100] Execute           source /opt/Xilinx/Vivado_HLS/2017.2/commo
 INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute           source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/interface/saxilite.hlp 
 INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Command         ap_source returned 0; 0.01 sec.
+INFO: [HLS 200-100] Command         ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute         source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/common/dsp48.hlp 
 INFO: [HLS 200-100] Command         ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Command       ap_source returned 0; 0.01 sec.
+INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute       source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/zynq/dsp48e1.hlp 
 INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute       get_default_platform 
@@ -63,7 +63,7 @@ INFO: [HLS 200-100] Command         ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute         source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/common/dsp48.hlp 
 INFO: [HLS 200-100] Command         ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Command     import_lib returned 0; 0.01 sec.
+INFO: [HLS 200-100] Command     import_lib returned 0; 0.02 sec.
 INFO: [HLS 200-100] Execute     source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/zynq/zynq.gen 
 INFO: [HLS 200-100] Execute       source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/common/virtex.gen 
 INFO: [HLS 200-100] Execute         source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/common/xilinx.gen 
@@ -93,9 +93,9 @@ INFO: [HLS 200-100] Execute           source /opt/Xilinx/Vivado_HLS/2017.2/commo
 INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Command         ap_source returned 0; 0.09 sec.
 INFO: [HLS 200-100] Execute         source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/common/dsp48.gen 
-INFO: [HLS 200-100] Command         ap_source returned 0; 0.01 sec.
-INFO: [HLS 200-100] Command       ap_source returned 0; 0.1 sec.
-INFO: [HLS 200-100] Command     ap_source returned 0; 0.1 sec.
+INFO: [HLS 200-100] Command         ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Command       ap_source returned 0; 0.09 sec.
+INFO: [HLS 200-100] Command     ap_source returned 0; 0.09 sec.
 INFO: [HLS 200-100] Execute     open_platform DefaultPlatform 
 INFO: [HLS 200-100] Command     open_platform returned 0; 0 sec.
 INFO: [HLS 200-100] Execute     import_lib /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/zynq/zynq_fpv6 
@@ -114,11 +114,11 @@ INFO: [HLS 200-100] Execute             source /opt/Xilinx/Vivado_HLS/2017.2/com
 INFO: [HLS 200-100] Command             ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute           source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/common/dsp48.hlp 
-INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Command         ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Execute       source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/zynq/zynq_hp.hlp 
+INFO: [HLS 200-100] Command           ap_source returned 0; 0.01 sec.
+INFO: [HLS 200-100] Command         ap_source returned 0; 0.01 sec.
 INFO: [HLS 200-100] Command       ap_source returned 0; 0.01 sec.
+INFO: [HLS 200-100] Execute       source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/zynq/zynq_hp.hlp 
+INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Command     import_lib returned 0; 0.02 sec.
 INFO: [HLS 200-100] Execute     source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/zynq/zynq_fpv6.gen 
 INFO: [HLS 200-100] Execute       source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/common/xilinx_fpv6.gen 
@@ -140,18 +140,18 @@ INFO: [HLS 200-100] Command       add_library returned 0; 0.01 sec.
 INFO: [HLS 200-100] Execute       add_library xilinx/zynq/zynq_fpv6 
 INFO: [HLS 200-100] Execute         get_default_platform 
 INFO: [HLS 200-100] Command         get_default_platform returned 0; 0 sec.
-INFO: [HLS 200-100] Command       add_library returned 0; 0 sec.
+INFO: [HLS 200-100] Command       add_library returned 0; 0.01 sec.
 INFO: [HLS 200-10] Setting target device to 'xc7z020clg484-1'
 INFO: [HLS 200-100] Execute       get_default_platform 
 INFO: [HLS 200-100] Command       get_default_platform returned 0; 0 sec.
-INFO: [HLS 200-100] Command     set_part returned 0; 0.05 sec.
+INFO: [HLS 200-100] Command     set_part returned 0; 0.04 sec.
 INFO: [HLS 200-100] Execute     get_default_platform 
 INFO: [HLS 200-100] Command     get_default_platform returned 0; 0 sec.
 INFO: [HLS 200-100] Execute     config_chip_info -quiet -resource  {SLICE 13300}  {LUT 53200}     {FF 106400} {DSP48E 220}   {BRAM 280}  
 INFO: [HLS 200-100] Command     config_chip_info returned 0; 0 sec.
 INFO: [HLS 200-100] Execute     config_chip_info -quiet -speed slow 
 INFO: [HLS 200-100] Command     config_chip_info returned 0; 0 sec.
-INFO: [HLS 200-100] Command   open_solution returned 0; 0.2 sec.
+INFO: [HLS 200-100] Command   open_solution returned 0; 0.17 sec.
 INFO: [HLS 200-100] Execute   set_part xc7z020clg484-1 -tool vivado 
 INFO: [HLS 200-100] Execute     add_library xilinx/zynq/zynq:xc7z020:clg484:-1 
 INFO: [HLS 200-100] Execute       get_default_platform 
@@ -168,10 +168,10 @@ INFO: [HLS 200-100] Command     add_library returned 0; 0 sec.
 INFO: [HLS 200-100] Execute     add_library xilinx/zynq/zynq_fpv6 
 INFO: [HLS 200-100] Execute       get_default_platform 
 INFO: [HLS 200-100] Command       get_default_platform returned 0; 0 sec.
-INFO: [HLS 200-100] Command     add_library returned 0; 0 sec.
+INFO: [HLS 200-100] Command     add_library returned 0; 0.01 sec.
 INFO: [HLS 200-100] Execute     get_default_platform 
 INFO: [HLS 200-100] Command     get_default_platform returned 0; 0 sec.
-INFO: [HLS 200-100] Command   set_part returned 0; 0.03 sec.
+INFO: [HLS 200-100] Command   set_part returned 0; 0.04 sec.
 INFO: [HLS 200-100] Execute   create_clock -period 10 -name default 
 INFO: [HLS 200-100] Command   create_clock returned 0; 0 sec.
 INFO: [HLS 200-100] Execute   csynth_design 
@@ -184,7 +184,7 @@ INFO: [HLS 200-0] Handling scheduler.cpp as C++
 INFO: [HLS 200-0] Syntax Checking before pre-processing...
 INFO: [HLS 200-100] Execute       clang  -fno-limit-debug-info -gcc-toolchain "/opt/Xilinx/Vivado_HLS/2017.2/lnx64/tools/gcc" -hls    -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit  -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__   -I "/opt/Xilinx/Vivado_HLS/2017.2/lnx64/tools/systemc/include" -I "/opt/Xilinx/Vivado_HLS/2017.2/include" -I "/opt/Xilinx/Vivado_HLS/2017.2/include/ap_sysc" -fexceptions -I "/opt/Xilinx/Vivado_HLS/2017.2/common/technology/autopilot" -include etc/autopilot_ssdm_op.h "scheduler.cpp"  -o "/home/parallels/Documents/ece527/final_project/scheduler/solution1/.autopilot/db/scheduler.pp.00.o" 
 INFO: [HLS 200-0] exec clang -fno-limit-debug-info -gcc-toolchain /opt/Xilinx/Vivado_HLS/2017.2/lnx64/tools/gcc -hls -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -I /opt/Xilinx/Vivado_HLS/2017.2/lnx64/tools/systemc/include -I /opt/Xilinx/Vivado_HLS/2017.2/include -I /opt/Xilinx/Vivado_HLS/2017.2/include/ap_sysc -fexceptions -I /opt/Xilinx/Vivado_HLS/2017.2/common/technology/autopilot -include etc/autopilot_ssdm_op.h scheduler.cpp -o /home/parallels/Documents/ece527/final_project/scheduler/solution1/.autopilot/db/scheduler.pp.00.o
-INFO: [HLS 200-100] Command       clang returned 0; 0.78 sec.
+INFO: [HLS 200-100] Command       clang returned 0; 0.92 sec.
 INFO: [HLS 200-100] Execute       is_encrypted /home/parallels/Documents/ece527/final_project/scheduler/solution1/.autopilot/db/scheduler.pp.00.o 
 INFO: [HLS 200-100] Command       is_encrypted returned 0; 0 sec.
 INFO: [HLS 200-0] Source preprocessing
@@ -206,7 +206,7 @@ Error:Syntax error in source:for (__decltype(__n + 0) __niter = __n;
 Error:Missing ; in source:t
 Error:Syntax error in source:)
  *__first = __tmp;
-INFO: [HLS 200-100] Command       cdt returned 0; 5.6 sec.
+INFO: [HLS 200-100] Command       cdt returned 0; 5.42 sec.
 INFO: [HLS 200-0] Marker-Pragma convertor: /home/parallels/Documents/ece527/final_project/scheduler/solution1/.autopilot/db/scheduler.pp.0.cpp.ap-cdt.cpp /home/parallels/Documents/ece527/final_project/scheduler/solution1/.autopilot/db/scheduler.pragma.0.cpp /home/parallels/Documents/ece527/final_project/scheduler/solution1/.autopilot/db/scheduler.pragma.0.cpp.ap-line.CXX 0
 INFO: [HLS 200-0] Converting Pragmas to Markers...
 INFO: [HLS 200-100] Execute       source /home/parallels/Documents/ece527/final_project/scheduler/solution1/.autopilot/db/pragma.status.tcl 
@@ -219,54 +219,54 @@ INFO: [HLS 200-100] Command       clang returned 0; 0.06 sec.
 INFO: [HLS 200-0] Processing labels
 INFO: [HLS 200-100] Execute       clang  -fno-limit-debug-info -gcc-toolchain /opt/Xilinx/Vivado_HLS/2017.2/lnx64/tools/gcc -hls -hls-analyze-label -hls-analyze-pragma -fno-exceptions  -D__llvm__  -w  "/home/parallels/Documents/ece527/final_project/scheduler/solution1/.autopilot/db/scheduler.pragma.2.cpp"    -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "/opt/Xilinx/Vivado_HLS/2017.2/common/technology/autopilot" -I "/opt/Xilinx/Vivado_HLS/2017.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -g -o "/home/parallels/Documents/ece527/final_project/scheduler/solution1/.autopilot/db/scheduler.g.bc" 
 INFO: [HLS 200-0] exec clang -fno-limit-debug-info -gcc-toolchain /opt/Xilinx/Vivado_HLS/2017.2/lnx64/tools/gcc -hls -hls-analyze-label -hls-analyze-pragma -fno-exceptions -D__llvm__ -w /home/parallels/Documents/ece527/final_project/scheduler/solution1/.autopilot/db/scheduler.pragma.2.cpp -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /opt/Xilinx/Vivado_HLS/2017.2/common/technology/autopilot -I /opt/Xilinx/Vivado_HLS/2017.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -g -o /home/parallels/Documents/ece527/final_project/scheduler/solution1/.autopilot/db/scheduler.g.bc
-INFO: [HLS 200-100] Command       clang returned 0; 0.44 sec.
+INFO: [HLS 200-100] Command       clang returned 0; 0.45 sec.
 INFO: [HLS 200-100] Execute       source /home/parallels/Documents/ece527/final_project/scheduler/solution1/.autopilot/db/ve_warning.tcl 
 INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
 INFO: [HLS 200-10] Validating synthesis directives ...
 INFO: [HLS 200-100] Execute       source /home/parallels/Documents/ece527/final_project/scheduler/solution1/.autopilot/db/pragma.status.tcl 
 INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
-INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:17 ; elapsed = 00:00:08 . Memory (MB): peak = 351.051 ; gain = 12.586 ; free physical = 4577 ; free virtual = 6534
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:17 ; elapsed = 00:00:08 . Memory (MB): peak = 351.055 ; gain = 12.586 ; free physical = 4727 ; free virtual = 6698
 INFO: [HLS 200-0] Linking Release ...
 INFO: [HLS 200-100] Execute       llvm-ld /home/parallels/Documents/ece527/final_project/scheduler/solution1/.autopilot/db/scheduler.bc -disable-opt -L/opt/Xilinx/Vivado_HLS/2017.2/lnx64/lib -lm_basic -o /home/parallels/Documents/ece527/final_project/scheduler/solution1/.autopilot/db/a.o 
-INFO: [HLS 200-100] Command       llvm-ld returned 0; 0.04 sec.
+INFO: [HLS 200-100] Command       llvm-ld returned 0; 0.05 sec.
 INFO: [HLS 200-100] Execute       disassemble /home/parallels/Documents/ece527/final_project/scheduler/solution1/.autopilot/db/a.o /home/parallels/Documents/ece527/final_project/scheduler/solution1/.autopilot/db/a.o 
 INFO: [HLS 200-100] Execute         is_encrypted /home/parallels/Documents/ece527/final_project/scheduler/solution1/.autopilot/db/a.o.bc 
 INFO: [HLS 200-100] Command         is_encrypted returned 0; 0 sec.
-INFO: [HLS 200-100] Command       disassemble returned 0; 0.04 sec.
+INFO: [HLS 200-100] Command       disassemble returned 0; 0.03 sec.
 INFO: [HLS 200-0] Disassemble time: 0 seconds per iteration
 INFO: [HLS 200-0] Linking Debug ...
 INFO: [HLS 200-100] Execute       llvm-ld /home/parallels/Documents/ece527/final_project/scheduler/solution1/.autopilot/db/scheduler.g.bc -disable-opt -L/opt/Xilinx/Vivado_HLS/2017.2/lnx64/lib -lm_basic -o /home/parallels/Documents/ece527/final_project/scheduler/solution1/.autopilot/db/a.g 
-INFO: [HLS 200-100] Command       llvm-ld returned 0; 0.04 sec.
+INFO: [HLS 200-100] Command       llvm-ld returned 0; 0.05 sec.
 INFO: [HLS 200-100] Execute       disassemble /home/parallels/Documents/ece527/final_project/scheduler/solution1/.autopilot/db/a.g /home/parallels/Documents/ece527/final_project/scheduler/solution1/.autopilot/db/a.g 
 INFO: [HLS 200-100] Execute         is_encrypted /home/parallels/Documents/ece527/final_project/scheduler/solution1/.autopilot/db/a.g.bc 
 INFO: [HLS 200-100] Command         is_encrypted returned 0; 0 sec.
-INFO: [HLS 200-100] Command       disassemble returned 0; 0.04 sec.
+INFO: [HLS 200-100] Command       disassemble returned 0; 0.03 sec.
 INFO: [HLS 200-0] Disassemble time: 0 seconds per iteration
-INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:17 ; elapsed = 00:00:09 . Memory (MB): peak = 351.051 ; gain = 12.586 ; free physical = 4576 ; free virtual = 6535
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:17 ; elapsed = 00:00:09 . Memory (MB): peak = 351.055 ; gain = 12.586 ; free physical = 4725 ; free virtual = 6698
 INFO: [HLS 200-100] Execute       opt_and_import_c a -opt_level=2 -skip_syncheck=0 -ng=0 -keep_printf=0 
 INFO: [HLS 200-100] Execute         cleanup_all_models 
 INFO: [HLS 200-100] Command         cleanup_all_models returned 0; 0 sec.
 INFO: [HLS 200-10] Starting code transformations ...
 INFO: [HLS 200-100] Execute         transform -promote-dbg-pointer /home/parallels/Documents/ece527/final_project/scheduler/solution1/.autopilot/db/a.pp.bc -o /home/parallels/Documents/ece527/final_project/scheduler/solution1/.autopilot/db/a.pp.0.bc -f 
-INFO: [HLS 200-100] Command         transform returned 0; 0.02 sec.
+INFO: [HLS 200-100] Command         transform returned 0; 0.01 sec.
 INFO: [HLS 200-100] Execute         llvm-ld /home/parallels/Documents/ece527/final_project/scheduler/solution1/.autopilot/db/a.pp.0.bc -disable-opt -L/opt/Xilinx/Vivado_HLS/2017.2/lnx64/lib -lfloatconversion -o /home/parallels/Documents/ece527/final_project/scheduler/solution1/.autopilot/db/a.g.0 
-INFO: [HLS 200-100] Command         llvm-ld returned 0; 0.04 sec.
+INFO: [HLS 200-100] Command         llvm-ld returned 0; 0.05 sec.
 INFO: [HLS 200-0] Running Standard Transforms...
 INFO: [HLS 200-100] Execute         transform -hls -share-std-xform -demangle-name -inline-byval-memcpy -always-inline -promote-dbg-pointer -interface-preproc -scalarrepl -mem2reg -keep-read-access -instcombine -dce -promote-dbg-pointer -bitop-raise -loop-simplify -indvarspre -indvars -loop-simplify -xunroll -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -basicaa -simplifycfg -mem2reg -globalopt -global-constprop -deadargelim -instcombine -simplifycfg -prune-eh -simplifycfg -scalarrepl -instcombine -reassociate -licm -simplifycfg -loop-simplify -indvars -instcombine -simplifycfg -mem2reg -loop-simplify -indvars -instcombine -gvn -gvn -instcombine -adce -break-crit-edges -simplifycfg -loop-delete -global-array-opt -dce -dse -adce -find-syn-modules -top scheduler -deadargelim -mem2reg -instcombine -dce -presyn-prepare -auto-rom-infer -interface-preproc -syn-check -check-rec-only -find-region -simplifycfg -func-extr -function-inline -globaldce -mem2reg -instcombine -dce -gvn -globaldce -adce -adse -constprop -instcombine -bit-constprop -instcombine -dce -simplifycfg -bitop-raise -simplifycfg -dce -loop-delete -reassociate -globalopt -global-privatize -mem2reg -dce -global-constprop -pointer-simplify -constprop -dce -func-inst -deadargelim -auto-shift-reg-idiom -promote-dbg-pointer -norm-name /home/parallels/Documents/ece527/final_project/scheduler/solution1/.autopilot/db/a.g.0.bc -o /home/parallels/Documents/ece527/final_project/scheduler/solution1/.autopilot/db/a.g.1.bc -f -phase std-opt 
-INFO: [HLS 200-100] Command         transform returned 0; 0.02 sec.
+INFO: [HLS 200-100] Command         transform returned 0; 0.04 sec.
 INFO: [HLS 200-100] Execute         disassemble /home/parallels/Documents/ece527/final_project/scheduler/solution1/.autopilot/db/a.g.1 /home/parallels/Documents/ece527/final_project/scheduler/solution1/.autopilot/db/a.g.1 
 INFO: [HLS 200-100] Execute           is_encrypted /home/parallels/Documents/ece527/final_project/scheduler/solution1/.autopilot/db/a.g.1.bc 
 INFO: [HLS 200-100] Command           is_encrypted returned 0; 0 sec.
-INFO: [HLS 200-100] Command         disassemble returned 0; 0.04 sec.
-INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:17 ; elapsed = 00:00:09 . Memory (MB): peak = 351.258 ; gain = 12.793 ; free physical = 4568 ; free virtual = 6529
+INFO: [HLS 200-100] Command         disassemble returned 0; 0.02 sec.
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:17 ; elapsed = 00:00:09 . Memory (MB): peak = 351.270 ; gain = 12.801 ; free physical = 4717 ; free virtual = 6692
 INFO: [HLS 200-10] Checking synthesizability ...
 INFO: [HLS 200-0] Checking Synthesizability 1/2..
 INFO: [HLS 200-100] Execute         transform -hls -syn-check -check-rec-only -disaggr -scalarrepl -norm-name -dce -mem2reg -instcombine -function-uniquify -directive-preproc -mem2reg -dse -dce -auto-rom-infer -dce -array-normalize -instcombine -dce -warn-fifo-pointer -array-seg-normalize -instcombine -dce -array-flatten -instcombine -dce -array-burst -dce -deadargelim -promote-global-argument -simplifycfg -mem2reg -globaldce -resolve-double-ptr -dce -deadargelim -dce -instcombine -function-inline -globaldce -dce -doublePtrSimplify -doublePtrElim -dce -doublePtrSimplify -promote-dbg-pointer -dce -scalarrepl -dse -adse -instcombine -ptrLegalization -simplifycfg -dce -instcombine -pointer-simplify -ptrArgReplace -dce -instcombine -disaggr -scalarrepl -norm-name -dce -mem2reg -instcombine -ptrLegalization -simplifycfg -deadargelim -instcombine -dce -inst-simplify -function-uniquify -directive-preproc -mem2reg -dse -dce -globaldce /home/parallels/Documents/ece527/final_project/scheduler/solution1/.autopilot/db/a.g.1.bc -o /home/parallels/Documents/ece527/final_project/scheduler/solution1/.autopilot/db/a.g.2.prechk.bc -f 
-INFO: [HLS 200-100] Command         transform returned 0; 0.02 sec.
+INFO: [HLS 200-100] Command         transform returned 0; 0.03 sec.
 INFO: [HLS 200-0] Checking Synthesizability 2/2..
 INFO: [HLS 200-100] Execute         transform -syn-check /home/parallels/Documents/ece527/final_project/scheduler/solution1/.autopilot/db/a.g.2.prechk.bc -o /home/parallels/Documents/ece527/final_project/scheduler/solution1/.autopilot/db/a.g.2.bc -f -phase syn-check 
 INFO: [HLS 200-100] Command         transform returned 0; 0.02 sec.
-INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:17 ; elapsed = 00:00:09 . Memory (MB): peak = 351.258 ; gain = 12.793 ; free physical = 4565 ; free virtual = 6525
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:17 ; elapsed = 00:00:09 . Memory (MB): peak = 351.270 ; gain = 12.801 ; free physical = 4713 ; free virtual = 6688
 INFO: [HLS 200-0] Compiler optimizing ...
 INFO: [HLS 200-0] Share syncheck's 1.bc for syn flow: copy /home/parallels/Documents/ece527/final_project/scheduler/solution1/.autopilot/db/a.g.1.bc to /home/parallels/Documents/ece527/final_project/scheduler/solution1/.autopilot/db/a.o.1.bc
 INFO: [HLS 200-0] Presyn 1...
@@ -277,28 +277,29 @@ INFO: [XFORM 203-102] Automatically partitioning small array 'queue.state' (sche
 INFO: [XFORM 203-101] Partitioning array 'queue.current_node' (scheduler.cpp:6) in dimension 1 completely.
 INFO: [XFORM 203-101] Partitioning array 'queue.next_node' (scheduler.cpp:6) in dimension 1 completely.
 INFO: [XFORM 203-101] Partitioning array 'queue.state' (scheduler.cpp:6) in dimension 1 completely.
-INFO: [HLS 200-100] Command         transform returned 0; 0.07 sec.
+INFO: [HLS 200-100] Command         transform returned 0; 0.08 sec.
 INFO: [HLS 200-0] Presyn 2...
 INFO: [HLS 200-100] Execute         transform -hls -keep-callgraph -scalarrepl -mem2reg -port-alignment -attach-range -dce -pipe-mux-gen -indvars -loop-bound -inst-simplify -instcombine -dce -merge-array-access -mem2reg -dce -clean-region -mergereturn -if-conv -instcombine -dce -constprop -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -scalarrepl -mem2reg -global-constprop -deadargelim -deadargelim -instcombine -dce -simplifycfg -ptrArgReplace -mem2reg -function-inline -globaldce -mem2reg -instcombine -dce -expr-balance -instcombine -dce -bitwidthmin -interface-preproc -directive-preproc -inst-rectify -instcombine -dce -functionattrs -constprop -instcombine -bit-constprop -simplify-global-access -globalopt -globaldce -inst-simplify -instcombine -elimdeaddata -dce -loop-delete -simplifycfg -loop-simplify -auto-burst -norm-name /home/parallels/Documents/ece527/final_project/scheduler/solution1/.autopilot/db/a.o.1.tmp.bc -o /home/parallels/Documents/ece527/final_project/scheduler/solution1/.autopilot/db/a.o.2.bc -f -phase presyn 
-INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (scheduler.cpp:19:56) to (scheduler.cpp:45:5) in function 'scheduler'... converting 16 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (scheduler.cpp:38:6) to (scheduler.cpp:36:30) in function 'scheduler'... converting 5 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock to (scheduler.cpp:54:5) in function 'scheduler'... converting 16 basic blocks.
+INFO: [XFORM 203-11] Balancing expressions in function 'scheduler' (scheduler.cpp:3)...3 expression(s) balanced.
 INFO: [HLS 200-100] Command         transform returned 0; 0.05 sec.
 INFO: [HLS 200-100] Execute         disassemble /home/parallels/Documents/ece527/final_project/scheduler/solution1/.autopilot/db/a.o.2 /home/parallels/Documents/ece527/final_project/scheduler/solution1/.autopilot/db/a.o.2 
 INFO: [HLS 200-100] Execute           is_encrypted /home/parallels/Documents/ece527/final_project/scheduler/solution1/.autopilot/db/a.o.2.bc 
 INFO: [HLS 200-100] Command           is_encrypted returned 0; 0 sec.
 INFO: [HLS 200-100] Command         disassemble returned 0; 0.04 sec.
-INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:17 ; elapsed = 00:00:09 . Memory (MB): peak = 479.047 ; gain = 140.582 ; free physical = 4539 ; free virtual = 6501
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:17 ; elapsed = 00:00:09 . Memory (MB): peak = 479.051 ; gain = 140.582 ; free physical = 4689 ; free virtual = 6666
 INFO: [HLS 200-0] Building ssdm...
 INFO: [HLS 200-100] Execute         transform -hls -function-uniquify -auto-function-inline -globaldce -ptrArgReplace -mem2reg -instcombine -dce -reset-lda -loop-simplify -indvars -licm -loop-dep -loop-bound -licm -loop-simplify -flattenloopnest -array-flatten -gvn -instcombine -dce -array-map -dce -func-legal -gvn -adce -instcombine -cfgopt -simplifycfg -loop-simplify -array-burst -promote-global-argument -dce -axi4-lower -array-seg-normalize -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -gvn -gvn -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -dse -adse -adce -licm -inst-simplify -dce -globaldce -instcombine -array-stream -eliminate-keepreads -instcombine -dce -deadargelim -doublePtrSimplify -doublePtrElim -dce -doublePtrSimplify -promote-dbg-pointer -dce -scalarrepl -mem2reg -disaggr -norm-name -mem2reg -instcombine -dse -adse -adce -ptrLegalization -dce -auto-rom-infer -array-flatten -dce -instcombine -check-doubleptr -loop-rot -constprop -cfgopt -simplifycfg -loop-simplify -indvars -pointer-simplify -dce -loop-bound -loop-simplify -loop-preproc -constprop -global-constprop -gvn -mem2reg -instcombine -dce -loop-bound -loop-merge -dce -bitwidthmin -deadargelim -dce -canonicalize-dataflow -dce -scalar-propagation -deadargelim -globaldce -mem2reg -interface-preproc -interface-gen -deadargelim -directive-preproc -inst-simplify -dce -gvn -mem2reg -instcombine -dce -adse -loop-bound -instcombine -cfgopt -simplifycfg -loop-simplify -clean-region -io-protocol -find-region -mem2reg -bitop-raise -inst-simplify -inst-rectify -instcombine -adce -deadargelim -loop-simplify -phi-opt -bitop-raise -cfgopt -simplifycfg -strip-dead-prototypes -interface-lower -bitop-lower -intrinsic-lower -auto-function-inline -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -inst-simplify -simplifycfg -loop-simplify -mergereturn -inst-simplify -inst-rectify -dce -bitop-lower -loop-rewind -pointer-simplify -dce -cfgopt -read-loop-dep -dce -bitwidth -loop-dep -norm-name -legalize -validate-dataflow -cdfg-build /home/parallels/Documents/ece527/final_project/scheduler/solution1/.autopilot/db/a.o.2.bc -o /home/parallels/Documents/ece527/final_project/scheduler/solution1/.autopilot/db/a.o.3.bc -f -phase build-ssdm 
-WARNING: [XFORM 203-561] 'Loop-1' (scheduler.cpp:13:16) in function 'scheduler' is an infinite loop.
-INFO: [HLS 200-100] Command         transform returned 0; 0.06 sec.
+INFO: [HLS 200-100] Command         transform returned 0; 0.08 sec.
 INFO: [HLS 200-100] Execute         disassemble /home/parallels/Documents/ece527/final_project/scheduler/solution1/.autopilot/db/a.o.3 /home/parallels/Documents/ece527/final_project/scheduler/solution1/.autopilot/db/a.o.3 
 INFO: [HLS 200-100] Execute           is_encrypted /home/parallels/Documents/ece527/final_project/scheduler/solution1/.autopilot/db/a.o.3.bc 
 INFO: [HLS 200-100] Command           is_encrypted returned 0; 0 sec.
 INFO: [HLS 200-100] Command         disassemble returned 0; 0.02 sec.
-INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:17 ; elapsed = 00:00:09 . Memory (MB): peak = 479.047 ; gain = 140.582 ; free physical = 4537 ; free virtual = 6500
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:17 ; elapsed = 00:00:09 . Memory (MB): peak = 479.051 ; gain = 140.582 ; free physical = 4686 ; free virtual = 6664
 INFO: [HLS 200-0] Finish building internal data model.
-INFO: [HLS 200-100] Command       opt_and_import_c returned 0; 0.4 sec.
-INFO: [HLS 200-100] Command     elaborate returned 0; 8.5 sec.
+INFO: [HLS 200-100] Command       opt_and_import_c returned 0; 0.45 sec.
+INFO: [HLS 200-100] Command     elaborate returned 0; 8.53 sec.
 INFO: [HLS 200-100] Execute     autosyn 
 INFO: [HLS 200-10] Starting hardware synthesis ...
 INFO: [HLS 200-0] Synthesizing C/C++ design ...
@@ -334,12 +335,12 @@ INFO: [HLS 200-100] Command       set_default_model returned 0; 0 sec.
 INFO: [HLS 200-100] Execute       schedule -model scheduler 
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-100] Command       schedule returned 0; 0.06 sec.
-INFO: [HLS 200-111]  Elapsed time: 8.99 seconds; current allocated memory: 72.668 MB.
+INFO: [HLS 200-100] Command       schedule returned 0; 0.07 sec.
+INFO: [HLS 200-111]  Elapsed time: 9.03 seconds; current allocated memory: 73.383 MB.
 INFO: [HLS 200-100] Execute       report -o /home/parallels/Documents/ece527/final_project/scheduler/solution1/.autopilot/db/scheduler.verbose.sched.rpt -verbose -f 
 INFO: [HLS 200-100] Command       report returned 0; 0.01 sec.
 INFO: [HLS 200-100] Execute       db_write -o /home/parallels/Documents/ece527/final_project/scheduler/solution1/.autopilot/db/scheduler.sched.adb -f 
-INFO: [HLS 200-100] Command       db_write returned 0; 0 sec.
+INFO: [HLS 200-100] Command       db_write returned 0; 0.01 sec.
 INFO: [HLS 200-0] Finish scheduling scheduler.
 INFO: [HLS 200-100] Execute       set_default_model scheduler 
 INFO: [HLS 200-100] Command       set_default_model returned 0; 0 sec.
@@ -377,10 +378,10 @@ INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-100] Command       bind returned 0; 0.02 sec.
-INFO: [HLS 200-111]  Elapsed time: 0.04 seconds; current allocated memory: 73.229 MB.
+INFO: [HLS 200-100] Command       bind returned 0; 0.04 sec.
+INFO: [HLS 200-111]  Elapsed time: 0.06 seconds; current allocated memory: 74.088 MB.
 INFO: [HLS 200-100] Execute       report -o /home/parallels/Documents/ece527/final_project/scheduler/solution1/.autopilot/db/scheduler.verbose.bind.rpt -verbose -f 
-INFO: [HLS 200-100] Command       report returned 0; 0.04 sec.
+INFO: [HLS 200-100] Command       report returned 0; 0.07 sec.
 INFO: [HLS 200-100] Execute       db_write -o /home/parallels/Documents/ece527/final_project/scheduler/solution1/.autopilot/db/scheduler.bind.adb -f 
 INFO: [HLS 200-100] Command       db_write returned 0; 0.01 sec.
 INFO: [HLS 200-0] Finish binding scheduler.
@@ -404,36 +405,40 @@ INFO: [RTGEN 206-500] Setting interface mode on port 'scheduler/setup_interfaces
 INFO: [RTGEN 206-500] Setting interface mode on port 'scheduler/setup_interfaces_context_state' to 'ap_memory'.
 INFO: [RTGEN 206-500] Setting interface mode on port 'scheduler/setup_interfaces_restart_V' to 'ap_memory'.
 INFO: [RTGEN 206-500] Setting interface mode on port 'scheduler/setup_interfaces_core_halted_V' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'scheduler/finished' to 'ap_vld'.
 INFO: [RTGEN 206-500] Setting interface mode on function 'scheduler' to 'ap_ctrl_hs'.
-INFO: [SYN 201-210] Renamed object name 'scheduler_mux_42_32_1' to 'scheduler_mux_42_bkb' due to the length limit 20
-INFO: [RTGEN 206-100] Generating core module 'scheduler_mux_42_bkb': 3 instance(s).
+INFO: [SYN 201-210] Renamed object name 'scheduler_history_current_node' to 'scheduler_historybkb' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'scheduler_history_next_node' to 'scheduler_historycud' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'scheduler_history_state' to 'scheduler_historydEe' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'scheduler_mux_42_32_1' to 'scheduler_mux_42_eOg' due to the length limit 20
+INFO: [RTGEN 206-100] Generating core module 'scheduler_mux_42_eOg': 3 instance(s).
 INFO: [RTGEN 206-100] Finished creating RTL model for 'scheduler'.
-INFO: [HLS 200-100] Command       create_rtl_model returned 0; 0.01 sec.
-INFO: [HLS 200-111]  Elapsed time: 0.06 seconds; current allocated memory: 74.075 MB.
+INFO: [HLS 200-100] Command       create_rtl_model returned 0; 0.03 sec.
+INFO: [HLS 200-111]  Elapsed time: 0.11 seconds; current allocated memory: 75.209 MB.
 INFO: [HLS 200-100] Execute       source /home/parallels/Documents/ece527/final_project/scheduler/solution1/.autopilot/db/scheduler.rtl_wrap.cfg.tcl 
 INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute       gen_rtl scheduler -istop -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o /home/parallels/Documents/ece527/final_project/scheduler/solution1/syn/systemc/scheduler -synmodules scheduler 
 INFO: [HLS 200-100] Command       gen_rtl returned 0; 0 sec.
 INFO: [HLS 200-100] Execute       gen_rtl scheduler -istop -style xilinx -f -lang vhdl -o /home/parallels/Documents/ece527/final_project/scheduler/solution1/syn/vhdl/scheduler 
-INFO: [HLS 200-100] Command       gen_rtl returned 0; 0.04 sec.
+INFO: [HLS 200-100] Command       gen_rtl returned 0; 0.05 sec.
 INFO: [HLS 200-100] Execute       gen_rtl scheduler -istop -style xilinx -f -lang vlog -o /home/parallels/Documents/ece527/final_project/scheduler/solution1/syn/verilog/scheduler 
-INFO: [HLS 200-100] Command       gen_rtl returned 0; 0.01 sec.
+INFO: [HLS 200-100] Command       gen_rtl returned 0; 0.03 sec.
 INFO: [HLS 200-100] Execute       export_constraint_db -o /home/parallels/Documents/ece527/final_project/scheduler/solution1/.autopilot/db/scheduler.constraint.tcl -f -tool general 
 INFO: [HLS 200-100] Command       export_constraint_db returned 0; 0 sec.
 INFO: [HLS 200-100] Execute       report -model scheduler -o /home/parallels/Documents/ece527/final_project/scheduler/solution1/.autopilot/db/scheduler.design.xml -verbose -f -dv 
-INFO: [HLS 200-100] Command       report returned 0; 0.03 sec.
+INFO: [HLS 200-100] Command       report returned 0; 0.05 sec.
 INFO: [HLS 200-100] Execute       report -model scheduler -o /home/parallels/Documents/ece527/final_project/scheduler/solution1/.autopilot/db/scheduler.sdaccel.xml -verbose -f -sdaccel 
-INFO: [HLS 200-100] Command       report returned 0; 0.04 sec.
+INFO: [HLS 200-100] Command       report returned 0; 0.07 sec.
 INFO: [HLS 200-100] Execute       gen_tb_info scheduler -o /home/parallels/Documents/ece527/final_project/scheduler/solution1/.autopilot/db/scheduler -p /home/parallels/Documents/ece527/final_project/scheduler/solution1/.autopilot/db 
 INFO: [HLS 200-100] Command       gen_tb_info returned 0; 0 sec.
 INFO: [HLS 200-100] Execute       report -model scheduler -o /home/parallels/Documents/ece527/final_project/scheduler/solution1/syn/report/scheduler_csynth.rpt -f 
-INFO: [HLS 200-100] Command       report returned 0; 0.02 sec.
+INFO: [HLS 200-100] Command       report returned 0; 0.03 sec.
 INFO: [HLS 200-100] Execute       report -model scheduler -o /home/parallels/Documents/ece527/final_project/scheduler/solution1/syn/report/scheduler_csynth.xml -f -x 
-INFO: [HLS 200-100] Command       report returned 0; 0.02 sec.
+INFO: [HLS 200-100] Command       report returned 0; 0.03 sec.
 INFO: [HLS 200-100] Execute       report -model scheduler -o /home/parallels/Documents/ece527/final_project/scheduler/solution1/.autopilot/db/scheduler.verbose.rpt -verbose -f 
-INFO: [HLS 200-100] Command       report returned 0; 0.06 sec.
+INFO: [HLS 200-100] Command       report returned 0; 0.09 sec.
 INFO: [HLS 200-100] Execute       db_write -model scheduler -o /home/parallels/Documents/ece527/final_project/scheduler/solution1/.autopilot/db/scheduler.adb -f 
-INFO: [HLS 200-100] Command       db_write returned 0; 0.02 sec.
+INFO: [HLS 200-100] Command       db_write returned 0; 0.04 sec.
 INFO: [HLS 200-100] Execute       sc_get_clocks scheduler 
 INFO: [HLS 200-100] Command       sc_get_clocks returned 0; 0 sec.
 INFO: [HLS 200-100] Execute       sc_get_portdomain scheduler 
@@ -441,13 +446,16 @@ INFO: [HLS 200-100] Command       sc_get_portdomain returned 0; 0 sec.
 INFO: [HLS 200-0] Model list for RTL component generation: scheduler
 INFO: [HLS 200-0] Handling components in module [scheduler] ... 
 INFO: [HLS 200-100] Execute       source /home/parallels/Documents/ece527/final_project/scheduler/solution1/.autopilot/db/scheduler.compgen.tcl 
-INFO: [HLS 200-0] Found component scheduler_mux_42_bkb.
-INFO: [HLS 200-0] Append model scheduler_mux_42_bkb
+INFO: [HLS 200-0] Found component scheduler_mux_42_eOg.
+INFO: [HLS 200-0] Append model scheduler_mux_42_eOg
+INFO: [HLS 200-0] Found component scheduler_historybkb.
+INFO: [HLS 200-0] Append model scheduler_historybkb
 INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
 INFO: [HLS 200-0] Append model scheduler
 INFO: [HLS 200-0] Generating RTL model list ...
-INFO: [HLS 200-0] All models in this session: scheduler_mux_42_bkb scheduler
-INFO: [HLS 200-0] To file: write model scheduler_mux_42_bkb
+INFO: [HLS 200-0] All models in this session: scheduler_mux_42_eOg scheduler_historybkb scheduler
+INFO: [HLS 200-0] To file: write model scheduler_mux_42_eOg
+INFO: [HLS 200-0] To file: write model scheduler_historybkb
 INFO: [HLS 200-0] To file: write model scheduler
 INFO: [HLS 200-0] Finished generating RTL model list.
 
@@ -461,8 +469,8 @@ INFO: [HLS 200-100] Execute       source /home/parallels/Documents/ece527/final_
 INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute       source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/generic/autopilot/common.gen 
 INFO: [HLS 200-100] Execute         source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/generic/autopilot/APCoreGen.gen 
-INFO: [HLS 200-100] Command         ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Command         ap_source returned 0; 0.01 sec.
+INFO: [HLS 200-100] Command       ap_source returned 0; 0.01 sec.
 INFO: [HLS 200-100] Execute       source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/generic/autopilot/op.gen 
 INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute       source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/generic/autopilot/op_simcore.gen 
@@ -482,18 +490,18 @@ INFO: [HLS 200-100] Execute             source /opt/Xilinx/Vivado_HLS/2017.2/com
 INFO: [HLS 200-100] Command             ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute             source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/interface/nativeAXI4.gen 
 INFO: [HLS 200-100] Execute               source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/interface/saxilite.gen 
-INFO: [HLS 200-100] Command               ap_source returned 0; 0.01 sec.
+INFO: [HLS 200-100] Command               ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute               source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/interface/maxi.gen 
 INFO: [HLS 200-100] Command               ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Command             ap_source returned 0; 0.01 sec.
+INFO: [HLS 200-100] Command             ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute             source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/scripts/xilinxcoregen.gen 
 INFO: [HLS 200-100] Command             ap_source returned 0; 0.01 sec.
 INFO: [HLS 200-100] Execute             source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/interface/XilEDKCoreGen.gen 
-INFO: [HLS 200-100] Command             ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Execute             source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/ip/dds_compiler.gen 
 INFO: [HLS 200-100] Command             ap_source returned 0; 0.01 sec.
+INFO: [HLS 200-100] Execute             source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/ip/dds_compiler.gen 
+INFO: [HLS 200-100] Command             ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute             source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/ip/xfft.gen 
-INFO: [HLS 200-100] Command             ap_source returned 0; 0.05 sec.
+INFO: [HLS 200-100] Command             ap_source returned 0; 0.06 sec.
 INFO: [HLS 200-100] Execute             source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/ip/util.gen 
 INFO: [HLS 200-100] Command             ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute             source /opt/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/ip/xfir.gen 
@@ -516,13 +524,14 @@ INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute       source /home/parallels/Documents/ece527/final_project/scheduler/solution1/.autopilot/db/global.setting.tcl 
 INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute       source /home/parallels/Documents/ece527/final_project/scheduler/solution1/.autopilot/db/scheduler.compgen.tcl 
-INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
-INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:00:18 ; elapsed = 00:00:09 . Memory (MB): peak = 479.047 ; gain = 140.582 ; free physical = 4536 ; free virtual = 6500
+INFO: [RTMG 210-278] Implementing memory 'scheduler_historybkb_ram' using block RAMs.
+INFO: [HLS 200-100] Command       ap_source returned 0; 0.01 sec.
+INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:00:18 ; elapsed = 00:00:10 . Memory (MB): peak = 479.051 ; gain = 140.582 ; free physical = 4682 ; free virtual = 6661
 INFO: [SYSC 207-301] Generating SystemC RTL for scheduler.
 INFO: [VHDL 208-304] Generating VHDL RTL for scheduler.
 INFO: [VLOG 209-307] Generating Verilog RTL for scheduler.
-INFO: [HLS 200-100] Command     autosyn returned 0; 0.51 sec.
-INFO: [HLS 200-100] Command   csynth_design returned 0; 9.01 sec.
-INFO: [HLS 200-100] Command ap_source returned 0; 9.25 sec.
+INFO: [HLS 200-100] Command     autosyn returned 0; 0.76 sec.
+INFO: [HLS 200-100] Command   csynth_design returned 0; 9.29 sec.
+INFO: [HLS 200-100] Command ap_source returned 0; 9.51 sec.
 INFO: [HLS 200-100] Execute cleanup_all 
-INFO: [HLS 200-100] Command cleanup_all returned 0; 0.01 sec.
+INFO: [HLS 200-100] Command cleanup_all returned 0; 0 sec.

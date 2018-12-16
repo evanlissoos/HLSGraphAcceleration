@@ -9,22 +9,23 @@ INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
 INFO: [HLS 200-10] Setting target device to 'xc7z020clg484-1'
 INFO: [HLS 200-10] Analyzing design file 'scheduler.cpp' ... 
 INFO: [HLS 200-10] Validating synthesis directives ...
-INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:17 ; elapsed = 00:00:08 . Memory (MB): peak = 351.051 ; gain = 12.586 ; free physical = 4577 ; free virtual = 6534
-INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:17 ; elapsed = 00:00:09 . Memory (MB): peak = 351.051 ; gain = 12.586 ; free physical = 4576 ; free virtual = 6535
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:17 ; elapsed = 00:00:08 . Memory (MB): peak = 351.055 ; gain = 12.586 ; free physical = 4727 ; free virtual = 6698
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:17 ; elapsed = 00:00:09 . Memory (MB): peak = 351.055 ; gain = 12.586 ; free physical = 4725 ; free virtual = 6698
 INFO: [HLS 200-10] Starting code transformations ...
-INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:17 ; elapsed = 00:00:09 . Memory (MB): peak = 351.258 ; gain = 12.793 ; free physical = 4568 ; free virtual = 6529
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:17 ; elapsed = 00:00:09 . Memory (MB): peak = 351.270 ; gain = 12.801 ; free physical = 4717 ; free virtual = 6692
 INFO: [HLS 200-10] Checking synthesizability ...
-INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:17 ; elapsed = 00:00:09 . Memory (MB): peak = 351.258 ; gain = 12.793 ; free physical = 4565 ; free virtual = 6525
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:17 ; elapsed = 00:00:09 . Memory (MB): peak = 351.270 ; gain = 12.801 ; free physical = 4713 ; free virtual = 6688
 INFO: [XFORM 203-102] Automatically partitioning small array 'queue.current_node' (scheduler.cpp:6) completely based on array size.
 INFO: [XFORM 203-102] Automatically partitioning small array 'queue.next_node' (scheduler.cpp:6) completely based on array size.
 INFO: [XFORM 203-102] Automatically partitioning small array 'queue.state' (scheduler.cpp:6) completely based on array size.
 INFO: [XFORM 203-101] Partitioning array 'queue.current_node' (scheduler.cpp:6) in dimension 1 completely.
 INFO: [XFORM 203-101] Partitioning array 'queue.next_node' (scheduler.cpp:6) in dimension 1 completely.
 INFO: [XFORM 203-101] Partitioning array 'queue.state' (scheduler.cpp:6) in dimension 1 completely.
-INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (scheduler.cpp:19:56) to (scheduler.cpp:45:5) in function 'scheduler'... converting 16 basic blocks.
-INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:17 ; elapsed = 00:00:09 . Memory (MB): peak = 479.047 ; gain = 140.582 ; free physical = 4539 ; free virtual = 6501
-WARNING: [XFORM 203-561] 'Loop-1' (scheduler.cpp:13:16) in function 'scheduler' is an infinite loop.
-INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:17 ; elapsed = 00:00:09 . Memory (MB): peak = 479.047 ; gain = 140.582 ; free physical = 4537 ; free virtual = 6500
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (scheduler.cpp:38:6) to (scheduler.cpp:36:30) in function 'scheduler'... converting 5 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock to (scheduler.cpp:54:5) in function 'scheduler'... converting 16 basic blocks.
+INFO: [XFORM 203-11] Balancing expressions in function 'scheduler' (scheduler.cpp:3)...3 expression(s) balanced.
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:17 ; elapsed = 00:00:09 . Memory (MB): peak = 479.051 ; gain = 140.582 ; free physical = 4689 ; free virtual = 6666
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:17 ; elapsed = 00:00:09 . Memory (MB): peak = 479.051 ; gain = 140.582 ; free physical = 4686 ; free virtual = 6664
 INFO: [HLS 200-10] Starting hardware synthesis ...
 INFO: [HLS 200-10] Synthesizing 'scheduler' ...
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -32,13 +33,13 @@ INFO: [HLS 200-10] -- Implementing module 'scheduler'
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 8.99 seconds; current allocated memory: 72.668 MB.
+INFO: [HLS 200-111]  Elapsed time: 9.03 seconds; current allocated memory: 73.383 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.04 seconds; current allocated memory: 73.229 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.06 seconds; current allocated memory: 74.088 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'scheduler' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -52,13 +53,18 @@ INFO: [RTGEN 206-500] Setting interface mode on port 'scheduler/setup_interfaces
 INFO: [RTGEN 206-500] Setting interface mode on port 'scheduler/setup_interfaces_context_state' to 'ap_memory'.
 INFO: [RTGEN 206-500] Setting interface mode on port 'scheduler/setup_interfaces_restart_V' to 'ap_memory'.
 INFO: [RTGEN 206-500] Setting interface mode on port 'scheduler/setup_interfaces_core_halted_V' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'scheduler/finished' to 'ap_vld'.
 INFO: [RTGEN 206-500] Setting interface mode on function 'scheduler' to 'ap_ctrl_hs'.
-INFO: [SYN 201-210] Renamed object name 'scheduler_mux_42_32_1' to 'scheduler_mux_42_bkb' due to the length limit 20
-INFO: [RTGEN 206-100] Generating core module 'scheduler_mux_42_bkb': 3 instance(s).
+INFO: [SYN 201-210] Renamed object name 'scheduler_history_current_node' to 'scheduler_historybkb' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'scheduler_history_next_node' to 'scheduler_historycud' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'scheduler_history_state' to 'scheduler_historydEe' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'scheduler_mux_42_32_1' to 'scheduler_mux_42_eOg' due to the length limit 20
+INFO: [RTGEN 206-100] Generating core module 'scheduler_mux_42_eOg': 3 instance(s).
 INFO: [RTGEN 206-100] Finished creating RTL model for 'scheduler'.
-INFO: [HLS 200-111]  Elapsed time: 0.06 seconds; current allocated memory: 74.075 MB.
-INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:00:18 ; elapsed = 00:00:09 . Memory (MB): peak = 479.047 ; gain = 140.582 ; free physical = 4536 ; free virtual = 6500
+INFO: [HLS 200-111]  Elapsed time: 0.11 seconds; current allocated memory: 75.209 MB.
+INFO: [RTMG 210-278] Implementing memory 'scheduler_historybkb_ram' using block RAMs.
+INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:00:18 ; elapsed = 00:00:10 . Memory (MB): peak = 479.051 ; gain = 140.582 ; free physical = 4682 ; free virtual = 6661
 INFO: [SYSC 207-301] Generating SystemC RTL for scheduler.
 INFO: [VHDL 208-304] Generating VHDL RTL for scheduler.
 INFO: [VLOG 209-307] Generating Verilog RTL for scheduler.
-INFO: [HLS 200-112] Total elapsed time: 9.45 seconds; peak allocated memory: 74.075 MB.
+INFO: [HLS 200-112] Total elapsed time: 9.72 seconds; peak allocated memory: 75.209 MB.

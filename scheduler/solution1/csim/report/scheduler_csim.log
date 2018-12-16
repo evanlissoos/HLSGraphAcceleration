@@ -1,0 +1,30 @@
+INFO: [SIM 2] *************** CSIM start ***************
+INFO: [SIM 4] CSIM will launch GCC as the compiler.
+   Compiling ../../../../scheduler.cpp in debug mode
+   Generating csim.exe
+Entering scheduler!
+Checking for requests...
+Checking for requests on core 0...
+Found request!
+[Context] current_node: 1
+[Context] next_node: 2
+[Context] state: 1
+No existing match was found, queuing up!
+Checking for requests on core 1...
+Found request!
+[Context] current_node: 1
+[Context] next_node: 2
+[Context] state: 1
+[DEBUG] match_found = 1
+Existing match found, ignoring request!
+Checking for halted cores...
+Checking if core 0 has halted
+Core 0 halted and queue has threads available!
+Scheduling context on core!
+[Context] current_node: 1
+[Context] next_node: 2
+[Context] state: 1
+Checking if core 1 has halted
+Returned from scheduler!
+INFO: [SIM 1] CSim done with 0 errors.
+INFO: [SIM 3] *************** CSIM finish ***************
