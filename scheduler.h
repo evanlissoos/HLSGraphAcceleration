@@ -2,11 +2,15 @@
 #define __SCHEDULER_H_
 
 #include <systemc.h>
-#include <ap_cint.h>
+#include <ap_int.h>
 
 #define nodeid_t unsigned
 #define ready_t ap_uint<1>
 #define halted_t ap_uint<1>
+
+#define NUM_CORES 2
+#define HISTORY_SIZE 1024
+#define QUEUE_SIZE 4
 
 typedef struct
 {

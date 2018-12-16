@@ -1,0 +1,246 @@
+
+
+================================================================
+== Vivado HLS Report for 'scheduler'
+================================================================
+* Date:           Sat Dec 15 18:12:01 2018
+
+* Version:        2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)
+* Project:        scheduler
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      6.92|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    ?|    ?|    ?|    ?|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-------------+-----+-----+----------+-----------+-----------+------+----------+
+        |             |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        |  Loop Name  | min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +-------------+-----+-----+----------+-----------+-----------+------+----------+
+        |- Loop 1     |    ?|    ?|  3 ~ 11  |          -|          -|  inf |    no    |
+        | + Loop 1.1  |    6|    8|   3 ~ 4  |          -|          -|     2|    no    |
+        +-------------+-----+-----+----------+-----------+-----------+------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+-------+
+|       Name      | BRAM_18K| DSP48E|   FF   |  LUT  |
++-----------------+---------+-------+--------+-------+
+|DSP              |        -|      -|       -|      -|
+|Expression       |        -|      -|     314|    849|
+|FIFO             |        -|      -|       -|      -|
+|Instance         |        -|      -|     255|     63|
+|Memory           |        -|      -|       -|      -|
+|Multiplexer      |        -|      -|       -|    141|
+|Register         |        -|      -|     914|      -|
++-----------------+---------+-------+--------+-------+
+|Total            |        0|      0|    1483|   1053|
++-----------------+---------+-------+--------+-------+
+|Available        |      280|    220|  106400|  53200|
++-----------------+---------+-------+--------+-------+
+|Utilization (%)  |        0|      0|       1|      1|
++-----------------+---------+-------+--------+-------+
+
++ Detail: 
+    * Instance: 
+    +-------------------------+----------------------+---------+-------+----+----+
+    |         Instance        |        Module        | BRAM_18K| DSP48E| FF | LUT|
+    +-------------------------+----------------------+---------+-------+----+----+
+    |scheduler_mux_42_bkb_U1  |scheduler_mux_42_bkb  |        0|      0|  85|  21|
+    |scheduler_mux_42_bkb_U2  |scheduler_mux_42_bkb  |        0|      0|  85|  21|
+    |scheduler_mux_42_bkb_U3  |scheduler_mux_42_bkb  |        0|      0|  85|  21|
+    +-------------------------+----------------------+---------+-------+----+----+
+    |Total                    |                      |        0|      0| 255|  63|
+    +-------------------------+----------------------+---------+-------+----+----+
+
+    * DSP48: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +----------------------------------+----------+-------+-----+----+------------+------------+
+    |           Variable Name          | Operation| DSP48E|  FF | LUT| Bitwidth P0| Bitwidth P1|
+    +----------------------------------+----------+-------+-----+----+------------+------------+
+    |i_1_fu_621_p2                     |     +    |      0|  101|  37|          32|           1|
+    |i_2_fu_637_p2                     |     +    |      0|   11|   8|           2|           1|
+    |queue_head_ptr_2_fu_706_p2        |     +    |      0|  101|  37|           2|          32|
+    |queue_head_ptr_fu_554_p2          |     +    |      0|  101|  37|           1|          32|
+    |demorgan_fu_654_p2                |    and   |      0|    0|   2|           1|           1|
+    |or_cond_5_fu_386_p2               |    and   |      0|    0|   2|           1|           1|
+    |exitcond1_fu_359_p2               |   icmp   |      0|    0|  16|          32|           2|
+    |exitcond_fu_631_p2                |   icmp   |      0|    0|   1|           2|           3|
+    |icmp_fu_380_p2                    |   icmp   |      0|    0|  16|          30|           1|
+    |sel_tmp1_fu_401_p2                |   icmp   |      0|    0|   1|           2|           1|
+    |sel_tmp2_fu_407_p2                |   icmp   |      0|    0|   1|           2|           1|
+    |sel_tmp_fu_395_p2                 |   icmp   |      0|    0|   1|           2|           3|
+    |tmp_5_fu_648_p2                   |   icmp   |      0|    0|  16|          32|           1|
+    |or_cond_fu_413_p2                 |    or    |      0|    0|   2|           1|           1|
+    |newSel1_fu_522_p3                 |  select  |      0|    0|  32|           1|          32|
+    |newSel2_fu_432_p3                 |  select  |      0|    0|  32|           1|          32|
+    |newSel4_fu_464_p3                 |  select  |      0|    0|  32|           1|          32|
+    |newSel6_fu_477_p3                 |  select  |      0|    0|  32|           1|          32|
+    |newSel8_fu_509_p3                 |  select  |      0|    0|  32|           1|          32|
+    |newSel_fu_419_p3                  |  select  |      0|    0|  32|           1|          32|
+    |queue_3_current_nod_10_fu_445_p3  |  select  |      0|    0|  32|           1|          32|
+    |queue_3_current_nod_11_fu_451_p3  |  select  |      0|    0|  32|           1|          32|
+    |queue_3_current_nod_12_fu_458_p3  |  select  |      0|    0|  32|           1|          32|
+    |queue_3_current_nod_8_fu_425_p3   |  select  |      0|    0|  32|           1|          32|
+    |queue_3_current_nod_9_fu_438_p3   |  select  |      0|    0|  32|           1|          32|
+    |queue_3_next_node_1_fu_483_p3     |  select  |      0|    0|  32|           1|          32|
+    |queue_3_next_node_4_fu_490_p3     |  select  |      0|    0|  32|           1|          32|
+    |queue_3_next_node_5_fu_496_p3     |  select  |      0|    0|  32|           1|          32|
+    |queue_3_next_node_7_fu_503_p3     |  select  |      0|    0|  32|           1|          32|
+    |queue_3_next_node_fu_470_p3       |  select  |      0|    0|  32|           1|          32|
+    |queue_3_state_1_fu_528_p3         |  select  |      0|    0|  32|           1|          32|
+    |queue_3_state_4_fu_535_p3         |  select  |      0|    0|  32|           1|          32|
+    |queue_3_state_5_fu_541_p3         |  select  |      0|    0|  32|           1|          32|
+    |queue_3_state_7_fu_548_p3         |  select  |      0|    0|  32|           1|          32|
+    |queue_3_state_fu_515_p3           |  select  |      0|    0|  32|           1|          32|
+    +----------------------------------+----------+-------+-----+----+------------+------------+
+    |Total                             |          |      0|  314| 849|         163|         753|
+    +----------------------------------+----------+-------+-----+----+------------+------------+
+
+    * Multiplexer: 
+    +-----------------------------------+----+-----------+-----+-----------+
+    |                Name               | LUT| Input Size| Bits| Total Bits|
+    +-----------------------------------+----+-----------+-----+-----------+
+    |ap_NS_fsm                          |  60|         11|    1|         11|
+    |i1_reg_292                         |   9|          2|    2|          4|
+    |i_fu_72                            |   9|          2|   32|         64|
+    |queue_head_ptr_1_be_phi_fu_272_p4  |   9|          2|   32|         64|
+    |queue_head_ptr_1_be_reg_268        |   9|          2|   32|         64|
+    |queue_head_ptr_1_reg_246           |   9|          2|   32|         64|
+    |queue_head_ptr_3_phi_fu_261_p4     |   9|          2|   32|         64|
+    |queue_head_ptr_3_reg_258           |   9|          2|   32|         64|
+    |queue_head_ptr_4_be_reg_303        |   9|          2|   32|         64|
+    |queue_head_ptr_4_reg_280           |   9|          2|   32|         64|
+    +-----------------------------------+----+-----------+-----+-----------+
+    |Total                              | 141|         29|  259|        527|
+    +-----------------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +--------------------------------+----+----+-----+-----------+
+    |              Name              | FF | LUT| Bits| Const Bits|
+    +--------------------------------+----+----+-----+-----------+
+    |ap_CS_fsm                       |  10|   0|   10|          0|
+    |exitcond1_reg_797               |   1|   0|    1|          0|
+    |i1_reg_292                      |   2|   0|    2|          0|
+    |i_2_reg_929                     |   2|   0|    2|          0|
+    |i_fu_72                         |  32|   0|   32|          0|
+    |i_load_reg_791                  |  32|   0|   32|          0|
+    |new_context_current_1_reg_950   |  32|   0|   32|          0|
+    |new_context_current_s_reg_902   |  32|   0|   32|          0|
+    |new_context_next_nod_1_reg_955  |  32|   0|   32|          0|
+    |new_context_next_nod_reg_910    |  32|   0|   32|          0|
+    |new_context_state_2_reg_918     |  32|   0|   32|          0|
+    |new_context_state_reg_960       |  32|   0|   32|          0|
+    |or_cond_5_reg_814               |   1|   0|    1|          0|
+    |queue_3_current_nod_1_fu_80     |  32|   0|   32|          0|
+    |queue_3_current_nod_2_fu_84     |  32|   0|   32|          0|
+    |queue_3_current_nod_3_fu_88     |  32|   0|   32|          0|
+    |queue_3_current_nod_fu_76       |  32|   0|   32|          0|
+    |queue_3_next_node_2_fu_92       |  32|   0|   32|          0|
+    |queue_3_next_node_3_fu_96       |  32|   0|   32|          0|
+    |queue_3_next_node_6_fu_100      |  32|   0|   32|          0|
+    |queue_3_next_node_8_fu_104      |  32|   0|   32|          0|
+    |queue_3_state_2_fu_108          |  32|   0|   32|          0|
+    |queue_3_state_3_fu_112          |  32|   0|   32|          0|
+    |queue_3_state_6_fu_116          |  32|   0|   32|          0|
+    |queue_3_state_8_fu_120          |  32|   0|   32|          0|
+    |queue_head_ptr_1_be_reg_268     |  32|   0|   32|          0|
+    |queue_head_ptr_1_reg_246        |  32|   0|   32|          0|
+    |queue_head_ptr_2_reg_965        |  32|   0|   32|          0|
+    |queue_head_ptr_3_reg_258        |  32|   0|   32|          0|
+    |queue_head_ptr_4_be_reg_303     |  32|   0|   32|          0|
+    |queue_head_ptr_4_reg_280        |  32|   0|   32|          0|
+    |tmp_4_reg_934                   |   2|   0|   64|         62|
+    |tmp_reg_801                     |  64|   0|   64|          0|
+    +--------------------------------+----+----+-----+-----------+
+    |Total                           | 914|   0|  976|         62|
+    +--------------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++------------------------------------------------+-----+-----+------------+---------------------------------------+--------------+
+|                    RTL Ports                   | Dir | Bits|  Protocol  |             Source Object             |    C Type    |
++------------------------------------------------+-----+-----+------------+---------------------------------------+--------------+
+|ap_clk                                          |  in |    1| ap_ctrl_hs |               scheduler               | return value |
+|ap_rst                                          |  in |    1| ap_ctrl_hs |               scheduler               | return value |
+|ap_start                                        |  in |    1| ap_ctrl_hs |               scheduler               | return value |
+|ap_done                                         | out |    1| ap_ctrl_hs |               scheduler               | return value |
+|ap_idle                                         | out |    1| ap_ctrl_hs |               scheduler               | return value |
+|ap_ready                                        | out |    1| ap_ctrl_hs |               scheduler               | return value |
+|sched_interfaces_context_current_node_address0  | out |    1|  ap_memory | sched_interfaces_context_current_node |     array    |
+|sched_interfaces_context_current_node_ce0       | out |    1|  ap_memory | sched_interfaces_context_current_node |     array    |
+|sched_interfaces_context_current_node_q0        |  in |   32|  ap_memory | sched_interfaces_context_current_node |     array    |
+|sched_interfaces_context_next_node_address0     | out |    1|  ap_memory |   sched_interfaces_context_next_node  |     array    |
+|sched_interfaces_context_next_node_ce0          | out |    1|  ap_memory |   sched_interfaces_context_next_node  |     array    |
+|sched_interfaces_context_next_node_q0           |  in |   32|  ap_memory |   sched_interfaces_context_next_node  |     array    |
+|sched_interfaces_context_state_address0         | out |    1|  ap_memory |     sched_interfaces_context_state    |     array    |
+|sched_interfaces_context_state_ce0              | out |    1|  ap_memory |     sched_interfaces_context_state    |     array    |
+|sched_interfaces_context_state_q0               |  in |   32|  ap_memory |     sched_interfaces_context_state    |     array    |
+|sched_interfaces_schedule_V_address0            | out |    1|  ap_memory |      sched_interfaces_schedule_V      |     array    |
+|sched_interfaces_schedule_V_ce0                 | out |    1|  ap_memory |      sched_interfaces_schedule_V      |     array    |
+|sched_interfaces_schedule_V_q0                  |  in |    1|  ap_memory |      sched_interfaces_schedule_V      |     array    |
+|sched_interfaces_ack_V_address0                 | out |    1|  ap_memory |         sched_interfaces_ack_V        |     array    |
+|sched_interfaces_ack_V_ce0                      | out |    1|  ap_memory |         sched_interfaces_ack_V        |     array    |
+|sched_interfaces_ack_V_we0                      | out |    1|  ap_memory |         sched_interfaces_ack_V        |     array    |
+|sched_interfaces_ack_V_d0                       | out |    1|  ap_memory |         sched_interfaces_ack_V        |     array    |
+|setup_interfaces_context_current_node_address0  | out |    1|  ap_memory | setup_interfaces_context_current_node |     array    |
+|setup_interfaces_context_current_node_ce0       | out |    1|  ap_memory | setup_interfaces_context_current_node |     array    |
+|setup_interfaces_context_current_node_we0       | out |    1|  ap_memory | setup_interfaces_context_current_node |     array    |
+|setup_interfaces_context_current_node_d0        | out |   32|  ap_memory | setup_interfaces_context_current_node |     array    |
+|setup_interfaces_context_next_node_address0     | out |    1|  ap_memory |   setup_interfaces_context_next_node  |     array    |
+|setup_interfaces_context_next_node_ce0          | out |    1|  ap_memory |   setup_interfaces_context_next_node  |     array    |
+|setup_interfaces_context_next_node_we0          | out |    1|  ap_memory |   setup_interfaces_context_next_node  |     array    |
+|setup_interfaces_context_next_node_d0           | out |   32|  ap_memory |   setup_interfaces_context_next_node  |     array    |
+|setup_interfaces_context_state_address0         | out |    1|  ap_memory |     setup_interfaces_context_state    |     array    |
+|setup_interfaces_context_state_ce0              | out |    1|  ap_memory |     setup_interfaces_context_state    |     array    |
+|setup_interfaces_context_state_we0              | out |    1|  ap_memory |     setup_interfaces_context_state    |     array    |
+|setup_interfaces_context_state_d0               | out |   32|  ap_memory |     setup_interfaces_context_state    |     array    |
+|setup_interfaces_restart_V_address0             | out |    1|  ap_memory |       setup_interfaces_restart_V      |     array    |
+|setup_interfaces_restart_V_ce0                  | out |    1|  ap_memory |       setup_interfaces_restart_V      |     array    |
+|setup_interfaces_restart_V_we0                  | out |    1|  ap_memory |       setup_interfaces_restart_V      |     array    |
+|setup_interfaces_restart_V_d0                   | out |    1|  ap_memory |       setup_interfaces_restart_V      |     array    |
+|setup_interfaces_core_halted_V_address0         | out |    1|  ap_memory |     setup_interfaces_core_halted_V    |     array    |
+|setup_interfaces_core_halted_V_ce0              | out |    1|  ap_memory |     setup_interfaces_core_halted_V    |     array    |
+|setup_interfaces_core_halted_V_q0               |  in |    1|  ap_memory |     setup_interfaces_core_halted_V    |     array    |
++------------------------------------------------+-----+-----+------------+---------------------------------------+--------------+
+

@@ -1,0 +1,19 @@
+<AutoPilot:ProjectResources xmlns:AutoPilot="com.autoesl.autopilot.ui.directiveView">
+<sourceFile name="">
+<directive functionLabel="" functionName="wait" label="">
+<pragma name="UNROLL">
+<option name="complete" positionalBoolean="type" value=""/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="scheduler" label="">
+<pragma name="PROTOCOL">
+<option name="fixed" positionalBoolean="mode" value=""/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="scheduler" label="">
+<pragma name="PROTOCOL">
+<option name="fixed" positionalBoolean="mode" value=""/>
+</pragma>
+</directive>
+</sourceFile>
+</AutoPilot:ProjectResources>
