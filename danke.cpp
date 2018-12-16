@@ -3,7 +3,7 @@
 using namespace std;
 
 // Interfaces needed: instruction memory,
-void danke_core(instr_t instruction_memory[INSTR_MEM_SIZE], data_t data_memory[DATA_MEM_SIZE], halted_t * halted, unsigned * core_id)
+void danke_core(unsigned instruction_memory[INSTR_MEM_SIZE], data_t data_memory[DATA_MEM_SIZE], halted_t * halted, unsigned * core_id)
 {
 	data_t  pc;
 	instr_t ir;

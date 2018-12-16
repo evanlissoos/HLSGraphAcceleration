@@ -90,7 +90,7 @@
 #define INSTR_MEM_SIZE 1024
 #define DATA_MEM_SIZE 1024
 
-void danke_core(instr_t instruction_memory[INSTR_MEM_SIZE], data_t data_memory[DATA_MEM_SIZE], halted_t * halted, unsigned * core_id);
+void danke_core(unsigned instruction_memory[INSTR_MEM_SIZE], data_t data_memory[DATA_MEM_SIZE], halted_t * halted, unsigned * core_id);
 
 #endif
 
